@@ -1,0 +1,7 @@
+{
+  "name": "Kaladwipa-FE",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
