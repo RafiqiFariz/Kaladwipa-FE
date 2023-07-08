@@ -22,6 +22,7 @@
     "flowbite": "^1.7.0",
     "flowbite-vue": "^0.0.15",
     "ionicons": "^7.0.0",
+    "sass": "^1.63.6",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
