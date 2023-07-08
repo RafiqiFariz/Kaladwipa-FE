@@ -20,6 +20,20 @@ const routes = [
   {
     path: '/affiliasi',
     component: () => import('@/views/AffiliationPage.vue')
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/LoginPage.vue'),
+    meta: {
+      hideNavbar: true
+    }
+  },
+  {
+    path: '/register',
+    component: () => import('@/views/RegisterPage.vue'),
+    meta: {
+      hideNavbar: true
+    }
   }
 ]
 
