@@ -1,36 +1,25 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import Main from '../views/main.vue'
 
 const routes = [
   {
     path: '/',
-    redirect: ''
+    redirect: 'homepage'
   },
   {
-    path: '/',
-    component: Main,
-    children: [
-      {
-        path: '',
-        redirect: '/homepage'
-      },
-      {
-        path: 'homepage',
-        component: () => import('@/views/homepage.vue')
-      },
-      {
-        path: 'jelajahi',
-        component: () => import('@/views/jelajahi.vue')
-      },
-      {
-        path: 'toko',
-        component: () => import('@/views/toko.vue')
-      },
-      {
-        path: 'affiliasi',
-        component: () => import('@/views/aff.vue')
-      }
-    ]
+    path: '/homepage',
+    component: () => import('@/views/homepage.vue')
+  },
+  {
+    path: '/jelajahi',
+    component: () => import('@/views/JelajahiPage.vue')
+  },
+  {
+    path: '/toko',
+    component: () => import('@/views/TokoPage.vue')
+  },
+  {
+    path: '/affiliasi',
+    component: () => import('@/views/AffiliationPage.vue')
   }
 ]
 

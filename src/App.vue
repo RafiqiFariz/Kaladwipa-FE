@@ -1,9 +1,25 @@
 <template>
   <ion-app>
-    <ion-router-outlet />
+    <ion-header>
+      <TheHeader />
+    </ion-header>
+    <ion-content>
+      <ion-router-outlet />
+    </ion-content>
   </ion-app>
 </template>
 
-<script setup>
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+<script>
+import { IonApp, IonRouterOutlet, IonContent, IonHeader } from '@ionic/vue';
+import TheHeader from './components/layouts/TheHeader.vue';
+
+export default {
+  components: {
+    TheHeader,
+    IonApp,
+    IonRouterOutlet,
+    IonContent,
+    IonHeader
+  }
+}
 </script>

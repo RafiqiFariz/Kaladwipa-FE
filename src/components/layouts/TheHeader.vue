@@ -69,8 +69,18 @@
         </div>
     </ion-header>
 </template>
-<script setup>
+<script>
 import { IonHeader } from '@ionic/vue';
-import logo from '../../../resources/logo.png'
+
+export default {
+    components: {
+        IonHeader
+    },
+    data() {
+        return {
+            logo: '../../../resources/logo.png'
+        }
+    }
+}
 
 </script>
