@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: '/jelajahi',
-    component: () => import('@/views/JelajahiPage.vue')
+    component: () => import('@/views/homepage.vue')
   },
   {
     path: '/toko',
@@ -20,6 +20,10 @@ const routes = [
   {
     path: '/affiliasi',
     component: () => import('@/views/AffiliationPage.vue')
+  },
+  {
+    path: '/profile',
+    component: () => import('@/views/ProfilePage.vue')
   },
   {
     path: '/login',

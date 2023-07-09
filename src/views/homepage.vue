@@ -6,13 +6,14 @@
         <div>
           <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
             class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-            type="button">Dropdown button <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
+            type="button">Pilih Kategori <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m1 1 4 4 4-4" />
             </svg></button>
           <!-- Dropdown menu -->
-          <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+          <div id="dropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
               <li>
                 <a href="#"
@@ -34,7 +35,27 @@
           </div>
 
         </div>
-        <displayImage :images="images" />
+        <div class="pt-8">
+
+        </div>
+        <div class="relative">
+          <displayImage :images="gallery" />
+          <div
+            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-[410px] h-12 px-2.5 py-1 bg-white rounded-lg shadow justify-start items-center gap-8 inline-flex">
+            <div class="px-3 py-2 rounded-md justify-start items-center gap-1.5 flex">
+              <div class="text-gray-500 text-[12px] font-normal leading-none">Komunitas</div>
+            </div>
+            <div class="px-3 py-2 rounded-md justify-start items-center gap-1.5 flex">
+              <div class="text-gray-500 text-[12px] font-normal leading-none">Trending</div>
+            </div>
+            <div class="px-4 py-3 bg-red-700 rounded-md justify-center items-center gap-1.5 flex">
+              <div class="text-white text-[12px] font-normal leading-none">Terbaru</div>
+            </div>
+            <div class="px-3 py-2 rounded-md justify-center items-center gap-1.5 flex">
+              <div class="text-gray-500 text-[12px] font-normal leading-none">Diikuti</div>
+            </div>
+          </div>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -43,31 +64,6 @@
 <script setup>
 import { IonPage, IonContent } from '@ionic/vue';
 import Slider from '@/components/common/slider.vue';
-import displayImage from '@/components/common/displayImage.vue';
-const images = [
-  { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
-  { url: "../../resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg", alt: "Image 2" },
-  { url: "../../resources/dummyGallery/nadya-b-img-2279-min.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/oliver-guiney-uncharted-real-redux-03.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/omorphia-visual-gadang.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/tangkas-tahanuji-tongkonan-composed.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/zhong-zhou-1.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
-  { url: "../../resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg", alt: "Image 2" },
-  { url: "../../resources/dummyGallery/nadya-b-img-2279-min.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/oliver-guiney-uncharted-real-redux-03.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/omorphia-visual-gadang.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/tangkas-tahanuji-tongkonan-composed.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/zhong-zhou-1.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
-  { url: "../../resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg", alt: "Image 2" },
-  { url: "../../resources/dummyGallery/nadya-b-img-2279-min.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/oliver-guiney-uncharted-real-redux-03.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/omorphia-visual-gadang.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/tangkas-tahanuji-tongkonan-composed.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg", alt: "Image 3" },
-  { url: "../../resources/dummyGallery/zhong-zhou-1.jpg", alt: "Image 3" },
-];
+import displayImage from '@/components/common/DisplayImage.vue';
+import {images as gallery} from '../../constant/dummyData'
 </script>

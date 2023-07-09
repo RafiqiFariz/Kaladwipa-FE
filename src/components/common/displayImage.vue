@@ -1,9 +1,15 @@
 <template>
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-4 pt-8">
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
         <div v-for="(image, index) in images" :key="index" class="grid gap-4">
-            <div>
+            <div v-if="!profile">
+                <a :href="image.link">
+                    <img class="h-full object-cover w-full rounded-lg" :src="image.url" :alt="image.alt">
+                </a>
+            </div>
+            <div v-else>
                 <img class="h-full object-cover w-full rounded-lg" :src="image.url" :alt="image.alt">
             </div>
+
         </div>
     </div>
 </template>
@@ -19,6 +25,13 @@ const props = defineProps({
     },
     filter: {
         type: String
+    },
+    className: {
+        type: String,
+    },
+    profile: {
+        type: Boolean,
+        default: false
     }
 });
 

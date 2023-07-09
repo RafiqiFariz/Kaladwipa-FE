@@ -14,12 +14,12 @@
                             <div class="text-center text-gray-900 text-[16px] font-medium leading-normal">Toko</div>
                         </router-link>
                     </div>
-                    <div class="flex-col justify-center items-start inline-flex">
+                    <!-- <div class="flex-col justify-center items-start inline-flex">
                         <router-link to="/affiliasi">
                             <div class="text-center text-gray-900 text-[16px] font-medium leading-normal">Affiliasi
                             </div>
                         </router-link>
-                    </div>
+                    </div> -->
                     <div></div>
                 </div>
                 <form class="flex items-center w-full">
