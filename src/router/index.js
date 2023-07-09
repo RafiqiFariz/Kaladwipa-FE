@@ -7,11 +7,11 @@ const routes = [
   },
   {
     path: '/homepage',
-    component: () => import('@/views/homepage.vue')
+    component: () => import('@/views/Homepage.vue')
   },
   {
     path: '/jelajahi',
-    component: () => import('@/views/homepage.vue'),
+    component: () => import('@/views/Homepage.vue'),
     children: {
       path: 'jelajahi/detail/:id',
       component: () => import('@/views/ProfilePage.vue'),

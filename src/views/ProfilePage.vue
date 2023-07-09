@@ -56,7 +56,7 @@
 
 <script setup>
 import { IonPage, IonContent } from '@ionic/vue';
-import displayImage from '@/components/common/displayImage.vue';
+import displayImage from '@/components/common/DisplayImage.vue';
 import bgImage from '../../resources/throne room.png'
 import {images as gallery} from '../../constant/dummyData'
 </script>
