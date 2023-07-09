@@ -11,7 +11,11 @@ const routes = [
   },
   {
     path: '/jelajahi',
-    component: () => import('@/views/homepage.vue')
+    component: () => import('@/views/homepage.vue'),
+    children: {
+      path: 'jelajahi/detail/:id',
+      component: () => import('@/views/ProfilePage.vue'),
+    }
   },
   {
     path: '/toko',

@@ -2,7 +2,7 @@
     <ion-header>
         <div class="w-full h-[90px] p-6 bg-white flex-col justify-center items-center inline-flex z-10">
             <div class="w-full justify-center items-center gap-8 inline-flex">
-                <router-link className="w-1/12 h-3/4" to="/"><img class="w-full h-full" :src="logo" /></router-link>
+                <router-link className="w-1/12 h-3/4" to="/homepage"><img class="w-full h-full" :src="logo" /></router-link>
                 <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 flex w-full">
                     <div class="flex-col justify-center items-start inline-flex">
                         <router-link to="/jelajahi">

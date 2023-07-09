@@ -46,43 +46,18 @@
                             The tab JavaScript swaps classes to control the content visibility and styling.</p>
                     </div>
                     <div class="hidden px-8 py-4 w-full bg-neutral-100" id="disukai" role="tabpanel">
-                        <displayImage :images="images" />
+                        <displayImage :images="gallery" />
                     </div>
                 </div>
             </div>
         </ion-content>
     </ion-page>
 </template>
-  
+
 <script setup>
 import { IonPage, IonContent } from '@ionic/vue';
 import displayImage from '@/components/common/displayImage.vue';
 import bgImage from '../../resources/throne room.png'
-const images = [
-    { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
-    { url: "../../resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg", alt: "Image 2" },
-    { url: "../../resources/dummyGallery/nadya-b-img-2279-min.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/oliver-guiney-uncharted-real-redux-03.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/omorphia-visual-gadang.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/tangkas-tahanuji-tongkonan-composed.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/zhong-zhou-1.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
-    { url: "../../resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg", alt: "Image 2" },
-    { url: "../../resources/dummyGallery/nadya-b-img-2279-min.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/oliver-guiney-uncharted-real-redux-03.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/omorphia-visual-gadang.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/tangkas-tahanuji-tongkonan-composed.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/zhong-zhou-1.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
-    { url: "../../resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg", alt: "Image 2" },
-    { url: "../../resources/dummyGallery/nadya-b-img-2279-min.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/oliver-guiney-uncharted-real-redux-03.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/omorphia-visual-gadang.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/tangkas-tahanuji-tongkonan-composed.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg", alt: "Image 3" },
-    { url: "../../resources/dummyGallery/zhong-zhou-1.jpg", alt: "Image 3" },
-];
+import {images as gallery} from '../../constant/dummyData'
 </script>
   
