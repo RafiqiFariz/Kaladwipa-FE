@@ -1,9 +1,8 @@
-import 'flowbite';
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index.js';
 import { IonicVue } from '@ionic/vue';
+import 'flowbite';
 
 /* TailwindCSS */
 import './styles/index.scss';

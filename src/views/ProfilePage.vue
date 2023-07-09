@@ -56,7 +56,7 @@
   
 <script setup>
 import { IonPage, IonContent } from '@ionic/vue';
-import displayImage from '@/components/common/displayImage.vue';
+import displayImage from '@/components/common/DisplayImage.vue';
 import bgImage from '../../resources/throne room.png'
 const images = [
     { url: "../../resources/dummyGallery/ari-yanto-gatot-kaca-fight-hires-00.jpg", alt: "Image 1" },
