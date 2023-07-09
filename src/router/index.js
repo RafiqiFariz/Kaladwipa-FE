@@ -12,10 +12,10 @@ const routes = [
   {
     path: '/jelajahi',
     component: () => import('@/views/Homepage.vue'),
-    children: {
-      path: 'jelajahi/detail/:id',
-      component: () => import('@/views/ProfilePage.vue'),
-    }
+  },  
+  {
+    path: '/jelajahi/detail/:id',
+    component: () => import('@/components/common/DetailGalleryPage.vue'),
   },
   {
     path: '/toko',
