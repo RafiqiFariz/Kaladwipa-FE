@@ -241,6 +241,5 @@
 </template>
 
 <script setup>
-import { IonPage, IonContent } from '@ionic/vue';
 import image from '../../../resources/throne room.png'
 </script>

@@ -12,6 +12,17 @@
           <SelectBox :isActive="false" name="Tutorial" :img="image" />
           <SelectBox :isActive="false" name="Aset Game" :img="image" />
         </div>
+        <div class="flex flex-auto gap-4 py-1 w-full">
+          <Button :isActive="true" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+          <Button :isActive="false" name="Lukisan"/>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -21,4 +32,5 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import image from '../../resources/throne room.png'
 import SelectBox from '@/components/common/SelectBox.vue';
+import Button from '@/components/common/Button.vue';
 </script>
