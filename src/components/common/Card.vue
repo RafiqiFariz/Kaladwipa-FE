@@ -1,6 +1,6 @@
 <template>
     <div class='w-full h-full px-4 pt-16 pb-5 relative rounded-md'>
-        <div class="relative z-30 mt-24 space-y-4">
+        <div class="relative z-30 mt-52 space-y-4">
             <p class="text-left text-white text-xl font-extrabold">Digital Seni Modern Tradisional Yae Miko Genshin
                 Impact Dengan Kebaya</p>
             <div class="w-full flex">
@@ -60,9 +60,11 @@
                     <img class="w-4 h-4 relative rounded--full shadow" src="https://via.placeholder.com/17x17" />
                     <div class="text-center text-white text-xs font-medium leading-none">by Pandu</div>
                 </div>
-                <button class="h-9 px-3 py-2 bg-red-700 rounded-lg justify-center items-center gap-2 flex">
-                    <div class="text-white text-sm font-medium leading-tight">Detail</div>
-                </button>
+                <router-link class="h-9 px-3 py-2 bg-red-700 rounded-lg justify-center items-center gap-2 flex w-1/2" to="/toko/produk/1">
+                    <button class="h-9 px-3 py-2 bg-red-700 rounded-lg justify-center items-center gap-2 flex w-full">
+                        <div class="text-white text-sm font-medium leading-tight">Detail</div>
+                    </button>
+                </router-link>
             </div>
         </div>
         <div class='w-full h-full absolute top-0 left-0 bg-black bg-opacity-50 z-20 rounded-md'></div>
