@@ -92,7 +92,6 @@ export default {
   },
   methods: {
     isActive(routePath) {
-      console.log(routePath);
       return this.$route.path === routePath;
     },
   },
