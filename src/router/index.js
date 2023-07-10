@@ -15,7 +15,7 @@ const routes = [
   },  
   {
     path: '/jelajahi/detail/:id',
-    component: () => import('@/components/common/DetailGalleryPage.vue'),
+    component: () => import('@/views/DetailContentPage.vue'),
   },
   {
     path: '/toko',
