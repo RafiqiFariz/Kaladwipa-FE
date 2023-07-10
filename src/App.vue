@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { IonApp, IonRouterOutlet, IonContent, IonHeader } from '@ionic/vue';
-import TheHeader from './components/layouts/TheHeader.vue';
+import { IonApp, IonRouterOutlet, IonContent, IonHeader } from "@ionic/vue";
+import TheHeader from "./components/layouts/TheHeader.vue";
 
 export default {
   components: {
@@ -19,7 +19,7 @@ export default {
     IonApp,
     IonRouterOutlet,
     IonContent,
-    IonHeader
-  }
-}
+    IonHeader,
+  },
+};
 </script>
