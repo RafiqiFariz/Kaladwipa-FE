@@ -1,7 +1,7 @@
 <template>
     <button class='w-full h-full px-4 py-16 flex-col justify-center items-center gap-2.5 inline-flex relative'>
         <div class="self-stretch h-9 flex-col justify-start items-center gap-6 flex">
-            <div class="self-stretch text-center text-white text-4xl font-extrabold leading-9 relative z-30">{{ name }}
+            <div :class="['self-stretch text-center text-white font-extrabold leading-9 relative z-30', styling]">{{ name }}
             </div>
         </div>
         <div :class="{
@@ -26,6 +26,10 @@ const props = defineProps({
     },
     img: {
         type: String
+    },
+    styling: {
+        type: String,
+        default: "text-4xl"
     }
 });
 </script>
