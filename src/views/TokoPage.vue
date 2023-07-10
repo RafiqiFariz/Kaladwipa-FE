@@ -74,7 +74,11 @@
             </div>
           </form>
         </div>
-        <div class="flex flex-auto gap-4 py-4 w-full">
+        <div class="grid grid-cols-4 gap-4 py-4 w-full">
+          <Card :img="yae"/>
+          <Card :img="yae"/>
+          <Card :img="yae"/>
+          <Card :img="yae"/>
           <Card :img="yae"/>
           <Card :img="yae"/>
           <Card :img="yae"/>
