@@ -24,6 +24,14 @@ const routes = [
   {
     path: "/affiliasi",
     component: () => import("@/views/AffiliationPage.vue"),
+    children: [
+      {
+        name: "affiliate-stats",
+        path: ":affiliateId",
+        component: () =>
+          import("@/components/affiliate/AffiliateStatistics.vue"),
+      },
+    ],
   },
   {
     path: "/profile",
