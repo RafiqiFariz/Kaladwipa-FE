@@ -2,9 +2,9 @@
     <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
         <div v-for="(image, index) in images" :key="index" class="grid gap-4">
             <div v-if="!profile">
-                <a :href="image.link">
+                <router-link :to="image.link">
                     <img class="h-full object-cover w-full rounded-lg" :src="image.url" :alt="image.alt">
-                </a>
+                </router-link>
             </div>
             <div v-else>
                 <img class="h-full object-cover w-full rounded-lg" :src="image.url" :alt="image.alt">
