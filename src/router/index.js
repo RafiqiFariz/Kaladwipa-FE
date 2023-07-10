@@ -42,6 +42,16 @@ const routes = [
     meta: {
       hideNavbar: true
     }
+  },
+  {
+    path: '/settings',
+    component: () => import('@/views/SettingsPage.vue'),
+    children: [
+      {
+        path: 'profile',
+        component: () => import('@/views/ProfileSettings.vue')
+      }
+    ]
   }
 ]
 
