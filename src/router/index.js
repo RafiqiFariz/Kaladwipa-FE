@@ -82,10 +82,19 @@ const routes = [
     component: () => import("@/views/ArticlePage.vue"),
     children: [
       {
+        name: "article-content",
         path: ":articleId",
         component: () => import("@/components/article/TheArticle.vue"),
       },
     ],
+  },
+  {
+    path: "/upload-karya",
+    component: () => import("@/views/UploadKaryaPage.vue"),
+  },
+  {
+    path: "/upload-produk",
+    component: () => import("@/views/UploadProdukPage.vue"),
   },
 ];
 

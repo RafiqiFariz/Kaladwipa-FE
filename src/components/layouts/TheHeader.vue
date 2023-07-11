@@ -28,12 +28,6 @@
               </div>
             </router-link>
           </div>
-          <!-- <div class="flex-col justify-center items-start inline-flex">
-                        <router-link to="/affiliasi">
-                            <div class="text-center text-gray-900 text-[16px] font-medium leading-normal">Affiliasi
-                            </div>
-                        </router-link>
-                    </div> -->
           <div></div>
         </div>
         <form class="flex items-center w-full">
@@ -70,20 +64,80 @@
         <div class="justify-end items-center gap-4 flex w-1/4">
           <div class="justify-start items-center gap-5 flex">
             <div class="w-6 h-6 relative">
-              <svg
-                class="w-6 h-6 text-gray-500 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
+              <div
+                v-if="showUploadDropdown"
+                class="absolute top-7 right-4 z-50 my-1 text-base list-none border border-gray-100 bg-white rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                id="user-dropdown"
               >
-                <path
-                  d="m14.707 4.793-4-4a1 1 0 0 0-1.416 0l-4 4a1 1 0 1 0 1.416 1.414L9 3.914V12.5a1 1 0 0 0 2 0V3.914l2.293 2.293a1 1 0 0 0 1.414-1.414Z"
-                />
-                <path
-                  d="M18 12h-5v.5a3 3 0 0 1-6 0V12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-                />
-              </svg>
+                <div class="px-2 py-1 whitespace-nowrap">
+                  <a
+                    href="/upload-karya"
+                    class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  >
+                    <svg
+                      class="w-[14px] h-[14px] text-gray-500 dark:text-white"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 18"
+                    >
+                      <path
+                        d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"
+                      />
+                    </svg>
+
+                    <span class="ml-1 text-sm">Unggah Karya Baru</span>
+                  </a>
+                </div>
+                <div class="px-2 py-1 whitespace-nowrap">
+                  <a
+                    href="/upload-produk"
+                    class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  >
+                    <svg
+                      class="w-[14px] h-[14px] text-gray-800 dark:text-white"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 16 20"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M11.045 7.514a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm-4.572 3.072L3.857 15.92h7.949l-1.811-3.37-1.61 2.716-1.912-4.679Z"
+                      />
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 1v4a1 1 0 0 1-1 1H1m14 12a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2v16ZM11.045 7.514a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM3.857 15.92l2.616-5.333 1.912 4.68 1.61-2.717 1.81 3.37H3.858Z"
+                      />
+                    </svg>
+
+                    <span class="ml-1 text-sm">Buat Produk Baru</span>
+                  </a>
+                </div>
+              </div>
+              <button
+                type="button"
+                id="upload-button"
+                @click="toggleUploadDropdown"
+              >
+                <svg
+                  class="w-6 h-6 text-gray-500 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="m14.707 4.793-4-4a1 1 0 0 0-1.416 0l-4 4a1 1 0 1 0 1.416 1.414L9 3.914V12.5a1 1 0 0 0 2 0V3.914l2.293 2.293a1 1 0 0 0 1.414-1.414Z"
+                  />
+                  <path
+                    d="M18 12h-5v.5a3 3 0 0 1-6 0V12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+              </button>
             </div>
             <div class="w-6 h-6 relative">
               <svg
@@ -99,7 +153,7 @@
               </svg>
             </div>
             <div class="w-6 h-6 relative">
-              <router-link to="/keranjang">
+              <a href="/keranjang">
                 <svg
                   class="w-6 h-6 text-gray-500 dark:text-white"
                   aria-hidden="true"
@@ -111,7 +165,7 @@
                     d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"
                   />
                 </svg>
-              </router-link>
+              </a>
             </div>
             <button
               type="button"
@@ -245,11 +299,15 @@ export default {
     return {
       logo: "../../../resources/logo.png",
       showNavbarDropdown: false,
+      showUploadDropdown: false,
     };
   },
   methods: {
     toggleNavbarDropdown() {
       this.showNavbarDropdown = !this.showNavbarDropdown;
+    },
+    toggleUploadDropdown() {
+      this.showUploadDropdown = !this.showUploadDropdown;
     },
   },
 };
