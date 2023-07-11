@@ -77,6 +77,16 @@ const routes = [
     path: "/keranjang",
     component: () => import("@/views/KeranjangPage.vue"),
   },
+  {
+    path: "/article",
+    component: () => import("@/views/ArticlePage.vue"),
+    children: [
+      {
+        path: ":articleId",
+        component: () => import("@/components/article/TheArticle.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
