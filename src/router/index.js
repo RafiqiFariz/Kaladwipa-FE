@@ -65,6 +65,14 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/wishlist",
+    component: () => import("@/views/WishlistPage.vue"),
+  },
+  {
+    path: "/keranjang",
+    component: () => import("@/views/KeranjangPage.vue"),
+  },
 ];
 
 const router = createRouter({

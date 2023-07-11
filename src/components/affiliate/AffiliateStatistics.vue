@@ -1,5 +1,6 @@
 <template>
-  <div class="p-10 flex">
+  <h1 class="font-bold text-center mb-0">Statistik</h1>
+  <div class="p-5 flex">
     <img class="w-auto h-32 rounded-lg" :src="this.item.img" alt="Jese image" />
     <div class="pl-3 pt-4">
       <div class="text-base font-semibold text-left">
@@ -41,9 +42,7 @@ export default {
   },
   created() {
     const id = parseInt(this.$route.params.affiliateId);
-    console.log(id);
     this.item = this.affiliates.find((item) => item.id === id);
-    console.log(this.item);
   },
 };
 </script>
