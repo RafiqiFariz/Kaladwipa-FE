@@ -97,86 +97,82 @@
                             leo,
                             non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante.
                         </div>
-                        <div class="w-40 h-5 justify-start items-center gap-3 inline-flex">
-                            <div class="justify-start items-center gap-1 flex">
-                                <div class="w-5 h-5 relative">
-                                    <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path
-                                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                </div>
-                                <div class="w-5 h-5 relative">
-                                    <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path
-                                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                </div>
-                                <div class="w-5 h-5 relative">
-                                    <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path
-                                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                </div>
-                                <div class="w-5 h-5 relative">
-                                    <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path
-                                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                </div>
-                                <div class="w-5 h-5 relative">
-                                    <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path
-                                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                    </svg>
-                                </div>
+                    </div>
+                    <div class="w-40 h-5 justify-start items-center gap-3 inline-flex">
+                        <div class="justify-start items-center gap-1 flex">
+                            <div class="w-5 h-5 relative">
+                                <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
                             </div>
-                            <div class="px-2.5 py-0.5 bg-rose-100 rounded justify-center items-center flex">
-                                <div class="text-center text-red-800 text-xs font-medium leading-none">5.0</div>
+                            <div class="w-5 h-5 relative">
+                                <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                            </div>
+                            <div class="w-5 h-5 relative">
+                                <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                            </div>
+                            <div class="w-5 h-5 relative">
+                                <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
+                            </div>
+                            <div class="w-5 h-5 relative">
+                                <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 22 20">
+                                    <path
+                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                </svg>
                             </div>
                         </div>
+                        <div class="px-2.5 py-0.5 bg-rose-100 rounded justify-center items-center flex">
+                            <div class="text-center text-red-800 text-xs font-medium leading-none">5.0</div>
+                        </div>
                     </div>
-                    <div class="w-full">
+                    <div class="w-full h-full">
                         <div class="w-full h-3 text-gray-500 text-xs font-normal leading-3">Kategori
                             Produk:
                         </div>
-                        <div class="w-full grid grid-cols-3 gap">
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Produk
-                                    Digital
+                        <div class="w-full grid grid-cols-3 gap-2">
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class=" text-red-800 text-xs font-medium">
+                                    Produk Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Seni
-                                    Digital
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">
+                                    Seni Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Tradisional
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">
+                                    Tradisional
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Produk
-                                    Digital
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">
+                                    Produk Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Seni
-                                    Digital
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">
+                                    Seni Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Tradisional
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">
+                                    Tradisional
                                 </span>
                             </div>
                         </div>
@@ -185,44 +181,38 @@
                         <div class="w-full h-3 text-gray-500 text-xs font-normal leading-3">
                             Perangkat Lunak::
                         </div>
-                        <div class="w-full grid grid-cols-3 gap">
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Produk
+                        <div class="w-full grid grid-cols-3 gap-2">
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">Produk
                                     Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Seni
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">Seni
                                     Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Tradisional
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">Tradisional
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Produk
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">Produk
                                     Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Seni
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">Seni
                                     Digital
                                 </span>
                             </div>
-                            <div class="w-full text-center">
-                                <span
-                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Tradisional
+                            <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
+                                <span class="text-red-800 text-xs font-medium">Tradisional
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div class="self-stretch justify-start items-start gap-4 inline-flex mt-4 ml-8">
+                    <div class="self-stretch justify-start items-start gap-4 inline-flex mt-4">
                         <button
                             class="grow shrink basis-0 h-[41px] px-5 py-2.5 bg-red-700 rounded-lg justify-center items-center gap-2 flex">
                             <div class="text-white text-[14px] font-medium leading-tight">Tambah ke keranjang</div>

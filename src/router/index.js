@@ -18,6 +18,10 @@ const routes = [
     component: () => import("@/views/DetailContentPage.vue"),
   },
   {
+    path: "/artikel/detail/:id",
+    component: () => import("@/views/ArtikelPage.vue"),
+  },
+  {
     path: "/toko",
     component: () => import("@/views/TokoPage.vue"),
   },

@@ -24,7 +24,8 @@
     "ionicons": "^7.0.0",
     "sass": "^1.63.6",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vueperslides": "^3.5.1"
   },
   "devDependencies": {
     "@capacitor/cli": "5.1.1",

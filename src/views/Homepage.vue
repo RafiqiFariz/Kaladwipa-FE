@@ -2,7 +2,7 @@
   <ion-page>
     <ion-content :fullscreen="false">
       <div class="p-8 w-full bg-neutral-100">
-        <Slider />
+        <Slider :data="sliderData"/>
         <div>
           <button
             id="dropdownDefaultButton"
@@ -154,7 +154,7 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import Slider from "@/components/common/Slider.vue";
 import displayImage from "@/components/common/DisplayImage.vue";
-import { images as gallery } from "../../constant/dummy-data.js";
+import { images as gallery, sliderData } from "../../constant/dummy-data.js";
 
 export default {
   components: {
@@ -167,6 +167,7 @@ export default {
     return {
       gallery: gallery,
       showDropdown: false,
+      sliderData
     };
   },
   methods: {
