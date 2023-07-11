@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div className="p-8 w-full bg-neutral-100">
+      <div class="p-8 w-full bg-neutral-100">
         <Slider />
         <div>
           <button
