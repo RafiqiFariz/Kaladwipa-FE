@@ -9,7 +9,6 @@
             <div v-else>
                 <img class="h-full object-cover w-full rounded-lg" :src="image.url" :alt="image.alt">
             </div>
-
         </div>
     </div>
 </template>

@@ -142,7 +142,7 @@ export default {
       carts: [
         {
           id: 1,
-          img: "resources/dummyGallery/ui_uiiiiiiiii-1-small.jpg",
+          img: "resources/dummy_galleries/ui_uiiiiiiiii-1-small.jpg",
           produk:
             "Digital Seni Modern Tradisional Yae Miko Genshin Impact Dengan Kebaya",
           penjual: "Pandu",
@@ -151,7 +151,7 @@ export default {
         },
         {
           id: 2,
-          img: "resources/dummyGallery/jonathan-lebrec-rizieres-free.jpg",
+          img: "resources/dummy_galleries/jonathan-lebrec-rizieres-free.jpg",
           produk:
             "Digital Seni Modern Tradisional Yae Miko Genshin Impact Dengan Kebaya",
           penjual: "Pandu",

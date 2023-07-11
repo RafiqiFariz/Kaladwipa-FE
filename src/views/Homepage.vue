@@ -154,7 +154,7 @@
 import { IonPage, IonContent } from "@ionic/vue";
 import Slider from "@/components/common/Slider.vue";
 import displayImage from "@/components/common/DisplayImage.vue";
-import { images as gallery } from "../../constant/dummyData";
+import { images as gallery } from "../../constant/dummy-data.js";
 
 export default {
   components: {

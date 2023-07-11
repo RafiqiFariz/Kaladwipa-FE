@@ -71,9 +71,9 @@
       </button>
     </div>
     <img
-      src="resources\dummyGallery\zhong-zhou-1.jpg"
+      src="/resources/dummy_galleries/zhong-zhou-1.jpg"
       class="rounded-lg mt-2 h-auto w-full justify-center"
-    />
+     alt="zhong-zhou-1"/>
     <p class="text-justify">
       Lomba Desain Interior 3D merupakan kompetisi yang melibatkan para desainer
       interior dalam menciptakan visualisasi yang menarik dan realistis
