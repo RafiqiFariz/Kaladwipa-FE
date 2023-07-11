@@ -22,6 +22,10 @@ const routes = [
     component: () => import("@/views/TokoPage.vue"),
   },
   {
+    path: "/toko/produk/:id",
+    component: () => import("@/views/DetailBarang.vue"),
+  },
+  {
     path: "/affiliasi",
     component: () => import("@/views/AffiliationPage.vue"),
     children: [
