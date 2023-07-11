@@ -2,20 +2,27 @@
   <ion-page>
     <ion-content :fullscreen="false">
       <div class="p-8">
-        <div class="flex flex-auto gap-4">
+        <div class="md:flex md:flex-auto sxsm:block md:space-y-0 sxsm:space-y-4 md:gap-4 sxsm:gap-2">
           <SelectBox :isActive="dataKategori.kategori === 'Produk Digital'" name="Produk Digital" :img="image"
             @click="pilihKategori({ kategori: 'Produk Digital', subKategori: '', kategoriKecil: [] })" />
           <SelectBox :isActive="dataKategori.kategori === 'Produk Fisik'" name="Produk Fisik" :img="image"
             @click="pilihKategori({ kategori: 'Produk Fisik', subKategori: '', kategoriKecil: [] })" />
-
         </div>
-        <div class="flex flex-auto gap-4 py-4">
-          <SelectBox :isActive="dataKategori.subKategori === 'Lukisan'" styling="text-xl" name="Lukisan" :img="image"  @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Lukisan', kategoriKecil: [] })"/>
-          <SelectBox :isActive="dataKategori.subKategori === 'Kerajinan Tangan'" styling="text-xl" name="Kerajinan Tangan" :img="image"  @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Kerajinan Tangan', kategoriKecil: [] })"/>
-          <SelectBox :isActive="dataKategori.subKategori === 'Tutorial'" styling="text-xl" name="Tutorial" :img="image"  @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Tutorial', kategoriKecil: [] })"/>
-          <SelectBox :isActive="dataKategori.subKategori === 'Aset Game'" styling="text-xl" name="Aset Game" :img="image"  @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Aset Game', kategoriKecil: [] })"/>
+        <div class="grid md:grid-cols-4 sxsm:grid-cols-2 md:space-y-0 md:gap-4 sxsm:gap-2 py-4">
+          <SelectBox :isActive="dataKategori.subKategori === 'Lukisan'" styling="sm:text-xl sxsm:text-lg" name="Lukisan"
+            :img="image"
+            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Lukisan', kategoriKecil: [] })" />
+          <SelectBox :isActive="dataKategori.subKategori === 'Kerajinan Tangan'" styling="sm:text-xl sxsm:text-lg"
+            name="Kerajinan Tangan" :img="image"
+            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Kerajinan Tangan', kategoriKecil: [] })" />
+          <SelectBox :isActive="dataKategori.subKategori === 'Tutorial'" styling="sm:text-xl sxsm:text-lg" name="Tutorial"
+            :img="image"
+            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Tutorial', kategoriKecil: [] })" />
+          <SelectBox :isActive="dataKategori.subKategori === 'Aset Game'" styling="sm:text-xl sxsm:text-lg"
+            name="Aset Game" :img="image"
+            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Aset Game', kategoriKecil: [] })" />
         </div>
-        <div class="flex flex-auto gap-4 py-1 w-full">
+        <div class="grid lg:grid-cols-9 md:grid-cols-5 sxsm:grid-cols-3 md:space-y-0 md:gap-4 sxsm:gap-2 py-1 w-full">
           <Button :isActive="true" name="Lukisan" />
           <Button :isActive="false" name="Lukisan" />
           <Button :isActive="false" name="Lukisan" />
@@ -31,20 +38,20 @@
             <label for="default-search"
               class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-              </div>
               <div class="flex justify-between items-center gap-4 mt-4">
-                <div class="w-full">
+                <div class="w-full relative">
+                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                  </div>
                   <input type="search" id="default-search"
                     class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Cari produk..." required>
                 </div>
-                <div class="w-full">
+                <div class="w-full md:block sxsm:hidden">
                   <div
                     class="w-full py-2 bg-white justify-between px-4 items-center gap-8 inline-flex rounded-lg shadow-md">
                     <button class="px-3 py-1 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
@@ -77,7 +84,7 @@
             </div>
           </form>
         </div>
-        <div class="grid grid-cols-4 gap-4 py-4 w-full">
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sxsm:grid-cols-1 md:gap-4 sxsm:gap-2 py-4 w-full">
           <Card :img="yae" />
           <Card :img="yae" />
           <Card :img="yae" />

@@ -1,7 +1,7 @@
 <template>
-    <div class='w-full h-full px-4 pt-16 pb-5 relative rounded-md'>
+    <div class='w-full h-full px-4 md:pt-16 sxsm:pt-10 pb-5 relative rounded-md'>
         <div class="relative z-30 mt-52 space-y-4">
-            <p class="text-left text-white text-xl font-extrabold">Digital Seni Modern Tradisional Yae Miko Genshin
+            <p class="text-left text-white md:text-xl sxsm:text-md font-extrabold">Digital Seni Modern Tradisional Yae Miko Genshin
                 Impact Dengan Kebaya</p>
             <div class="w-full flex">
                 <div class="w-40 h-5 justify-start items-center gap-3 inline-flex">
@@ -49,10 +49,10 @@
             </div>
             <div class="w-full h-full justify-between items-center gap-1 inline-flex">
                 <div class="text-center text-white text-xs font-normal leading-none">Price</div>
-                <div class="justify-end items-center gap-1 flex">
-                    <div class="w-40 text-right text-white text-xs font-medium line-through leading-none">Rp.599.000
+                <div class="justify-end items-center gap-1 md:flex">
+                    <div class="w-full text-right text-white text-xs font-medium line-through leading-none">Rp.599.000
                     </div>
-                    <div class="w-20 text-right text-white text-sm font-medium leading-tight">Rp.299.000</div>
+                    <div class="w-full text-right text-white text-sm font-medium leading-tight">Rp.299.000</div>
                 </div>
             </div>
             <div class="w-full h-full justify-between items-center gap-1 inline-flex">

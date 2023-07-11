@@ -3,7 +3,7 @@
     <ion-content :fullscreen="false">
       <div class="p-8 w-full bg-neutral-100">
         <Slider :data="sliderData"/>
-        <div>
+        <div class="sm:mt-0 sxsm:mt-8">
           <button
             id="dropdownDefaultButton"
             class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 mb-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
@@ -113,7 +113,7 @@
         <div class="relative">
           <displayImage :images="gallery" />
           <div
-            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-[410px] h-12 px-2.5 py-1 bg-white rounded-lg shadow justify-start items-center gap-8 inline-flex"
+            class="sm:flex sxsm:hidden absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-[410px] h-12 px-2.5 py-1 bg-white rounded-lg shadow justify-start items-center gap-8 inline-flex"
           >
             <div
               class="px-3 py-2 rounded-md justify-start items-center gap-1.5 flex"
@@ -164,6 +164,7 @@ export default {
     displayImage,
   },
   data() {
+    
     return {
       gallery: gallery,
       showDropdown: false,

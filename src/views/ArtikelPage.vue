@@ -1,7 +1,7 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="false">
-            <div class="w-full h-full p-8 px-48 space-y-4 m-auto">
+            <div class="w-full h-full p-8 md:px-48 sxsm:md-8 space-y-4 md:m-auto sxsm:m-0">
                 <p class="text-center text-black text-4xl font-medium">Kompetisi Desain Interior</p>
                 <p class="text-center text-black text-lg font-normal">Oleh Pandu - 30 Februari 2023</p>
                 <div class="w-full">
