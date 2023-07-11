@@ -73,7 +73,7 @@
           >
             <img
               class="w-24 h-24 mb-3 rounded-full shadow-lg"
-              src="resources\icon.png"
+              src="/resources/icon.png"
               alt="Bonnie image"
             />
             <div class="flex mt-4 space-x-3 md:mt-6">
@@ -104,7 +104,7 @@
           >
             <img
               class="w-auto h-100 mb-3 shadow-lg"
-              src="resources\throne room.png"
+              src="/resources/throne_room.png"
               alt="Bonnie image"
             />
             <div class="flex mt-4 space-x-3 md:mt-6">

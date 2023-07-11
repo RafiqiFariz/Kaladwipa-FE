@@ -4,7 +4,7 @@
             <div class="flex justify-center items-center h-screen flex-col">
                 <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto">
                     <div class="flex justify-center">
-                        <router-link to="/"><img src="resources\logo.png" /></router-link>
+                        <router-link to="/"><img src="/resources/logo.png"  alt="logo"/></router-link>
                     </div>
                     <h4 class="text-black flex justify-center">Masuk</h4>
                     <form class="space-y-6" action="#">

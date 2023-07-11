@@ -360,5 +360,5 @@
 </template>
 
 <script setup>
-import image from '../../../resources/throne room.png'
+import image from '../../../resources/throne_room.png'
 </script>
