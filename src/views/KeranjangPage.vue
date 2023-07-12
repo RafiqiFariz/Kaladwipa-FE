@@ -1,11 +1,11 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="md:p-8 sxsm:p-4 w-full h-full lg:flex sxsm:block bg-neutral-100">
-        <div class="lg:ml-8 sxsm:ml-0 lg:w-2/3 sxsm:w-full m-2">
+      <div class="md:p-8 sxsm:p-4 w-full h-[250%] lg:flex sxsm:block bg-neutral-100">
+        <div class="lg:ml-8 sxsm:ml-0 lg:w-2/3 sxsm:w-full m-2 space-y-8">
           <h1 class="font-bold text-center">Keranjang</h1>
           <div
-            class="m-1 flex flex-col items-center justify-between bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+            class="m-1 flex flex-col items-center justify-between bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100"
             v-for="item in carts" :key="item.id">
             <div class="md:flex sxsm:block items-center">
               <img class="object-cover w-full rounded-t-lg h-96 md:h-40 md:w-40 md:rounded-none md:rounded-l-lg"
