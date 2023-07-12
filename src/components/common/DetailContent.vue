@@ -1,7 +1,7 @@
 <template>
     <div class="w-full bg-neutral-100 relative p-8 py-24">
         <div
-            class="w-full h-full bg-white rounded-lg shadow border border-gray-200 justify-start items-center inline-flex mb-10">
+            class="w-full h-full bg-white rounded-lg shadow border border-gray-200 justify-start items-center md:inline-flex sxsm:block mb-10">
 
             <div id="indicators-carousel" class="relative w-full" data-carousel="static">
                 <!-- Carousel wrapper -->
@@ -73,7 +73,7 @@
                     </span>
                 </button>
             </div>
-            <div class="w-96 self-stretch p-5 flex-col justify-between items-start inline-flex">
+            <div class="md:w-1/3 sxsm:w-full self-stretch p-5 flex-col justify-between items-start inline-flex">
                 <div class="self-stretch h-full flex-col justify-start items-start gap-3.5 flex">
                     <div class="justify-start items-start gap-3 inline-flex">
                         <img class="w-12 h-12 relative rounded-[100px]" src="https://via.placeholder.com/48x48" />
@@ -85,7 +85,7 @@
                                 Character Designer</div>
                         </div>
                     </div>
-                    <div class="self-stretch h-[280px] flex-col justify-start items-start gap-2 flex">
+                    <div class="self-stretch h-full flex-col justify-start items-start gap-2 flex">
                         <div class="self-stretch text-gray-900 text-[24px] font-bold leading-loose">Judul Karya
                         </div>
                         <div class="self-stretch text-gray-500 text-[16px] font-normal leading-normal">Lorem
@@ -101,7 +101,7 @@
                             2h
                             lalu</div>
                     </div>
-                    <div class="self-stretch justify-start items-start gap-2 inline-flex mt-4">
+                    <div class="self-stretch justify-start items-start gap-2 grid lg:grid-cols-3 md:grid-cols-1 sxsm:grid-cols-3 mt-4">
                         <div
                             class="grow shrink basis-0 h-[41px] px-5 py-2.5 bg-red-700 rounded-lg justify-center items-center gap-2 flex">
                             <div class="w-4 h-4 relative"></div>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="self-stretch justify-center items-center gap-8 inline-flex mt-5">
+                <div class="self-stretch justify-center items-center gap-8 grid lg:grid-cols-4 md:grid-cols-2 sxsm:grid-cols-4 mt-5">
                     <div class="grow shrink basis-0 h-[21px] justify-start items-center gap-3 flex">
                         <div class="w-4 h-4 relative"></div>
                         <div class="text-black text-[14px] font-normal leading-tight">1k</div>
@@ -139,9 +139,9 @@
                 </div>
             </div>
         </div>
-        <div class="flex gap-8">
+        <div class="md:flex sxsm:block md:space-y-0 sxsm:space-y-10 gap-8">
             <div
-                class="h-full w-[74%] p-6 bg-white rounded-lg shadow border border-gray-200 flex-col justify-start items-start inline-flex bg-neutral-100">
+                class="h-full md:w-[74%] sxsm:w-full p-6 bg-white rounded-lg shadow border border-gray-200 flex-col justify-start items-start inline-flex ">
                 <div class="self-stretch h-[423px] flex-col justify-start items-start gap-4 flex">
                     <div class="self-stretch p-3 bg-gray-50 rounded-lg justify-start items-center gap-3 inline-flex">
                         <div class="w-6 h-6 relative"></div>
@@ -219,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-[24%]">
+            <div class="md:w-[24%] sxsm:w-full">
                 <div
                     class="w-full p-4 bg-white rounded-lg shadow border border-gray-200 justify-center items-start gap-2 inline-flex">
                     <div class="px-2.5 py-0.5 bg-rose-100 rounded-md justify-center items-center flex">

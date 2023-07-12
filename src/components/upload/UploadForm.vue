@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="mx-64 p-8">
+      <div class="lg:mx-64 md:mx-32 sxsm:mx-4 p-8">
         <upload-card>
           <h1 class="text-center font-bold">Upload {{ jenis }}</h1>
           <form>
