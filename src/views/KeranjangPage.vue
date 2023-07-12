@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="p-8 w-full h-full lg:flex sxsm:block bg-neutral-100">
+      <div class="md:p-8 sxsm:p-4 w-full h-full lg:flex sxsm:block bg-neutral-100">
         <div class="lg:ml-8 sxsm:ml-0 lg:w-2/3 sxsm:w-full m-2">
           <h1 class="font-bold text-center">Keranjang</h1>
           <div

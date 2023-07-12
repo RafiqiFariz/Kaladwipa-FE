@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="p-8">
+      <div class="md:p-8 sxsm:p-4">
         <div class="md:flex md:flex-auto sxsm:block md:space-y-0 sxsm:space-y-4 md:gap-4 sxsm:gap-2">
           <SelectBox :isActive="dataKategori.kategori === 'Produk Digital'" name="Produk Digital" :img="image"
             @click="pilihKategori({ kategori: 'Produk Digital', subKategori: '', kategoriKecil: [] })" />

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-neutral-100 relative p-8 py-24">
+    <div class="w-full bg-neutral-100 relative md:p-8 sxsm:p-2.5 py-24">
         <div
             class="w-full h-full bg-white rounded-lg shadow border border-gray-200 justify-start items-center md:inline-flex sxsm:block mb-10">
 
@@ -19,7 +19,7 @@
                     <!-- Item 3 -->
                     <div class="block duration-700 ease-in-out" data-carousel-item>
                         <img :src="image" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                            alt="...">  
                     </div>
                     <!-- Item 4 -->
                     <div class="block duration-700 ease-in-out" data-carousel-item>
