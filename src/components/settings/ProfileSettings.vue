@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="p-2"></div>
-  <div class="p-5 bg-white rounded">
+  <div class="p-5 h-full bg-white rounded">
     <form>
-      <div class="flex">
-        <div class="w-2/3">
+      <div class="md:flex block">
+        <div class="md:w-2/3 w-full">
           <div class="mb-6">
             <label
               for="nama"
@@ -66,7 +66,7 @@
             />
           </div>
         </div>
-        <div class="w-1/3 pl-5">
+        <div class="md:w-1/3 w-full pl-5">
           <h4 class="font-medium pb-2 m-0">Foto Profil</h4>
           <div
             class="bg-gray-50 flex flex-col items-center pb-5 rounded p-5 shadow mb-5"
@@ -133,7 +133,7 @@
       </div>
       <button
         type="submit"
-        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:ring-red-700"
+        class="md:mt-0 mt-10 md:w-auto w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:ring-red-700 md:justify-start justify-center"
       >
         Simpan Perubahan
         <svg

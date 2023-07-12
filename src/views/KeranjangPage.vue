@@ -17,21 +17,21 @@
                 <p class="opacity-50">Oleh {{ item.penjual }}</p>
               </div>
             </div>
-            <div class="flex">
+            <div class="flex items-center justify-center w-full">
               <div class="m-2">
                 <p class="font-bold">{{ item.jumlah }}</p>
               </div>
               <h5 class="m-2 font-bold">{{ formatHarga(item.harga) }}</h5>
+              <button type="button"
+                class="m-5 text-red-700 border border-solid border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-red-500">
+                <svg class="w-[12px] h-[12px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Icon description</span>
+              </button>
             </div>
-            <button type="button"
-              class="m-5 text-red-700 border border-solid border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-red-500">
-              <svg class="w-[12px] h-[12px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-              </svg>
-              <span class="sr-only">Icon description</span>
-            </button>
           </div>
         </div>
         <div class="m-2 place-items-center justify-center">

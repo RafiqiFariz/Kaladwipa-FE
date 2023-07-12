@@ -3,7 +3,7 @@
     <ion-content>
       <div class="p-8 w-full h-full bg-neutral-100">
         <settings-sidebar></settings-sidebar>
-        <div class="sm:ml-64">
+        <div class="sm:ml-64 ml-0">
           <router-view></router-view>
         </div>
       </div>
