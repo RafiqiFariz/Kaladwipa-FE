@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="bg-neutral-100">
+      <div class="md:p-8 p-4 w-full bg-neutral-100">
         <upload-form jenis="Karya"></upload-form>
       </div>
     </ion-content>

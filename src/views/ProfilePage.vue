@@ -20,17 +20,17 @@
                 <div class="w-full px-2.5 py-1 bg-white shadow justify-center items-center gap-8 inline-flex">
                     <button class="px-3 py-2 rounded-md justify-start items-center gap-1.5 flex" id="karya-tab"
                         data-tabs-target="#karya" type="button" role="tab" aria-controls="karya" aria-selected="false">
-                        <div class="text-gray-500 text-[14px] font-medium leading-tight">Karya</div>
+                        <span class="text-gray-500 text-[14px] font-medium leading-tight">Karya</span>
                     </button>
                     <button class="px-3 py-2 rounded-md justify-start items-center gap-1.5 flex" id="tentang-saya-tab"
                         data-tabs-target="#tentang-saya" type="button" role="tab" aria-controls="tentang-saya"
                         aria-selected="false">
-                        <div class="text-gray-500 text-[14px] font-medium leading-tight">Tentang Saya</div>
+                        <span class="text-gray-500 text-[14px] font-medium leading-tight">Tentang Saya</span>
                     </button>
                     <button class="px-4 py-3 bg-red-700 rounded-md justify-center items-center gap-1.5 flex"
                         id="disukai-tab" data-tabs-target="#disukai" type="button" role="tab" aria-controls="disukai"
                         aria-selected="false">
-                        <div class="text-white text-[14px] font-medium leading-tight">Disukai</div>
+                        <span class="text-white text-[14px] font-medium leading-tight">Disukai</span>
                     </button>
                 </div>
                 <div id="myTabContent">
