@@ -1,28 +1,28 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="md:p-8 sxsm:p-4">
-        <div class="md:flex md:flex-auto sxsm:block md:space-y-0 sxsm:space-y-4 md:gap-4 sxsm:gap-2">
+      <div class="md:p-8 p-4">
+        <div class="md:flex md:flex-auto block md:space-y-0 space-y-2 md:gap-4 gap-2">
           <SelectBox :isActive="dataKategori.kategori === 'Produk Digital'" name="Produk Digital" :img="image"
             @click="pilihKategori({ kategori: 'Produk Digital', subKategori: '', kategoriKecil: [] })" />
           <SelectBox :isActive="dataKategori.kategori === 'Produk Fisik'" name="Produk Fisik" :img="image"
             @click="pilihKategori({ kategori: 'Produk Fisik', subKategori: '', kategoriKecil: [] })" />
         </div>
-        <div class="grid md:grid-cols-4 sxsm:grid-cols-2 md:space-y-0 md:gap-4 sxsm:gap-2 py-4">
-          <SelectBox :isActive="dataKategori.subKategori === 'Lukisan'" styling="sm:text-xl sxsm:text-lg" name="Lukisan"
+        <div class="grid md:grid-cols-4 grid-cols-2 md:space-y-0 md:gap-4 gap-2 py-2">
+          <SelectBox :isActive="dataKategori.subKategori === 'Lukisan'" styling="sm:text-xl text-lg" name="Lukisan"
             :img="image"
             @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Lukisan', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.subKategori === 'Kerajinan Tangan'" styling="sm:text-xl sxsm:text-lg"
+          <SelectBox :isActive="dataKategori.subKategori === 'Kerajinan Tangan'" styling="sm:text-xl text-lg"
             name="Kerajinan Tangan" :img="image"
             @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Kerajinan Tangan', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.subKategori === 'Tutorial'" styling="sm:text-xl sxsm:text-lg" name="Tutorial"
+          <SelectBox :isActive="dataKategori.subKategori === 'Tutorial'" styling="sm:text-xl text-lg" name="Tutorial"
             :img="image"
             @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Tutorial', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.subKategori === 'Aset Game'" styling="sm:text-xl sxsm:text-lg"
+          <SelectBox :isActive="dataKategori.subKategori === 'Aset Game'" styling="sm:text-xl text-lg"
             name="Aset Game" :img="image"
             @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Aset Game', kategoriKecil: [] })" />
         </div>
-        <div class="grid lg:grid-cols-9 md:grid-cols-5 sxsm:grid-cols-3 md:space-y-0 md:gap-4 sxsm:gap-2 py-1 w-full">
+        <div class="grid lg:grid-cols-9 md:grid-cols-5 grid-cols-3 md:space-y-0 md:gap-4 gap-2 py-1 w-full">
           <Button :isActive="true" name="Lukisan" />
           <Button :isActive="false" name="Lukisan" />
           <Button :isActive="false" name="Lukisan" />
@@ -51,7 +51,7 @@
                     class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Cari produk..." required>
                 </div>
-                <div class="w-full md:block sxsm:hidden">
+                <div class="w-full md:block hidden">
                   <div
                     class="w-full py-2 bg-white justify-between px-4 items-center gap-8 inline-flex rounded-lg shadow-md">
                     <button class="px-3 py-1 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
@@ -84,7 +84,7 @@
             </div>
           </form>
         </div>
-        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sxsm:grid-cols-1 md:gap-4 sxsm:gap-2 py-4 w-full">
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 py-4 w-full">
           <Card :img="yae" />
           <Card :img="yae" />
           <Card :img="yae" />

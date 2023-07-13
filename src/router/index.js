@@ -7,11 +7,11 @@ const routes = [
   },
   {
     path: "/homepage",
-    component: () => import("@/views/Homepage.vue"),
+    component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/jelajahi",
-    component: () => import("@/views/Homepage.vue"),
+    component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/jelajahi/detail/:id",
@@ -83,7 +83,7 @@ const routes = [
   },
   {
     path: "/article",
-    component: () => import("@/views/ArticlePage.vue"),
+    component: () => import("@/views/ArtikelPage.vue"),
     children: [
       {
         name: "article-content",

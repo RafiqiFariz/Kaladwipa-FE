@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-neutral-100 relative md:p-8 sxsm:p-4 py-24">
+    <div class="w-full bg-neutral-100 relative md:p-8 p-4 md:py-24">
         <div
             class="w-full h-full bg-white rounded-lg shadow border border-gray-200 justify-start items-center md:inline-flex sxsm:block mb-10">
 

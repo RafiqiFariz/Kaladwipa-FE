@@ -1,7 +1,7 @@
 <template>
-    <div class='w-full h-full px-4 md:pt-16 sxsm:pt-10 pb-5 relative rounded-md'>
+    <div class='w-full h-full px-4 md:pt-16 pt-10 pb-5 relative rounded-md'>
         <div class="relative z-30 mt-52 space-y-4">
-            <p class="text-left text-white md:text-xl sxsm:text-md font-extrabold">Digital Seni Modern Tradisional Yae Miko Genshin
+            <p class="text-left text-white md:text-xl text-md font-bold">Digital Seni Modern Tradisional Yae Miko Genshin
                 Impact Dengan Kebaya</p>
             <div class="w-full flex">
                 <div class="w-40 h-5 justify-start items-center gap-3 inline-flex">
@@ -62,7 +62,7 @@
                 </div>
                 <router-link class="h-9 px-3 py-2 bg-red-700 rounded-lg justify-center items-center gap-2 flex w-1/2" to="/toko/produk/1">
                     <button class="h-9 px-3 py-2 bg-red-700 rounded-lg justify-center items-center gap-2 flex w-full">
-                        <div class="text-white text-sm font-medium leading-tight">Detail</div>
+                        <span class="text-white text-sm font-medium leading-tight">Detail</span>
                     </button>
                 </router-link>
             </div>
