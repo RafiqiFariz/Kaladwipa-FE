@@ -9,7 +9,6 @@ export default {
   theme: {
     extend: {
       screens: {
-        sxsm: '0px',
         xsm: '360px',
         sm: '640px',
         md: '768px',
@@ -20,7 +19,7 @@ export default {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
   ],
 }
 

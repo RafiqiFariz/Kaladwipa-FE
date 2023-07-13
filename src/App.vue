@@ -1,8 +1,6 @@
 <template>
   <ion-app>
-    <ion-header v-if="!$route.meta.hideNavbar">
-      <TheHeader />
-    </ion-header>
+    <TheHeader v-if="!$route.meta.hideNavbar"/>
     <ion-content>
       <ion-router-outlet />
     </ion-content>

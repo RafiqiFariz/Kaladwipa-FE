@@ -1,8 +1,8 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="md:p-8 p-4 w-full h-full lg:flex block bg-neutral-100">
-        <div class="ml-0 lg:w-2/3 w-full m-2">
+      <div class="md:p-6 p-4 w-full h-full lg:flex block bg-neutral-100">
+        <div class="ml-0 lg:w-3/4 w-full m-2">
           <h1 class="font-bold text-center">Keranjang</h1>
           <div
               class="grid md:grid-cols-3 grid-cols-1 bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 mb-4 mt-8"
@@ -34,8 +34,8 @@
             </div>
           </div>
         </div>
-        <div class="m-2 justify-center">
-          <h1 class="font-bold text-center">Total</h1>
+        <div class="m-2 justify-center lg:w-2/4">
+          <h1 class="font-bold text-center">Ringkasan Belanja</h1>
           <div class="bg-white rounded-lg shadow mt-8">
             <div class="relative overflow-x-auto items-center p-8">
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -50,7 +50,7 @@
                 <tr v-for="item in carts" :key="item.id">
                   <td>
                     <div class="flex items-center py-3">
-                      <img :src="item.img" class="w-16 h-16 object-cover rounded-full p-2" :alt="item.produk"/>
+                      <img :src="item.img" class="w-16 h-16 rounded-full p-2 object-cover aspect-w-1 aspect-h-1" :alt="item.produk"/>
                       <div>
                         <p class="text-black">
                           {{ item.produk }}

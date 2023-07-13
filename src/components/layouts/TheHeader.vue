@@ -1,8 +1,8 @@
 <template>
-  <nav class="w-full md:h-[90px] p-4 md:p-6 bg-white flex-col justify-center items-center inline-flex z-10">
-    <div class="w-full justify-center items-center gap-8 inline-flex">
-      <router-link className="md:w-1/12 md:h-3/4 w-1/4" to="/homepage">
-        <img class="w-full h-full" :src="logo" alt="logo"/>
+  <nav class="w-full md:h-[90px] p-4 md:p-6 bg-white flex-col justify-center items-center inline-flex z-10 shadow">
+    <div class="w-full justify-center items-center gap-4 inline-flex">
+      <router-link className="flex items-center md:w-2/12 md:h-2/12" to="/">
+        <img class="h-full" :src="logo" alt="logo"/>
       </router-link>
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
         <div class="flex-col justify-center items-start inline-flex">
@@ -43,8 +43,8 @@
                  class="absolute top-7 right-4 z-50 my-1 text-base list-none border border-gray-100 bg-white rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                  id="user-dropdown">
               <div class="px-2 py-1 whitespace-nowrap">
-                <a href="/upload-karya"
-                   class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                <router-link to="/upload-karya"
+                             class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                   <svg class="w-[14px] h-[14px]" aria-hidden="true"
                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path
@@ -54,10 +54,10 @@
                   </svg>
 
                   <span class="ml-1 text-sm">Unggah Karya Baru</span>
-                </a>
+                </router-link>
               </div>
               <div class="px-2 py-1 whitespace-nowrap">
-                <a href="/upload-produk"
+                <router-link to="/upload-produk"
                    class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                   <svg class="w-[14px] h-[14px] text-gray-800 dark:text-white" aria-hidden="true"
                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
@@ -68,7 +68,7 @@
                   </svg>
 
                   <span class="ml-1 text-sm">Buat Produk Baru</span>
-                </a>
+                </router-link>
               </div>
             </div>
             <button type="button" id="upload-button" @click="toggleUploadDropdown">
@@ -89,13 +89,13 @@
             </svg>
           </div>
           <div class="lg:w-6 lg:h-6 w-4 h-4 relative  md:flex hidden">
-            <a href="/keranjang">
+            <router-link to="/keranjang">
               <svg class="lg:w-6 lg:h-6 w-4 h-4 text-gray-500 dark:text-white" aria-hidden="true"
                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
                 <path
                     d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
               </svg>
-            </a>
+            </router-link>
           </div>
           <div class="lg:w-full md:w-8 w-full">
             <button type="button"
@@ -123,32 +123,32 @@
               </div>
               <ul class="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <a href="/profile"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil</a>
+                  <router-link to="/profile"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil</router-link>
                 </li>
                 <li class="md:hidden block">
-                  <a href="/jelajahi"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Jelajahi</a>
+                  <router-link to="/jelajahi"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Jelajahi</router-link>
                 </li>
                 <li class="md:hidden block">
-                  <a href="/toko"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Toko</a>
+                  <router-link to="/toko"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Toko</router-link>
                 </li>
                 <li>
-                  <a href="/settings/profile"
+                  <router-link to="/settings/profile"
                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pengaturan
-                    Akun</a>
+                    Akun</router-link>
                 </li>
                 <li>
-                  <a href="/affiliasi"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Afiliasi</a>
+                  <router-link to="/affiliasi"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Afiliasi</router-link>
                 </li>
                 <li>
-                  <a href="#"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">Penghasilan</a>
+                  <router-link to="#"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">Penghasilan</router-link>
                 </li>
                 <li class="md:hidden block">
-                  <a href="/upload-karya"
+                  <router-link to="/upload-karya"
                      class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     <svg class="w-[14px] h-[14px] dark:text-white" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -158,10 +158,10 @@
                       />
                     </svg>
                     <span class="ml-1 text-md">Unggah Karya Baru</span>
-                  </a>
+                  </router-link>
                 </li>
                 <li class="md:hidden block">
-                  <a href="/upload-produk"
+                  <router-link to="/upload-produk"
                      class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg class="w-[14px] h-[14px]" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
@@ -172,10 +172,10 @@
                       />
                     </svg>
                     <span class="ml-1 text-md">Unggah Produk Baru</span>
-                  </a>
+                  </router-link>
                 </li>
                 <li>
-                  <a href="/wishlist"
+                  <router-link to="/wishlist"
                      class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     <svg width="14" height="14" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -183,10 +183,10 @@
                           fill="#9CA3AF"/>
                     </svg>
                     <span class="ml-1 text-md">Wishlistku</span>
-                  </a>
+                  </router-link>
                 </li>
                 <li>
-                  <a href="#"
+                  <router-link to="#"
                      class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_656_18365)">
@@ -201,10 +201,10 @@
                       </defs>
                     </svg>
                     <span class="ml-1 text-md">Koleksiku</span>
-                  </a>
+                  </router-link>
                 </li>
                 <li class="md:hidden block">
-                  <a href="#"
+                  <router-link to="#"
                      class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     <svg class="lg:w-6 lg:h-6 w-4 h-4" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
@@ -214,10 +214,10 @@
                       />
                     </svg>
                     <span class="ml-1 text-md">Notifikasi</span>
-                  </a>
+                  </router-link>
                 </li>
                 <li class="md:hidden block">
-                  <a href="/keranjang"
+                  <router-link to="/keranjang"
                      class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg class="lg:w-6 lg:h-6 w-4 h-4 text-gray-500 dark:text-white" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
@@ -227,12 +227,12 @@
                       />
                     </svg>
                     <span class="ml-1 text-md">Keranjang</span>
-                  </a>
+                  </router-link>
                 </li>
                 <li>
-                  <a href="#"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                    out</a>
+                  <router-link to="#"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out
+                  </router-link>
                 </li>
               </ul>
             </div>
@@ -256,12 +256,23 @@ export default {
       showUploadDropdown: false,
     };
   },
+  mounted() {
+    window.addEventListener("click", this.closeDropdownOnClickOutside);
+  },
+  beforeUnmount() {
+    window.removeEventListener("click", this.closeDropdownOnClickOutside);
+  },
   methods: {
     toggleNavbarDropdown() {
       this.showNavbarDropdown = !this.showNavbarDropdown;
     },
     toggleUploadDropdown() {
       this.showUploadDropdown = !this.showUploadDropdown;
+    },
+    closeDropdownOnClickOutside(event) {
+      if (!this.$el.contains(event.target)) {
+        this.showUploadDropdown = this.showNavbarDropdown = false;
+      }
     },
   },
 };

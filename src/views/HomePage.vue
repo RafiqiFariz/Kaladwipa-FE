@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="md:p-8 p-4 w-full bg-neutral-100">
+      <div class="md:p-6 p-4 w-full bg-neutral-100">
         <Slider :data="sliderData"/>
         <div class="sm:mt-0 mt-8">
           <button
@@ -110,51 +110,60 @@
           </div>
         </div>
         <div class="relative mt-4">
-          <displayImage :images="gallery"/>
-          <div
+          <DisplayImage :data="chunkedItems"/>
+          <!-- Tab Navigasi -->
+          <ul
               class="sm:flex hidden fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-auto h-12 px-2.5 py-1 bg-white rounded-lg shadow justify-start items-center gap-8 inline-flex"
           >
-            <button
-                type="button"
-                class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
-                :class="{ 'bg-red-700 text-white': isActive === 'komunitas' }"
-                @click="setActiveTab('komunitas')"
-            >
+            <li>
+              <button
+                  type="button"
+                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  :class="{ 'bg-red-700 text-white': isActive === 'komunitas' }"
+                  @click="setActiveTab('komunitas')"
+              >
               <span class="text-[12px] font-normal leading-none">
                 Komunitas
               </span>
-            </button>
-            <button
-                type="button"
-                class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
-                :class="{ 'bg-red-700 text-white': isActive === 'trending' }"
-                @click="setActiveTab('trending')"
-            >
+              </button>
+            </li>
+            <li>
+              <button
+                  type="button"
+                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  :class="{ 'bg-red-700 text-white': isActive === 'trending' }"
+                  @click="setActiveTab('trending')"
+              >
               <span class="text-[12px] font-normal leading-none">
                 Trending
               </span>
-            </button>
-            <button
-                type="button"
-                class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
-                :class="{ 'bg-red-700 text-white': isActive === 'terbaru' }"
-                @click="setActiveTab('terbaru')"
-            >
+              </button>
+            </li>
+            <li>
+              <button
+                  type="button"
+                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  :class="{ 'bg-red-700 text-white': isActive === 'terbaru' }"
+                  @click="setActiveTab('terbaru')"
+              >
               <span class="text-[12px] font-normal leading-none">
                 Terbaru
               </span>
-            </button>
-            <button
-                type="button"
-                class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
-                :class="{ 'bg-red-700 text-white': isActive === 'diikuti' }"
-                @click="setActiveTab('diikuti')"
-            >
+              </button>
+            </li>
+            <li>
+              <button
+                  type="button"
+                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  :class="{ 'bg-red-700 text-white': isActive === 'diikuti' }"
+                  @click="setActiveTab('diikuti')"
+              >
               <span class="text-[12px] font-normal leading-none">
                 Diikuti
               </span>
-            </button>
-          </div>
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </ion-content>
@@ -164,23 +173,28 @@
 <script>
 import {IonPage, IonContent} from "@ionic/vue";
 import Slider from "@/components/common/Slider.vue";
-import displayImage from "@/components/common/DisplayImage.vue";
-import {images as gallery, sliderData} from "../../constant/dummy-data.js";
+import DisplayImage from "@/components/common/DisplayImage.vue";
+import {images, sliderData} from "../../constant/dummy-data.js";
+import * as _ from 'lodash';
 
 export default {
   components: {
     IonPage,
     IonContent,
     Slider,
-    displayImage,
+    DisplayImage,
   },
   data() {
     return {
       isActive: "terbaru",
-      gallery: gallery,
+      images,
+      chunkedItems: [],
       showDropdown: false,
       sliderData
     };
+  },
+  created() {
+    this.chunkedItems = _.shuffle(_.chunk(this.images, 5));
   },
   methods: {
     setActiveTab(tab) {
