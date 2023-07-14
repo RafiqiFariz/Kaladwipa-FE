@@ -7,42 +7,49 @@ const routes = [
   },
   {
     path: "/homepage",
+    name: "homepage",
     component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/jelajahi",
+    name: "jelajahi.index",
     component: () => import("@/views/HomePage.vue"),
   },
   {
     path: "/jelajahi/detail/:id",
-    component: () => import("@/views/DetailContentPage.vue"),
+    name: "jelajahi.show",
+    component: () => import("@/views/ShowGalleryPage.vue"),
   },
   {
     path: "/artikel/detail/:id",
-    component: () => import("@/views/ArtikelPage.vue"),
+    name: "artikel.show",
+    component: () => import("@/views/ArticlePage.vue"),
   },
   {
     path: "/toko",
-    component: () => import("@/views/TokoPage.vue"),
+    name: "toko.index",
+    component: () => import("@/views/ShopPage.vue"),
   },
   {
     path: "/toko/produk/:id",
-    component: () => import("@/views/DetailBarang.vue"),
+    name: "toko.show",
+    component: () => import("@/views/ShowProductPage.vue"),
   },
   {
-    path: "/affiliasi",
+    path: "/afiliasi",
     component: () => import("@/views/AffiliationPage.vue"),
     children: [
       {
-        name: "affiliate-stats",
         path: ":affiliateId",
+        name: "affiliate-stats",
         component: () =>
           import("@/components/affiliate/AffiliateStatistics.vue"),
       },
     ],
   },
   {
-    path: "/profile",
+    path: "/profil",
+    name: "profil.index",
     component: () => import("@/views/ProfilePage.vue"),
   },
   {
@@ -60,15 +67,15 @@ const routes = [
     },
   },
   {
-    path: "/settings",
+    path: "/pengaturan",
     component: () => import("@/views/SettingsPage.vue"),
     children: [
       {
-        path: "profile",
+        path: "profil",
         component: () => import("@/components/settings/ProfileSettings.vue"),
       },
       {
-        path: "account",
+        path: "akun",
         component: () => import("@/components/settings/AccountSettings.vue"),
       },
     ],
@@ -79,26 +86,26 @@ const routes = [
   },
   {
     path: "/keranjang",
-    component: () => import("@/views/KeranjangPage.vue"),
+    component: () => import("@/views/CartPage.vue"),
   },
   {
-    path: "/article",
-    component: () => import("@/views/ArtikelPage.vue"),
+    path: "/artikel",
+    component: () => import("@/views/ArticlePage.vue"),
     children: [
       {
-        name: "article-content",
         path: ":articleId",
+        name: "artikel.show",
         component: () => import("@/components/article/TheArticle.vue"),
       },
     ],
   },
   {
     path: "/upload-karya",
-    component: () => import("@/views/UploadKaryaPage.vue"),
+    component: () => import("@/views/UploadArtworkPage.vue"),
   },
   {
     path: "/upload-produk",
-    component: () => import("@/views/UploadProdukPage.vue"),
+    component: () => import("@/views/UploadProductPage.vue"),
   },
 ];
 

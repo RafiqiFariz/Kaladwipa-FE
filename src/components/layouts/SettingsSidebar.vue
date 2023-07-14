@@ -11,14 +11,14 @@
         <li>
           <div
             :class="{
-              'bg-red-100': isActive('/settings/profile'),
-              'hover:bg-red-300': isActive('/settings/profile'),
-              'hover:bg-gray-100': !isActive('/settings/profile'),
+              'bg-red-100': isActive('/pengaturan/profil'),
+              'hover:bg-red-300': isActive('/pengaturan/profil'),
+              'hover:bg-gray-100': !isActive('/pengaturan/profil'),
             }"
             class="group rounded-lg"
           >
-            <a
-              href="/settings/profile"
+            <router-link
+              to="/pengaturan/profil"
               class="flex items-center p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700"
             >
               <svg
@@ -38,20 +38,20 @@
                 />
               </svg>
               <span class="ml-3">Profil</span>
-            </a>
+            </router-link>
           </div>
         </li>
         <li>
           <div
             :class="{
-              'bg-red-100': isActive('/settings/account'),
-              'hover:bg-red-300': isActive('/settings/account'),
-              'hover:bg-gray-100': !isActive('/settings/account'),
+              'bg-red-100': isActive('/pengaturan/akun'),
+              'hover:bg-red-300': isActive('/pengaturan/akun'),
+              'hover:bg-gray-100': !isActive('/pengaturan/akun'),
             }"
             class="group rounded-lg"
           >
             <a
-              href="/settings/account"
+              href="/pengaturan/akun"
               class="flex items-center p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700"
             >
               <svg

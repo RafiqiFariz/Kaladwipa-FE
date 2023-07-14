@@ -172,8 +172,8 @@
 
 <script>
 import {IonPage, IonContent} from "@ionic/vue";
-import Slider from "@/components/common/Slider.vue";
-import DisplayImage from "@/components/common/DisplayImage.vue";
+import Slider from "@/components/commons/Slider.vue";
+import DisplayImage from "@/components/commons/DisplayImage.vue";
 import {images, sliderData} from "../../constant/dummy-data.js";
 import * as _ from 'lodash';
 

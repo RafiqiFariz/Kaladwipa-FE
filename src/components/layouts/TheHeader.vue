@@ -7,14 +7,20 @@
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
         <div class="flex-col justify-center items-start inline-flex">
           <router-link to="/jelajahi">
-            <div class="text-center text-gray-900 text-[16px] font-medium leading-normal">
+            <div
+                class="text-center text-gray-900 text-base font-medium leading-normal"
+                :class="{[activeClass] : isActive('jelajahi.index')}"
+            >
               Jelajahi
             </div>
           </router-link>
         </div>
         <div class="flex-col justify-center items-start inline-flex">
           <router-link to="/toko">
-            <div class="text-center text-gray-900 text-[16px] font-medium leading-normal">
+            <div
+                class="text-center text-gray-900 text-base font-medium leading-normal"
+                :class="{[activeClass] : isActive('toko.index')}"
+            >
               Toko
             </div>
           </router-link>
@@ -58,7 +64,7 @@
               </div>
               <div class="px-2 py-1 whitespace-nowrap">
                 <router-link to="/upload-produk"
-                   class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                             class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                   <svg class="w-[14px] h-[14px] text-gray-800 dark:text-white" aria-hidden="true"
                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                     <path fill="currentColor"
@@ -123,33 +129,45 @@
               </div>
               <ul class="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <router-link to="/profile"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil</router-link>
+                  <router-link to="/profil"
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    Profil
+                  </router-link>
                 </li>
                 <li class="md:hidden block">
                   <router-link to="/jelajahi"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Jelajahi</router-link>
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    Jelajahi
+                  </router-link>
                 </li>
                 <li class="md:hidden block">
                   <router-link to="/toko"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Toko</router-link>
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    Toko
+                  </router-link>
                 </li>
                 <li>
-                  <router-link to="/settings/profile"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pengaturan
-                    Akun</router-link>
+                  <router-link to="/pengaturan/profil"
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    Pengaturan
+                    Akun
+                  </router-link>
                 </li>
                 <li>
-                  <router-link to="/affiliasi"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Afiliasi</router-link>
+                  <router-link to="/afiliasi"
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    Afiliasi
+                  </router-link>
                 </li>
                 <li>
                   <router-link to="#"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">Penghasilan</router-link>
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
+                    Penghasilan
+                  </router-link>
                 </li>
                 <li class="md:hidden block">
                   <router-link to="/upload-karya"
-                     class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     <svg class="w-[14px] h-[14px] dark:text-white" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                       <path
@@ -162,7 +180,7 @@
                 </li>
                 <li class="md:hidden block">
                   <router-link to="/upload-produk"
-                     class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg class="w-[14px] h-[14px]" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                       <path fill="#9CA3AF"
@@ -176,7 +194,7 @@
                 </li>
                 <li>
                   <router-link to="/wishlist"
-                     class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     <svg width="14" height="14" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                           d="M13.5227 2.84191C13.1714 1.52991 12.1374 0.495915 10.8261 0.144581C9.5414 -0.198085 8.17674 0.149914 7.0014 1.10258C6.14407 0.401914 5.19407 0.0225813 4.22407 -8.53367e-05C3.17007 -0.014752 2.18674 0.371248 1.4454 1.11191C0.0514029 2.50591 -0.252597 5.02325 1.86207 7.13791L6.52874 11.8046C6.65874 11.9346 6.8294 11.9999 7.00007 11.9999C7.17074 11.9999 7.3414 11.9346 7.4714 11.8046L12.1381 7.13791C13.4087 5.86725 13.9134 4.30125 13.5227 2.84191Z"
@@ -187,7 +205,7 @@
                 </li>
                 <li>
                   <router-link to="#"
-                     class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_656_18365)">
                         <path
@@ -205,7 +223,7 @@
                 </li>
                 <li class="md:hidden block">
                   <router-link to="#"
-                     class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     <svg class="lg:w-6 lg:h-6 w-4 h-4" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
                       <path
@@ -218,7 +236,7 @@
                 </li>
                 <li class="md:hidden block">
                   <router-link to="/keranjang"
-                     class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg class="lg:w-6 lg:h-6 w-4 h-4 text-gray-500 dark:text-white" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
                       <path
@@ -231,7 +249,8 @@
                 </li>
                 <li>
                   <router-link to="#"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    Sign out
                   </router-link>
                 </li>
               </ul>
@@ -254,6 +273,7 @@ export default {
       logo: "../../../resources/logo.png",
       showNavbarDropdown: false,
       showUploadDropdown: false,
+      activeClass: 'border-b-2 border-solid border-red-700',
     };
   },
   mounted() {
@@ -274,6 +294,9 @@ export default {
         this.showUploadDropdown = this.showNavbarDropdown = false;
       }
     },
+    isActive(routeName) {
+      return this.$route.name === routeName;
+    }
   },
 };
 </script>

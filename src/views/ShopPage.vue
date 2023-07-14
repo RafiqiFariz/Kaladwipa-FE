@@ -2,13 +2,13 @@
   <ion-page>
     <ion-content :fullscreen="false">
       <div class="md:p-6 p-4">
-        <div class="md:flex md:flex-auto block md:space-y-0 space-y-2 md:gap-4 gap-2">
+        <div class="md:flex md:flex-auto block md:space-y-0 space-y-2 gap-2">
           <SelectBox :isActive="dataKategori.kategori === 'Produk Digital'" name="Produk Digital" :img="image"
             @click="pilihKategori({ kategori: 'Produk Digital', subKategori: '', kategoriKecil: [] })" />
           <SelectBox :isActive="dataKategori.kategori === 'Produk Fisik'" name="Produk Fisik" :img="image"
             @click="pilihKategori({ kategori: 'Produk Fisik', subKategori: '', kategoriKecil: [] })" />
         </div>
-        <div class="grid md:grid-cols-4 grid-cols-2 md:space-y-0 md:gap-4 gap-2 py-2">
+        <div class="grid md:grid-cols-4 grid-cols-2 md:space-y-0 gap-2 py-2">
           <SelectBox :isActive="dataKategori.subKategori === 'Lukisan'" styling="sm:text-xl text-lg" name="Lukisan"
             :img="image"
             @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Lukisan', kategoriKecil: [] })" />
@@ -48,35 +48,35 @@
                     </svg>
                   </div>
                   <input type="search" id="default-search"
-                    class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Cari produk..." required>
                 </div>
                 <div class="w-full md:block hidden">
                   <div
-                    class="w-full py-2 bg-white justify-between px-4 items-center gap-8 inline-flex rounded-lg shadow-md">
-                    <button class="px-3 py-1 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
+                    class="w-full py-1.5 bg-white justify-between px-2.5 items-center gap-8 inline-flex rounded-lg shadow-md">
+                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
                       data-tabs-target="#Trending" type="button" role="tab" aria-controls="Trending"
                       aria-selected="false">
-                      <div class="text-gray-500 text-[14px] font-medium leading-tight">Trending</div>
+                      <div class="text-gray-500 text-sm font-medium leading-tight">Trending</div>
                     </button>
-                    <button class="px-3 py-1 rounded-md justify-start items-center gap-1.5 flex" id="Diskon-tab"
+                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="Diskon-tab"
                       data-tabs-target="#Diskon" type="button" role="tab" aria-controls="Diskon" aria-selected="false">
-                      <div class="text-gray-500 text-[14px] font-medium leading-tight">Diskon</div>
+                      <div class="text-gray-500 text-sm font-medium leading-tight">Diskon</div>
                     </button>
-                    <button class="px-3 py-1 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
+                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
                       data-tabs-target="#Trending" type="button" role="tab" aria-controls="Trending"
                       aria-selected="false">
-                      <div class="text-gray-500 text-[14px] font-medium leading-tight">Trending</div>
+                      <div class="text-gray-500 text-sm font-medium leading-tight">Trending</div>
                     </button>
-                    <button class="px-3 py-1 rounded-md justify-start items-center gap-1.5 flex" id="tentang-saya-tab"
+                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="tentang-saya-tab"
                       data-tabs-target="#tentang-saya" type="button" role="tab" aria-controls="tentang-saya"
                       aria-selected="false">
-                      <div class="text-gray-500 text-[14px] font-medium leading-tight">Tentang Saya</div>
+                      <div class="text-gray-500 text-sm font-medium leading-tight">Tentang Saya</div>
                     </button>
-                    <button class="px-4 py-1 bg-red-700 rounded-md justify-center items-center gap-1.5 flex"
+                    <button class="px-4 py-3 bg-red-700 rounded-md justify-center items-center gap-1.5 flex"
                       id="disukai-tab" data-tabs-target="#disukai" type="button" role="tab" aria-controls="disukai"
                       aria-selected="false">
-                      <div class="text-white text-[14px] font-medium leading-tight">Disukai</div>
+                      <div class="text-white text-sm font-medium leading-tight">Disukai</div>
                     </button>
                   </div>
                 </div>
@@ -102,9 +102,9 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import image from '../../resources/throne_room.png'
-import SelectBox from '@/components/common/SelectBox.vue';
-import Button from '@/components/common/Button.vue';
-import Card from '@/components/common/Card.vue';
+import SelectBox from '@/components/commons/SelectBox.vue';
+import Button from '@/components/commons/Button.vue';
+import Card from '@/components/commons/Card.vue';
 import yae from '../../resources/dummy_galleries/ui_uiiiiiiiii-1-small.jpg'
 export default {
   components: {

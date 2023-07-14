@@ -1,7 +1,7 @@
 <template>
     <button class='w-full h-full px-4 py-16 flex-col justify-center items-center gap-2.5 inline-flex relative'>
         <span class="self-stretch h-9 flex-col justify-start items-center gap-6 flex">
-            <span :class="['self-stretch text-center text-white font-bold leading-6 relative z-30', styling]">{{ name }}
+            <span :class="['self-stretch text-center text-white font-bold relative z-30', styling]">{{ name }}
             </span>
         </span>
         <span :class="{
