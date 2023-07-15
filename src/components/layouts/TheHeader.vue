@@ -16,7 +16,7 @@
             </div>
           </router-link>
         </div>
-        <div class="flex-col justify-center items-start inline-flex">
+        <div class="flex-col justify-center items-start inline-flex mr-6">
           <router-link to="/toko">
             <div
                 class="text-center text-gray-900 text-base font-medium leading-normal"
@@ -26,7 +26,6 @@
             </div>
           </router-link>
         </div>
-        <div></div>
       </div>
       <form class="flex items-center w-full">
         <label for="simple-search" class="sr-only">Search</label>
@@ -48,7 +47,9 @@
           <div class="w-6 h-6 relative md:flex hidden" ref="dropdownUpload">
             <div v-if="showUploadDropdown"
                  class="absolute top-7 right-4 z-50 my-1 text-base list-none border border-gray-100 bg-white rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                 id="user-dropdown">
+                 id="user-dropdown"
+                 @click="closeDropdown"
+            >
               <div class="px-2 py-1 whitespace-nowrap">
                 <router-link to="/upload-karya"
                              class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
@@ -95,7 +96,7 @@
                   d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z"/>
             </svg>
           </div>
-          <div class="lg:w-6 lg:h-6 w-4 h-4 relative  md:flex hidden">
+          <div class="lg:w-6 lg:h-6 w-4 h-4 relative md:flex hidden">
             <router-link to="/keranjang">
               <svg class="lg:w-6 lg:h-6 w-4 h-4 text-gray-500 dark:text-white" aria-hidden="true"
                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">

@@ -122,7 +122,7 @@
                   :class="{ 'bg-red-700 text-white': isActive === 'komunitas' }"
                   @click="setActiveTab('komunitas')"
               >
-              <span class="text-[12px] font-normal leading-none">
+              <span class="text-sm font-normal leading-none">
                 Komunitas
               </span>
               </button>
@@ -134,7 +134,7 @@
                   :class="{ 'bg-red-700 text-white': isActive === 'trending' }"
                   @click="setActiveTab('trending')"
               >
-              <span class="text-[12px] font-normal leading-none">
+              <span class="text-sm font-normal leading-none">
                 Trending
               </span>
               </button>
@@ -146,7 +146,7 @@
                   :class="{ 'bg-red-700 text-white': isActive === 'terbaru' }"
                   @click="setActiveTab('terbaru')"
               >
-              <span class="text-[12px] font-normal leading-none">
+              <span class="text-sm font-normal leading-none">
                 Terbaru
               </span>
               </button>
@@ -158,7 +158,7 @@
                   :class="{ 'bg-red-700 text-white': isActive === 'diikuti' }"
                   @click="setActiveTab('diikuti')"
               >
-              <span class="text-[12px] font-normal leading-none">
+              <span class="text-sm font-normal leading-none">
                 Diikuti
               </span>
               </button>
