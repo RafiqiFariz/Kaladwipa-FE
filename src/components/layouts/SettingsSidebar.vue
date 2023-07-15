@@ -1,11 +1,11 @@
 <template>
   <aside
     id="default-sidebar"
-    class="fixed top-8 left-5 z-40 w-64 transition-transform -translate-x-full sm:translate-x-0"
+    class="fixed z-40 w-64 md:block hidden"
     aria-label="Sidebar"
   >
     <div
-      class="h-full px-3 py-4 overflow-hidden bg-white dark:bg-gray-800 rounded"
+      class="px-3 py-4 overflow-hidden bg-white dark:bg-gray-800 rounded"
     >
       <ul class="space-y-2 font-medium">
         <li>
@@ -50,8 +50,8 @@
             }"
             class="group rounded-lg"
           >
-            <a
-              href="/pengaturan/akun"
+            <router-link
+              to="/pengaturan/akun"
               class="flex items-center p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700"
             >
               <svg
@@ -75,7 +75,7 @@
                 />
               </svg>
               <span class="ml-3">Akun</span>
-            </a>
+            </router-link>
           </div>
         </li>
       </ul>

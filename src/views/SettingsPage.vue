@@ -1,9 +1,9 @@
 <template>
   <ion-page>
     <ion-content class="ion-content-fullscreen">
-      <div class="p-8 w-full bg-neutral-100">
+      <div class="md:p-6 p-4 w-full bg-neutral-100">
         <settings-sidebar />
-        <div class="sm:ml-64 ml-0 bg-neutral-100">
+        <div class="md:ml-64 md:pl-4 ml-0 bg-neutral-100">
           <router-view></router-view>
         </div>
       </div>

@@ -1,10 +1,10 @@
 <template>
-  <div class="p-4 bg-white rounded items-center mb-4">
-    <div class="text-black text-4xl font-medium leading-10 text-center">
+  <div class="md:p-4 p-2 bg-white rounded items-center mb-4">
+    <div class="text-black md:text-4xl text-2xl font-medium leading-10 text-center">
       Profil
     </div>
   </div>
-  <div class="p-5 h-full bg-white rounded">
+  <div class="md:p-5 p-4 h-full bg-white rounded">
     <form>
       <div class="md:flex block">
         <div class="md:w-2/3 w-full">
@@ -51,7 +51,7 @@
             />
           </div>
         </div>
-        <div class="md:w-1/3 w-full pl-5">
+        <div class="md:w-1/3 w-full md:pl-5">
           <h4 class="font-medium pb-2 m-0">Foto Profil</h4>
           <div
             class="bg-gray-50 flex flex-col items-center pb-5 rounded p-5 shadow mb-5"
