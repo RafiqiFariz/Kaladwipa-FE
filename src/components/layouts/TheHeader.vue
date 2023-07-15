@@ -1,8 +1,9 @@
 <template>
-  <nav class="w-full md:h-[90px] p-4 md:p-6 bg-white flex-col justify-center items-center inline-flex z-10 shadow">
+  <nav class="w-full md:h-[90px] p-4 md:p-6 bg-white flex-col justify-center items-center inline-flex z-10 shadow"
+       ref="navbar">
     <div class="w-full justify-center items-center gap-4 inline-flex">
-      <router-link className="flex items-center md:w-2/12 md:h-2/12" to="/">
-        <img class="h-full" :src="logo" alt="logo"/>
+      <router-link className="md:w-2/12" to="/">
+        <img :src="logo" alt="logo"/>
       </router-link>
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
         <div class="flex-col justify-center items-start inline-flex">
@@ -44,7 +45,7 @@
       </form>
       <div class="justify-end items-center flex w-1/4">
         <div class="justify-start items-center gap-5 flex">
-          <div class="w-6 h-6 relative md:flex hidden">
+          <div class="w-6 h-6 relative md:flex hidden" ref="dropdownUpload">
             <div v-if="showUploadDropdown"
                  class="absolute top-7 right-4 z-50 my-1 text-base list-none border border-gray-100 bg-white rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                  id="user-dropdown">
@@ -103,7 +104,7 @@
               </svg>
             </router-link>
           </div>
-          <div class="lg:w-full md:w-8 w-full">
+          <div class="lg:w-full md:w-8 w-full" ref="dropdownUser">
             <button type="button"
                     class="flex mr-3 text-sm md:bg-gray-800 rounded-full md:mr-0 md:focus:ring-4 md:focus:ring-gray-300 mr-auto"
                     id="user-menu-button" aria-expanded="false" @click="toggleNavbarDropdown">
@@ -119,7 +120,8 @@
             <!-- dropdown menu -->
             <div v-if="showNavbarDropdown"
                  class="absolute top-12 right-8 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                 id="user-dropdown">
+                 id="user-dropdown"
+            >
               <div class="px-4 py-3 flex gap-2 justify-center items-center">
                 <img class="w-8 h-8 rounded-full md:hidden block" src="/resources/icon.png" alt="user photo"/>
                 <div>
@@ -285,13 +287,27 @@ export default {
   methods: {
     toggleNavbarDropdown() {
       this.showNavbarDropdown = !this.showNavbarDropdown;
+      this.showUploadDropdown = !this.showNavbarDropdown;
     },
     toggleUploadDropdown() {
       this.showUploadDropdown = !this.showUploadDropdown;
+      this.showNavbarDropdown = !this.showUploadDropdown;
     },
     closeDropdownOnClickOutside(event) {
-      if (!this.$el.contains(event.target)) {
+      const navbar = this.$refs.navbar;
+      const dropdownUpload = this.$refs.dropdownUpload;
+      const dropdownUser = this.$refs.dropdownUser;
+
+      if (!navbar.contains(event.target)) {
         this.showUploadDropdown = this.showNavbarDropdown = false;
+      }
+
+      if (!dropdownUser?.contains(event.target)) {
+        this.showNavbarDropdown = false;
+      }
+
+      if (!dropdownUpload.contains(event.target)) {
+        this.showUploadDropdown = false;
       }
     },
     isActive(routeName) {
