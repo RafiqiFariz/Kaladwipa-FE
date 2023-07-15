@@ -1,10 +1,9 @@
 <template>
-  <div class="p-4 bg-white rounded items-center">
+  <div class="p-4 bg-white rounded items-center mb-4">
     <div class="text-black text-4xl font-medium leading-10 text-center">
       Profil
     </div>
   </div>
-  <div class="p-2"></div>
   <div class="p-5 h-full bg-white rounded">
     <form>
       <div class="md:flex block">
@@ -27,7 +26,7 @@
             <label
               for="kutipan"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Kutipan (Quote) *</label
+              >Kutipan *</label
             >
             <input
               type="text"
@@ -48,20 +47,6 @@
               id="kota"
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light"
               placeholder="Masukkan Kota"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="negara"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Negara *</label
-            >
-            <input
-              type="text"
-              id="negara"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light"
-              placeholder="Masukkan Negara"
               required
             />
           </div>
@@ -136,22 +121,6 @@
         class="md:mt-0 mt-10 md:w-auto w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:ring-red-700 md:justify-start justify-center"
       >
         Simpan Perubahan
-        <svg
-          class="ml-2"
-          width="17"
-          height="17"
-          viewBox="0 0 20 21"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4.6549 3.48816C4.34234 3.80072 4.16675 4.22464 4.16675 4.66667V18L10.0001 15.0833L15.8334 18V4.66667C15.8334 4.22464 15.6578 3.80072 15.3453 3.48816C15.0327 3.17559 14.6088 3 14.1667 3H5.83341C5.39139 3 4.96746 3.17559 4.6549 3.48816Z"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
       </button>
     </form>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content class="ion-content-fullscreen">
-      <div class="p-8 w-full md:h-[130%] h-[150%] bg-neutral-100">
+      <div class="p-8 w-full bg-neutral-100">
         <settings-sidebar />
         <div class="sm:ml-64 ml-0 bg-neutral-100">
           <router-view></router-view>
