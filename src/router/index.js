@@ -3,11 +3,11 @@ import { createRouter, createWebHistory } from "@ionic/vue-router";
 const routes = [
   {
     path: "/",
-    redirect: "homepage",
+    redirect: "home",
   },
   {
-    path: "/homepage",
-    name: "homepage",
+    path: "/home",
+    name: "home",
     component: () => import("@/views/HomePage.vue"),
   },
   {
@@ -54,6 +54,7 @@ const routes = [
   },
   {
     path: "/login",
+    name: "login",
     component: () => import("@/views/LoginPage.vue"),
     meta: {
       hideNavbar: true,
@@ -61,6 +62,7 @@ const routes = [
   },
   {
     path: "/register",
+    name: "register",
     component: () => import("@/views/RegisterPage.vue"),
     meta: {
       hideNavbar: true,
