@@ -7,23 +7,21 @@
       </router-link>
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
         <div class="flex-col justify-center items-start inline-flex">
-          <router-link to="/jelajahi">
-            <div
-                class="text-center text-gray-900 text-base font-medium leading-normal"
-                :class="{[activeClass] : isActive('jelajahi.index')}"
-            >
-              Jelajahi
-            </div>
+          <router-link
+              to="/jelajahi"
+              class="text-center text-gray-900 text-base font-medium leading-normal"
+              :class="{[activeClass] : isActive('jelajahi.index')}"
+          >
+            Jelajahi
           </router-link>
         </div>
         <div class="flex-col justify-center items-start inline-flex mr-6">
-          <router-link to="/toko">
-            <div
-                class="text-center text-gray-900 text-base font-medium leading-normal"
-                :class="{[activeClass] : isActive('toko.index')}"
-            >
-              Toko
-            </div>
+          <router-link
+              to="/toko"
+              class="text-center text-gray-900 text-base font-medium leading-normal"
+              :class="{[activeClass] : isActive('toko.index')}"
+          >
+            Toko
           </router-link>
         </div>
       </div>
@@ -43,7 +41,7 @@
         </div>
       </form>
       <div class="justify-end items-center flex w-1/4">
-        <div class="justify-start items-center gap-5 flex">
+        <div class="justify-start items-center gap-5 flex" v-if="authStore.user">
           <div class="w-6 h-6 relative md:flex hidden" ref="dropdownUpload">
             <div v-if="showUploadDropdown"
                  class="absolute top-7 right-4 z-50 my-1 text-base list-none border border-gray-100 bg-white rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
@@ -126,8 +124,9 @@
               <div class="px-4 py-3 flex gap-2 justify-center items-center">
                 <img class="w-8 h-8 rounded-full md:hidden block" src="/resources/icon.png" alt="user photo"/>
                 <div>
-                  <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                  <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                  <span class="block text-sm text-gray-900 dark:text-white">{{ authStore.user?.name }}</span>
+                  <span
+                      class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ authStore.user?.email }}</span>
                 </div>
               </div>
               <ul class="py-2" aria-labelledby="user-menu-button" @click="closeDropdown">
@@ -251,14 +250,25 @@
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="#"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                    Sign out
-                  </router-link>
+                  <button @click="authStore.logout"
+                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white w-full text-left"
+                  >
+                    Keluar
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
+        </div>
+        <div class="justify-center items-center flex gap-4" v-else>
+          <router-link :to="{name: 'login'}"
+                       class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+            Masuk
+          </router-link>
+          <router-link :to="{name: 'register'}"
+                       class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            Daftar
+          </router-link>
         </div>
       </div>
     </div>
@@ -266,6 +276,7 @@
 </template>
 <script>
 import {IonHeader} from "@ionic/vue";
+import {useAuthStore} from "@/stores/auth.js";
 
 export default {
   components: {
@@ -277,10 +288,12 @@ export default {
       showNavbarDropdown: false,
       showUploadDropdown: false,
       activeClass: 'border-b-2 border-solid border-red-700',
+      authStore: useAuthStore(),
     };
   },
   mounted() {
     window.addEventListener("click", this.closeDropdownOnClickOutside);
+    this.authStore.getUser();
   },
   beforeUnmount() {
     window.removeEventListener("click", this.closeDropdownOnClickOutside);
