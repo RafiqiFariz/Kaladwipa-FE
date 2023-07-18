@@ -2,7 +2,7 @@
   <nav class="w-full md:h-[90px] p-4 md:p-6 bg-white flex-col justify-center items-center inline-flex z-10 shadow"
        ref="navbar">
     <div class="w-full justify-center items-center gap-4 inline-flex">
-      <router-link className="md:w-2/12" to="/">
+      <router-link class="md:w-2/12" :to="{name: 'home'}">
         <img :src="logo" alt="logo"/>
       </router-link>
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
