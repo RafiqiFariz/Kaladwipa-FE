@@ -2,8 +2,11 @@
 import image from '../../../resources/throne_room.png';
 import {reactive, ref} from "vue";
 import ReportModal from "@/components/gallery/ReportModal.vue";
+import ShareModal from "@/components/gallery/ShareModal.vue";
 
 const isShowReportModal = ref(false);
+const isShowShareModal = ref(false);
+
 const comments = [
   {
     name: "Bintang Siregar",
@@ -184,7 +187,7 @@ const toggleActionDropdown = (index) => {
           </div>
           <div class="self-stretch justify-start items-start gap-2 grid md:grid-cols-3 grid-cols-1 mt-4">
             <button
-                class="grow shrink basis-0 px-5 py-3 bg-red-700 rounded-lg justify-center items-center gap-2 flex">
+                class="grow shrink basis-0 px-5 py-3 bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg justify-center items-center gap-2 flex">
               <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                    fill="currentColor" viewBox="0 0 18 18">
                 <path
@@ -193,7 +196,7 @@ const toggleActionDropdown = (index) => {
               <span class="text-white text-sm font-medium leading-tight">Suka</span>
             </button>
             <button
-                class="grow shrink basis-0 px-5 py-3 bg-gray-200 rounded-lg justify-center items-center gap-2 flex">
+                class="grow shrink basis-0 px-5 py-3 bg-gray-200 focus:outline-none hover:bg-gray-300 focus:ring-4 focus:ring-gray-200 rounded-lg justify-center items-center gap-2 flex">
               <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                    fill="currentColor" viewBox="0 0 14 20">
                 <path
@@ -202,7 +205,9 @@ const toggleActionDropdown = (index) => {
               <span class="text-black text-sm font-medium leading-tight">Simpan</span>
             </button>
             <button
-                class="grow shrink basis-0 px-5 py-3 bg-gray-200 rounded-lg justify-center items-center gap-2 flex">
+                class="grow shrink basis-0 px-5 py-3 bg-gray-200 focus:outline-none hover:bg-gray-300 focus:ring-4 focus:ring-gray-200 rounded-lg justify-center items-center gap-2 flex"
+                @click="isShowShareModal = true"
+            >
               <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                    fill="currentColor" viewBox="0 0 18 18">
                 <path
@@ -450,6 +455,10 @@ const toggleActionDropdown = (index) => {
     <ReportModal
         :is-show-modal="isShowReportModal"
         @close="isShowReportModal = isShowActionDropdown = false"
+    />
+    <ShareModal
+        :is-show-modal="isShowShareModal"
+        @close="isShowShareModal = false"
     />
   </div>
 </template>

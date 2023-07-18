@@ -3,9 +3,9 @@
     <ion-content>
       <div class="md:p-6 p-4 w-full h-full lg:flex block bg-neutral-100">
         <div class="ml-0 lg:w-3/4 w-full m-2">
-          <h1 class="font-bold text-center">Keranjang</h1>
+          <h1 class="font-bold text-center mb-8">Keranjang</h1>
           <div
-              class="grid md:grid-cols-3 grid-cols-1 bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 mb-4 mt-8"
+              class="grid md:grid-cols-3 grid-cols-1 bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 mb-4 mb-4"
               v-for="item in carts" :key="item.id">
             <div class="md:flex block items-center col-span-2">
               <div class="md:h-32 md:w-64 h-96">
