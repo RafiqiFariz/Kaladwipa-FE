@@ -87,6 +87,15 @@ const routes = [
     component: () => import("@/views/WishlistPage.vue"),
   },
   {
+    path: "/koleksiku",
+    component: () => import("@/views/MyCollectionPage.vue"),
+  },
+  {
+    path: "/koleksi/detail/:id",
+    name: "koleksiku.show",
+    component: () => import("@/views/ShowGalleryPage.vue"),
+  },
+  {
     path: "/keranjang",
     component: () => import("@/views/CartPage.vue"),
   },

@@ -206,7 +206,7 @@
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="#"
+                  <router-link to="/koleksiku"
                                class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white border-b border-gray-300">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_656_18365)">

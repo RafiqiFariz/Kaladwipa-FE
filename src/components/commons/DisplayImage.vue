@@ -3,7 +3,7 @@
     <div v-for="(items, index) in data" :key="index" class="grid gap-4">
       <div v-if="!profile">
         <div v-for="item in items">
-          <router-link :to="item.link">
+          <router-link :to="getModifiedLink(item.link)">
             <VLazyImage class="h-auto max-w-full rounded-lg mb-4" :src="item.url" :alt="item.alt"/>
           </router-link>
         </div>
@@ -14,27 +14,43 @@
     </div>
   </div>
 </template>
-<script setup>
+
+<script>
+import { defineProps } from 'vue';
 import VLazyImage from 'v-lazy-image';
 
-const props = defineProps({
-  data: {
-    type: Array,
-    required: true
+export default {
+  props: {
+    data: {
+      type: Array,
+      required: true
+    },
+    kategori: {
+      type: String
+    },
+    filter: {
+      type: String
+    },
+    className: {
+      type: String,
+    },
+    profile: {
+      type: Boolean,
+      default: false
+    }
   },
-  kategori: {
-    type: String
+  methods: {
+    getModifiedLink(link) {
+      if (this.kategori === 'homepage') {
+        return '/jelajahi' + link;
+      } else if (this.kategori === 'koleksiku') {
+        return '/koleksi' + link;
+      }
+      return link;
+    }
   },
-  filter: {
-    type: String
-  },
-  className: {
-    type: String,
-  },
-  profile: {
-    type: Boolean,
-    default: false
+  components: {
+    VLazyImage
   }
-});
-
+};
 </script>

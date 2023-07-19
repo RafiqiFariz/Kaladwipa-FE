@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="relative mt-4">
-          <DisplayImage :data="chunkedItems"/>
+          <DisplayImage :data="chunkedItems" kategori="homepage"/>
           <!-- Tab Navigasi -->
           <ul
               class="sm:flex hidden fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-auto h-12 px-2.5 py-1 bg-white rounded-lg shadow justify-start items-center gap-8 inline-flex"
