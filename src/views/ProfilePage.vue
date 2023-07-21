@@ -73,7 +73,7 @@
 <script>
 import { IonPage, IonContent } from '@ionic/vue';
 import DisplayImage from '@/components/commons/DisplayImage.vue';
-import bgImage from '../../resources/throne_room.png';
+import bgImage from '../../public/throne_room.png';
 import { images } from '../../constant/dummy-data.js';
 import { onMounted, ref } from 'vue';
 import * as _ from 'lodash';

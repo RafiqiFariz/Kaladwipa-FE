@@ -53,6 +53,7 @@ export const useAuthStore = defineStore("auth", {
         const answer = confirm("Apakah Anda yakin ingin keluar?");
         if (answer) {
           await axios.post('/logout');
+          await this.router.push({name: 'home'});
           this.authUser = null;
         }
       } catch (error) {

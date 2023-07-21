@@ -71,7 +71,7 @@
       </button>
     </div>
     <img
-      src="/resources/dummy_galleries/zhong-zhou-1.jpg"
+      src="/dummy_galleries/zhong-zhou-1.jpg"
       class="rounded-lg mt-2 h-auto w-full justify-center"
      alt="zhong-zhou-1"/>
     <p class="text-justify">

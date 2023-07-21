@@ -7,6 +7,6 @@
 </template>
 <script setup>
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet, IonImg } from '@ionic/vue';
-import logo from '../../../resources/logo.png'
+import logo from '../../../public/logo.png'
 
 </script>

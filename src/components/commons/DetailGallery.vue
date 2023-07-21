@@ -1,5 +1,5 @@
 <script setup>
-import image from '../../../resources/throne_room.png';
+import image from '../../../public/throne_room.png';
 import {reactive, ref} from "vue";
 import ReportModal from "@/components/gallery/ReportModal.vue";
 import ShareModal from "@/components/gallery/ShareModal.vue";

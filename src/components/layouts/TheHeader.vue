@@ -3,7 +3,7 @@
        ref="navbar">
     <div class="w-full justify-center items-center gap-4 inline-flex">
       <router-link class="md:w-2/12" :to="{name: 'home'}">
-        <img :src="logo" alt="logo"/>
+        <img src="/logo.png" alt="logo"/>
       </router-link>
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
         <div class="flex-col justify-center items-start inline-flex">
@@ -108,7 +108,7 @@
                     class="flex mr-3 text-sm md:bg-gray-800 rounded-full md:mr-0 md:focus:ring-4 md:focus:ring-gray-300 mr-auto"
                     id="user-menu-button" aria-expanded="false" @click="toggleNavbarDropdown">
               <span class="sr-only">Open user menu</span>
-              <img class="w-8 h-8 rounded-full md:block hidden" src="/resources/icon.png" alt="user photo"/>
+              <img class="w-8 h-8 rounded-full md:block hidden" src="/icon.png" alt="user photo"/>
               <!-- hamburger icon -->
               <svg class="w-6 h-6 md:hidden block text-gray-800 dark:text-white" aria-hidden="true"
                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -122,7 +122,7 @@
                  id="user-dropdown"
             >
               <div class="px-4 py-3 flex gap-2 justify-center items-center">
-                <img class="w-8 h-8 rounded-full md:hidden block" src="/resources/icon.png" alt="user photo"/>
+                <img class="w-8 h-8 rounded-full md:hidden block" src="/icon.png" alt="user photo"/>
                 <div>
                   <span class="block text-sm text-gray-900 dark:text-white">{{ authStore.user?.name }}</span>
                   <span
@@ -284,7 +284,6 @@ export default {
   },
   data() {
     return {
-      logo: "../../../resources/logo.png",
       showNavbarDropdown: false,
       showUploadDropdown: false,
       activeClass: 'border-b-2 border-solid border-red-700',

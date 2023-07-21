@@ -101,11 +101,11 @@
 
 <script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import image from '../../resources/throne_room.png'
+import image from '../../public/throne_room.png'
 import SelectBox from '@/components/commons/SelectBox.vue';
 import Button from '@/components/commons/Button.vue';
 import Card from '@/components/commons/Card.vue';
-import yae from '../../resources/dummy_galleries/ui_uiiiiiiiii-1-small.jpg'
+import yae from '../../public/dummy_galleries/ui_uiiiiiiiii-1-small.jpg'
 export default {
   components: {
     IonPage,

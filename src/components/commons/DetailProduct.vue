@@ -1,7 +1,7 @@
 <template>
   <div class="w-full bg-neutral-100 relative md:p-8 p-4 md:py-24">
     <div
-        class="w-full h-full bg-white rounded-lg shadow border border-gray-200 justify-start items-center md:inline-flex sxsm:block mb-10">
+        class="w-full h-full bg-white rounded-lg shadow border border-gray-200 justify-start items-center md:inline-flex block mb-10">
 
       <div id="indicators-carousel" class="relative w-full" data-carousel="static">
         <!-- Carousel wrapper -->
@@ -73,7 +73,7 @@
                 </span>
         </button>
       </div>
-      <div class="md:w-1/3 sxsm:w-full h-full self-stretch p-5 flex-col justify-between items-start inline-flex">
+      <div class="md:w-1/3 w-full h-full self-stretch p-5 flex-col justify-between items-start inline-flex">
         <div class="self-stretch h-full flex-col justify-start items-start gap-3.5 flex">
           <div class="justify-start items-start gap-3 inline-flex">
             <img class="w-12 h-12 relative rounded-[100px]" src="https://via.placeholder.com/48x48"/>
@@ -143,7 +143,7 @@
             <div class="w-full h-3 text-gray-500 text-xs font-normal leading-3">Kategori
               Produk:
             </div>
-            <div class="w-full grid lg:grid-cols-3 md:grid-cols-2 sxsm:grid-cols-3 gap-2">
+            <div class="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-3 gap-2">
               <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
                                 <span class=" text-red-800 text-xs font-medium">
                                     Produk Digital
@@ -180,7 +180,7 @@
             <div class="w-full h-3 text-gray-500 text-xs font-normal leading-3">
               Perangkat Lunak::
             </div>
-            <div class="w-full grid lg:grid-cols-3 md:grid-cols-2 sxsm:grid-cols-3 gap-2">
+            <div class="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-3 gap-2">
               <div class="w-full text-center bg-red-100 px-0.5 py-0.5 rounded">
                                 <span class="text-red-800 text-xs font-medium">
                                   Produk Digital
@@ -226,9 +226,9 @@
         </div>
       </div>
     </div>
-    <div class="md:flex sxsm:block md:space-y-0 sxsm:space-y-10 gap-8">
+    <div class="md:flex block md:space-y-0 space-y-10 gap-8">
       <div
-          class="h-full md:w-[74%] sxsm:w-full p-6 bg-white rounded-lg shadow border border-gray-200 flex-col justify-start items-start inline-flex">
+          class="h-full md:w-[74%] w-full p-6 bg-white rounded-lg shadow border border-gray-200 flex-col justify-start items-start inline-flex">
         <div class="self-stretch h-full flex-col justify-start items-start gap-4 flex">
           <div class="self-stretch p-3 bg-gray-50 rounded-lg justify-start items-center gap-3 inline-flex">
             <div class="w-6 h-6 relative"></div>
@@ -322,7 +322,7 @@
           </div>
         </div>
       </div>
-      <div class="md:w-[24%] sxsm:w-full">
+      <div class="md:w-[24%] w-full">
         <div
             class="w-full h-64 bg-white rounded-lg border border-gray-200 flex-col justify-start items-start inline-flex">
           <div class="self-stretch p-6 justify-start items-center inline-flex">
@@ -356,5 +356,5 @@
 </template>
 
 <script setup>
-import image from '../../../resources/throne_room.png'
+import image from '../../../public/throne_room.png'
 </script>

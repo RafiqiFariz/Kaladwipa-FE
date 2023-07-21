@@ -56,7 +56,7 @@ Jangan lewatkan kesempatan untuk menikmati karya seni yang luar biasa dan dapatk
           >
             <div class="w-14 h-14 relative">
               <div class="w-14 h-14 left-0 top-0 absolute">
-                <img src="/resources/social_media_icons/WA_Icon.png" alt="WA_Icon">
+                <img src="/social_media_icons/WA_Icon.png" alt="WA_Icon">
               </div>
             </div>
             <div class="text-center text-gray-900 text-base font-medium leading-normal">WhatsApp</div>
@@ -66,7 +66,7 @@ Jangan lewatkan kesempatan untuk menikmati karya seni yang luar biasa dan dapatk
               @click="shareToSocmed('facebook')"
           >
             <div class="w-14 h-14 relative">
-              <img src="/resources/social_media_icons/FB_Icon.png" alt="FB_Icon">
+              <img src="/social_media_icons/FB_Icon.png" alt="FB_Icon">
             </div>
             <div class="text-center text-gray-900 text-base font-medium leading-normal">Facebook</div>
           </div>
@@ -76,7 +76,7 @@ Jangan lewatkan kesempatan untuk menikmati karya seni yang luar biasa dan dapatk
           >
             <div class="w-14 h-14 relative">
               <div class="w-14 h-14 left-0 top-0 absolute">
-                <img src="/resources/social_media_icons/Twitter_Icon.png" alt="Twitter_Icon">
+                <img src="/social_media_icons/Twitter_Icon.png" alt="Twitter_Icon">
               </div>
             </div>
             <div class="text-center text-gray-900 text-base font-medium leading-normal">Twitter</div>
@@ -87,7 +87,7 @@ Jangan lewatkan kesempatan untuk menikmati karya seni yang luar biasa dan dapatk
           >
             <div class="w-14 h-14 relative">
               <div class="w-14 h-14 left-0 top-0 absolute">
-                <img src="/resources/social_media_icons/Pinterest_Icon.png" alt="Pinterest_Icon">
+                <img src="/social_media_icons/Pinterest_Icon.png" alt="Pinterest_Icon">
               </div>
             </div>
             <div class="text-center text-gray-900 text-base font-medium leading-normal">Pinterest</div>
@@ -98,7 +98,7 @@ Jangan lewatkan kesempatan untuk menikmati karya seni yang luar biasa dan dapatk
           >
             <div class="w-14 h-14 relative">
               <div class="w-14 h-14 left-0 top-0 absolute">
-                <img src="/resources/social_media_icons/Linkedin_Icon.png" alt="Linkedin_Icon">
+                <img src="/social_media_icons/Linkedin_Icon.png" alt="Linkedin_Icon">
               </div>
             </div>
             <div class="text-center text-gray-900 text-base font-medium leading-normal">Linkedin</div>

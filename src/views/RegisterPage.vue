@@ -19,7 +19,7 @@ const form = ref({
         >
           <div class="flex justify-center">
             <router-link to="/">
-              <img src="/resources/logo.png" alt="logo"/>
+              <img src="/logo.png" alt="logo"/>
             </router-link>
           </div>
           <h4 class="text-black flex justify-center">Daftar</h4>
