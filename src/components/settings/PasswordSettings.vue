@@ -1,14 +1,23 @@
 <script setup>
 import {useAuthStore} from "@/stores/auth.js";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useSettingsStore} from "@/stores/settings.js";
+import InputError from "@/components/commons/InputError.vue";
+import {storeToRefs} from "pinia";
 
 const {user} = useAuthStore();
+const settingsStore = useSettingsStore();
+const {errors} = storeToRefs(settingsStore);
+
 const form = ref({
   current_password: '',
   password: '',
   password_confirmation: '',
 });
 
+onMounted(() => {
+  settingsStore.$reset();
+});
 </script>
 <template>
   <div class="md:p-4 p-2 bg-white rounded items-center mb-4">
@@ -17,7 +26,7 @@ const form = ref({
     </h1>
   </div>
   <div class="md:p-5 p-4 bg-white rounded items-center">
-    <form>
+    <form @submit.prevent="settingsStore.updatePassword(form)">
       <div class="mb-6">
         <label
             for="current-password"
@@ -29,7 +38,9 @@ const form = ref({
             type="password"
             id="current-password"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
+            v-model="form.current_password"
         />
+        <InputError :errors="errors.current_password"/>
       </div>
       <div class="mb-6">
         <label
@@ -42,7 +53,9 @@ const form = ref({
             type="password"
             id="password"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
+            v-model="form.password"
         />
+        <InputError :errors="errors.password"/>
       </div>
       <div class="mb-6">
         <label
@@ -55,7 +68,9 @@ const form = ref({
             type="password"
             id="password-confirmation"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
+            v-model="form.password_confirmation"
         />
+        <InputError :errors="errors.password_confirmation"/>
       </div>
       <button
           type="submit"

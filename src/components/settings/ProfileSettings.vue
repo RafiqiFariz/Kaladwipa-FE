@@ -1,18 +1,24 @@
 <script setup>
 import {useAuthStore} from "@/stores/auth.js";
-import {ref} from "vue";
+import {useSettingsStore} from "@/stores/settings.js";
+import {storeToRefs} from "pinia";
+import {onMounted, onUpdated, ref} from "vue";
+import InputError from "@/components/commons/InputError.vue";
 
-const {user} = useAuthStore();
+const authStore = useAuthStore();
+const settingsStore = useSettingsStore();
+const {user} = storeToRefs(authStore);
+const {errors} = storeToRefs(settingsStore);
 
 const form = ref({
-  name: user?.name,
-  email: user?.email,
+  name: user.value?.name,
+  email: user.value?.email,
 });
 
-const submit = () => {
-
-}
-
+onMounted(() => {
+  authStore.getUser();
+  settingsStore.$reset();
+});
 </script>
 <template>
   <div class="md:p-4 p-2 bg-white rounded items-center mb-4">
@@ -21,24 +27,24 @@ const submit = () => {
     </h1>
   </div>
   <div class="md:p-5 p-4 bg-white rounded">
-    <form @submit.prevent="submit">
+    <form @submit.prevent="settingsStore.updateProfile(form)">
       <div class="md:flex block">
         <div class="md:w-2/3 w-full">
           <div class="mb-6">
             <label
-                for="nama"
+                for="name"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nama <span class="text-red-600">*</span>
             </label>
             <input
                 type="text"
-                id="nama"
-                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light"
+                id="name"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light mb-2"
                 placeholder="Masukkan Nama"
                 v-model="form.name"
-                required
             />
+            <InputError :errors="errors.name"/>
           </div>
 
           <div class="mb-6">
@@ -51,10 +57,11 @@ const submit = () => {
             <input
                 type="email"
                 id="email"
-                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light mb-2"
                 v-model="form.email"
                 placeholder="name@flowbite.com"
             />
+            <InputError :errors="errors.email"/>
           </div>
           <div class="mb-6">
             <label
@@ -67,7 +74,6 @@ const submit = () => {
                 id="kota"
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light"
                 placeholder="Masukkan Kota"
-                required
             />
           </div>
           <div class="mb-6">
@@ -80,9 +86,8 @@ const submit = () => {
             <input
                 type="text"
                 id="kutipan"
-                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-700 focus:border-red-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-700 dark:focus:border-red-700 dark:shadow-sm-light mb-2"
                 placeholder="Masukkan Kutipan"
-                required
             />
           </div>
         </div>

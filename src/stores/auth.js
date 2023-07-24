@@ -29,6 +29,7 @@ export const useAuthStore = defineStore("auth", {
           password: data.password,
         });
 
+        await this.getUser();
         await this.router.push({name: 'home'});
 
         alert("Login berhasil!");
@@ -49,6 +50,7 @@ export const useAuthStore = defineStore("auth", {
           password: data.password,
         });
 
+        await this.getUser();
         await this.router.push({name: 'home'});
 
         alert("Pendaftaran berhasil!");

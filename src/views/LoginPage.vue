@@ -1,6 +1,6 @@
 <script setup>
 import {IonPage, IonContent} from '@ionic/vue';
-import {onBeforeMount, ref} from "vue";
+import {ref} from "vue";
 import {useAuthStore} from "@/stores/auth.js";
 import InputError from "@/components/commons/InputError.vue";
 import {useRouter} from "vue-router";

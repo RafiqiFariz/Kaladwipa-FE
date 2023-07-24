@@ -12,7 +12,6 @@ const authStore = useAuthStore();
 
 onMounted(() => {
   window.addEventListener("click", closeDropdownOnClickOutside);
-  authStore.getUser();
 });
 
 onBeforeUnmount(() => {
@@ -42,7 +41,7 @@ const closeDropdownOnClickOutside = (event) => {
     showNavbarDropdown.value = false;
   }
 
-  if (!dropdownUpload.value.contains(event.target)) {
+  if (!dropdownUpload.value?.contains(event.target)) {
     showUploadDropdown.value = false;
   }
 }
