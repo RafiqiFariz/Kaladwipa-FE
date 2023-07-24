@@ -1,3 +1,60 @@
+<script setup>
+import {useAuthStore} from "@/stores/auth.js";
+import {onBeforeUnmount, onMounted, ref} from "vue";
+import {useRoute} from "vue-router";
+
+const route = useRoute();
+
+const showNavbarDropdown = ref(false);
+const showUploadDropdown = ref(false);
+const activeClass = ref('border-b-2 border-solid border-red-700');
+const authStore = useAuthStore();
+
+onMounted(() => {
+  window.addEventListener("click", closeDropdownOnClickOutside);
+  authStore.getUser();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("click", closeDropdownOnClickOutside);
+});
+
+const toggleNavbarDropdown = () => {
+  showNavbarDropdown.value = !showNavbarDropdown.value;
+  showUploadDropdown.value = !showNavbarDropdown;
+}
+
+const toggleUploadDropdown = () => {
+  showUploadDropdown.value = !showUploadDropdown.value;
+  showNavbarDropdown.value = !showUploadDropdown.value;
+}
+
+const navbar = ref();
+const dropdownUpload = ref();
+const dropdownUser = ref();
+
+const closeDropdownOnClickOutside = (event) => {
+  if (!navbar.value?.contains(event.target)) {
+    showUploadDropdown.value = showNavbarDropdown.value = false;
+  }
+
+  if (!dropdownUser.value?.contains(event.target)) {
+    showNavbarDropdown.value = false;
+  }
+
+  if (!dropdownUpload.value.contains(event.target)) {
+    showUploadDropdown.value = false;
+  }
+}
+
+const closeDropdown = () => {
+  showNavbarDropdown.value = showUploadDropdown.value = false;
+}
+
+const isActive = (routeName) => {
+  return route.name === routeName;
+}
+</script>
 <template>
   <nav class="w-full md:h-[90px] p-4 md:p-6 bg-white flex-col justify-center items-center inline-flex z-10 shadow"
        ref="navbar">
@@ -274,61 +331,3 @@
     </div>
   </nav>
 </template>
-<script>
-import {IonHeader} from "@ionic/vue";
-import {useAuthStore} from "@/stores/auth.js";
-
-export default {
-  components: {
-    IonHeader,
-  },
-  data() {
-    return {
-      showNavbarDropdown: false,
-      showUploadDropdown: false,
-      activeClass: 'border-b-2 border-solid border-red-700',
-      authStore: useAuthStore(),
-    };
-  },
-  mounted() {
-    window.addEventListener("click", this.closeDropdownOnClickOutside);
-    this.authStore.getUser();
-  },
-  beforeUnmount() {
-    window.removeEventListener("click", this.closeDropdownOnClickOutside);
-  },
-  methods: {
-    toggleNavbarDropdown() {
-      this.showNavbarDropdown = !this.showNavbarDropdown;
-      this.showUploadDropdown = !this.showNavbarDropdown;
-    },
-    toggleUploadDropdown() {
-      this.showUploadDropdown = !this.showUploadDropdown;
-      this.showNavbarDropdown = !this.showUploadDropdown;
-    },
-    closeDropdownOnClickOutside(event) {
-      const navbar = this.$refs.navbar;
-      const dropdownUpload = this.$refs.dropdownUpload;
-      const dropdownUser = this.$refs.dropdownUser;
-
-      if (!navbar.contains(event.target)) {
-        this.showUploadDropdown = this.showNavbarDropdown = false;
-      }
-
-      if (!dropdownUser?.contains(event.target)) {
-        this.showNavbarDropdown = false;
-      }
-
-      if (!dropdownUpload.contains(event.target)) {
-        this.showUploadDropdown = false;
-      }
-    },
-    closeDropdown() {
-      this.showNavbarDropdown = this.showUploadDropdown = false;
-    },
-    isActive(routeName) {
-      return this.$route.name === routeName;
-    }
-  },
-};
-</script>

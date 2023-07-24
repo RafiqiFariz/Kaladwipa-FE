@@ -4,9 +4,11 @@ import axios from "axios";
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     authUser: null,
+    authErrors: [],
   }),
   getters: {
     user: (state) => state.authUser,
+    errors: (state) => state.authErrors,
   },
   actions: {
     async getToken() {
@@ -18,8 +20,10 @@ export const useAuthStore = defineStore("auth", {
       this.authUser = user.data;
     },
     async login(data) {
+      this.authErrors = [];
+      await this.getToken();
+
       try {
-        await this.getToken();
         await axios.post(`/login`, {
           email: data.email,
           password: data.password,
@@ -29,12 +33,16 @@ export const useAuthStore = defineStore("auth", {
 
         alert("Login berhasil!");
       } catch (error) {
-        console.log(error);
+        if (error.response.status === 422) {
+          this.authErrors = error.response.data.errors;
+        }
       }
     },
     async register(data) {
+      this.authErrors = [];
+      await this.getToken();
+
       try {
-        await this.getToken();
         await axios.post("/register", {
           name: data.name,
           email: data.email,
@@ -45,7 +53,9 @@ export const useAuthStore = defineStore("auth", {
 
         alert("Pendaftaran berhasil!");
       } catch (error) {
-        console.log(error);
+        if (error.response.status === 422) {
+          this.authErrors = error.response.data.errors;
+        }
       }
     },
     async logout() {
@@ -57,8 +67,11 @@ export const useAuthStore = defineStore("auth", {
           this.authUser = null;
         }
       } catch (error) {
-        console.log(error);
+        if (error.response.status === 422) {
+          this.authErrors = error.response.data.errors;
+        }
       }
     }
-  }
+  },
+  persist: true,
 });

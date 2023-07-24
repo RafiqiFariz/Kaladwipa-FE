@@ -1,4 +1,6 @@
-import { createRouter, createWebHistory } from "@ionic/vue-router";
+import {createRouter, createWebHistory} from "@ionic/vue-router";
+import {useAuthStore} from "@/stores/auth.js";
+import * as _ from "lodash";
 
 const routes = [
   {
@@ -43,7 +45,7 @@ const routes = [
         path: ":affiliateId",
         name: "affiliate-stats",
         component: () =>
-          import("@/components/affiliate/AffiliateStatistics.vue"),
+            import("@/components/affiliate/AffiliateStatistics.vue"),
       },
     ],
   },
@@ -74,11 +76,13 @@ const routes = [
     children: [
       {
         path: "profil",
+        name: "update-profile",
         component: () => import("@/components/settings/ProfileSettings.vue"),
       },
       {
-        path: "akun",
-        component: () => import("@/components/settings/AccountSettings.vue"),
+        path: "password",
+        name: "update-password",
+        component: () => import("@/components/settings/PasswordSettings.vue"),
       },
     ],
   },
@@ -124,5 +128,13 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
+
+router.beforeEach(async (to) => {
+  const authStore = useAuthStore();
+
+  if (authStore.user && _.includes(['login', 'register'], to.name)) {
+    return {name: 'home'}
+  }
+})
 
 export default router;
