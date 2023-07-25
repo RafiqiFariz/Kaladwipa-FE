@@ -4,6 +4,22 @@ import * as _ from "lodash";
 
 const routes = [
   {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/LoginPage.vue"),
+    meta: {
+      hideNavbar: true,
+    },
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("@/views/RegisterPage.vue"),
+    meta: {
+      hideNavbar: true,
+    },
+  },
+  {
     path: "/",
     redirect: "home",
   },
@@ -13,19 +29,25 @@ const routes = [
     component: () => import("@/views/HomePage.vue"),
   },
   {
+    path: "/artikel",
+    component: () => import("@/views/ArticlePage.vue"),
+    children: [
+      {
+        path: ":id",
+        name: "artikel.show",
+        component: () => import("@/components/article/TheArticle.vue"),
+      },
+    ],
+  },
+  {
     path: "/jelajahi",
     name: "jelajahi.index",
     component: () => import("@/views/HomePage.vue"),
   },
   {
-    path: "/jelajahi/detail/:id",
+    path: "/jelajahi/:id",
     name: "jelajahi.show",
     component: () => import("@/views/ShowGalleryPage.vue"),
-  },
-  {
-    path: "/artikel/detail/:id",
-    name: "artikel.show",
-    component: () => import("@/views/ArticlePage.vue"),
   },
   {
     path: "/toko",
@@ -42,7 +64,7 @@ const routes = [
     component: () => import("@/views/AffiliationPage.vue"),
     children: [
       {
-        path: ":affiliateId",
+        path: ":id",
         name: "affiliate-stats",
         component: () =>
             import("@/components/affiliate/AffiliateStatistics.vue"),
@@ -53,22 +75,6 @@ const routes = [
     path: "/profil",
     name: "profil.index",
     component: () => import("@/views/ProfilePage.vue"),
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: () => import("@/views/LoginPage.vue"),
-    meta: {
-      hideNavbar: true,
-    },
-  },
-  {
-    path: "/register",
-    name: "register",
-    component: () => import("@/views/RegisterPage.vue"),
-    meta: {
-      hideNavbar: true,
-    },
   },
   {
     path: "/pengaturan",
@@ -92,27 +98,17 @@ const routes = [
   },
   {
     path: "/koleksiku",
+    name: "koleksiku.index",
     component: () => import("@/views/MyCollectionPage.vue"),
   },
   {
-    path: "/koleksi/detail/:id",
+    path: "/koleksiku/:id",
     name: "koleksiku.show",
     component: () => import("@/views/ShowGalleryPage.vue"),
   },
   {
     path: "/keranjang",
     component: () => import("@/views/CartPage.vue"),
-  },
-  {
-    path: "/artikel",
-    component: () => import("@/views/ArticlePage.vue"),
-    children: [
-      {
-        path: ":articleId",
-        name: "artikel.show",
-        component: () => import("@/components/article/TheArticle.vue"),
-      },
-    ],
   },
   {
     path: "/upload-karya",

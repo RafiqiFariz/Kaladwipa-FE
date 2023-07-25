@@ -20,48 +20,48 @@ onMounted(() => {
   <ion-page>
     <ion-content :fullscreen="false">
       <div>
-        <div class="w-full h-[440px] relative">
-          <img class="w-full h-full object-cover" :src="bgImage" alt="Background Image"/>
-          <div class="w-full h-full left-0 top-0 absolute bg-black bg-opacity-50"></div>
-          <div class="w-full left-0 top-1/4 absolute flex flex-col items-center justify-between gap-4">
-            <img class="w-36 h-36 relative rounded-full" src="https://via.placeholder.com/144x144" alt="avatar"/>
-            <div class="text-center text-white text-3xl font-bold leading-10">{{ user?.name }}</div>
-            <div class="text-center text-gray-400 text-md font-medium leading-none">Belajar Mencintai Karya
-              Indonesia
+        <div class="relative w-full h-[440px]">
+          <img class="h-full w-full object-cover" :src="bgImage" alt="Background Image"/>
+          <div class="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50"></div>
+          <div class="absolute top-1/4 left-0 flex w-full flex-col items-center justify-between gap-4">
+            <img class="relative h-36 w-36 rounded-full" src="https://via.placeholder.com/144x144" alt="avatar"/>
+            <div class="text-center text-3xl font-bold leading-10 text-white">{{ user?.name }}</div>
+            <div class="text-center font-medium leading-none text-gray-400 text-md">
+              Belajar Mencintai Karya Indonesia
             </div>
-            <div class="w-full h-full flex justify-center items-center gap-1">
-              <div class="text-center text-red-500 text-md font-medium leading-none">Bekasi, Indonesia</div>
+            <div class="flex h-full w-full items-center justify-center gap-1">
+              <div class="text-center font-medium leading-none text-red-500 text-md">Bekasi, Indonesia</div>
             </div>
           </div>
         </div>
       </div>
       <div class="bg-neutral-100">
-        <div class="w-full px-2.5 py-1 bg-white shadow justify-center items-center gap-8 inline-flex"
+        <div class="inline-flex w-full items-center justify-center gap-8 bg-white py-1 shadow px-2.5"
              data-tabs-toggle="#myTabContent" role="tablist">
-          <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex text-gray-500" id="karya-tab"
+          <button class="flex items-center justify-start rounded-md px-4 py-3 text-gray-500 gap-1.5" id="karya-tab"
                   @click="activeTab = 'karya'" :class="{ 'bg-red-700 text-white': activeTab === 'karya' }" type="button"
                   role="tab" aria-controls="karya" :aria-selected="activeTab === 'karya'">
             <span class="text-sm font-medium leading-tight">Karya</span>
           </button>
-          <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex text-gray-500"
+          <button class="flex items-center justify-start rounded-md px-4 py-3 text-gray-500 gap-1.5"
                   id="tentang-saya-tab"
                   @click="activeTab = 'tentang-saya'" :class="{ 'bg-red-700 text-white': activeTab === 'tentang-saya' }"
                   type="button" role="tab" aria-controls="tentang-saya" :aria-selected="activeTab === 'tentang-saya'">
             <span class="text-sm font-medium leading-tight">Tentang Saya</span>
           </button>
-          <button class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500" id="disukai-tab"
+          <button class="flex items-center justify-center rounded-md px-4 py-3 text-gray-500 gap-1.5" id="disukai-tab"
                   @click="activeTab = 'disukai'" :class="{ 'bg-red-700 text-white': activeTab === 'disukai' }"
                   type="button"
                   role="tab" aria-controls="disukai" :aria-selected="activeTab === 'disukai'">
             <span class="text-sm font-medium leading-tight">Disukai</span>
           </button>
         </div>
-        <div id="myTabContent" class="md:p-8 p-4 w-full">
+        <div id="myTabContent" class="w-full p-4 md:p-8">
           <div v-show="activeTab === 'karya'" id="karya" role="tabpanel" aria-labelledby="karya-tab">
             <DisplayImage :data="chunkedItems"/>
           </div>
           <div v-show="activeTab === 'tentang-saya'"
-               class="h-screen mx-auto max-w-4xl"
+               class="mx-auto h-screen max-w-4xl"
                id="tentang-saya"
                role="tabpanel"
                aria-labelledby="tentang-saya-tab"

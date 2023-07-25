@@ -26,6 +26,7 @@
     "flowbite-vue": "^0.0.15",
     "ionicons": "^7.0.0",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "pinia": "^2.1.4",
     "pinia-plugin-persistedstate": "^3.2.0",
     "sass": "^1.63.6",

@@ -64,7 +64,7 @@ const isActive = (routeName) => {
       <div class="grow shrink basis-0 h-6 justify-start items-center gap-8 md:flex hidden w-full">
         <div class="flex-col justify-center items-start inline-flex">
           <router-link
-              to="/jelajahi"
+              :to="{name: 'jelajahi.index'}"
               class="text-center text-gray-900 text-base font-medium leading-normal"
               :class="{[activeClass] : isActive('jelajahi.index')}"
           >
@@ -73,7 +73,7 @@ const isActive = (routeName) => {
         </div>
         <div class="flex-col justify-center items-start inline-flex mr-6">
           <router-link
-              to="/toko"
+              :to="{name: 'toko.index'}"
               class="text-center text-gray-900 text-base font-medium leading-normal"
               :class="{[activeClass] : isActive('toko.index')}"
           >

@@ -1,33 +1,33 @@
 <template>
-    <ion-page>
-        <ion-content :fullscreen="false">
-            <div class="w-full h-full p-8 md:px-48 sxsm:md-8 space-y-4 md:m-auto sxsm:m-0">
-                <p class="text-center text-black text-4xl font-medium">Kompetisi Desain Interior</p>
-                <p class="text-center text-black text-lg font-normal">Oleh Pandu - 30 Februari 2023</p>
-                <div class="w-full">
-                    <div class="w-[80%] m-auto flex justify-center items-center gap-4">
-                        <div
-                            class="w-20 h-9 px-3 py-2 rounded-lg border border-gray-800 justify-center items-center gap-2 inline-flex">
-                            <div class="text-gray-800 text-xs font-medium leading-none">Story</div>
-                            <div class="w-5 h-5 relative">
-                            </div>
-                        </div>
-                        <div
-                            class="w-20 h-9 px-3 py-2 bg-blue-800 rounded-lg justify-center items-center gap-2 inline-flex">
-                            <div class="text-white text-xs font-medium leading-none">Share</div>
-                            <div class="w-5 h-5 relative"></div>
-                        </div>
-                        <div
-                            class="w-20 h-9 px-3 py-2 rounded-lg border border-blue-700 justify-center items-center gap-2 inline-flex">
-                            <div class="text-blue-700 text-xs font-medium leading-none">Tweet</div>
-                            <div class="w-5 h-5 relative"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full h-5/6">
-                    <img class="h-full object-cover w-full rounded-lg" :src="image" alt="tes">
-                </div>
-                <div class="w-full text-justify">
+  <ion-page>
+    <ion-content :fullscreen="false">
+      <div class="m-0 h-full w-full p-8 md-8 space-y-4 md:m-auto md:px-48">
+        <p class="text-center text-4xl font-medium text-black">Kompetisi Desain Interior</p>
+        <p class="text-center text-lg font-normal text-black">Oleh Pandu - 30 Februari 2023</p>
+        <div class="w-full">
+          <div class="m-auto flex items-center justify-center gap-4 w-[80%]">
+            <div
+                class="inline-flex h-9 w-20 items-center justify-center gap-2 rounded-lg border border-gray-800 px-3 py-2">
+              <div class="text-xs font-medium leading-none text-gray-800">Story</div>
+              <div class="relative h-5 w-5">
+              </div>
+            </div>
+            <div
+                class="inline-flex h-9 w-20 items-center justify-center gap-2 rounded-lg bg-blue-800 px-3 py-2">
+              <div class="text-xs font-medium leading-none text-white">Share</div>
+              <div class="relative h-5 w-5"></div>
+            </div>
+            <div
+                class="inline-flex h-9 w-20 items-center justify-center gap-2 rounded-lg border border-blue-700 px-3 py-2">
+              <div class="text-xs font-medium leading-none text-blue-700">Tweet</div>
+              <div class="relative h-5 w-5"></div>
+            </div>
+          </div>
+        </div>
+        <div class="h-5/6 w-full">
+          <img class="h-full w-full rounded-lg object-cover" :src="image" alt="tes">
+        </div>
+        <div class="w-full text-justify">
                     <span>
                         Lomba Desain Interior 3D merupakan kompetisi yang melibatkan para desainer interior dalam
                         menciptakan visualisasi yang menarik dan realistis menggunakan perangkat lunak seperti SketchUp dan
@@ -63,13 +63,14 @@
                         interior yang menarik. Lomba ini tidak hanya memberikan pengalaman berharga bagi peserta, tetapi
                         juga mendorong inovasi dan perkembangan dalam industri desain interior secara keseluruhan.
                 </span>
-            </div>
         </div>
+      </div>
     </ion-content>
-</ion-page></template>
+  </ion-page>
+</template>
 
 <script setup>
-import { IonPage, IonContent } from '@ionic/vue';
+import {IonPage, IonContent} from '@ionic/vue';
 import image from '../../public/throne_room.png'
 import DetailProduk from '@/components/commons/DetailProduct.vue';
 </script>
