@@ -28,8 +28,6 @@ const getModifiedLink = (id) => {
   } else if (props.kategori === 'koleksiku') {
     return {name: 'koleksiku.show', params: {id: id}}
   }
-
-  return link;
 }
 
 const compProps = computed(() => ({
