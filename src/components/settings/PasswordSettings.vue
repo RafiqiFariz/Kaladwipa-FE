@@ -62,7 +62,7 @@ onMounted(() => {
             for="password-confirmation"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
-          Ulangi Password Baru
+          Ulangi Password Baru <span class="text-red-600">*</span>
         </label>
         <input
             type="password"

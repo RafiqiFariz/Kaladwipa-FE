@@ -40,6 +40,7 @@
     "@vitejs/plugin-legacy": "^4.0.2",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.3.0",
+    "animated-tailwindcss": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "cypress": "^12.7.0",
     "eslint": "^8.35.0",

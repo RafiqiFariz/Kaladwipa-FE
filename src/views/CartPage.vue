@@ -23,7 +23,7 @@
               <p class="m-2 w-[20%] text-center">{{ item.jumlah }}</p>
               <p class="m-2 font-semibold">{{ formatHarga(item.harga) }}</p>
               <button type="button"
-                      class="m-5 text-red-700 border border-solid border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-red-500">
+                      class="m-5 text-red-700 border border-solid border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800 dark:hover:bg-red-500">
                 <svg class="w-[12px] h-[12px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 14 14">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

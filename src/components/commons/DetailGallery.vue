@@ -58,21 +58,34 @@ const comments = [
 ];
 
 const maxVisibleComments = 1;
-
 let isOpen = false;
 let isRepliesOpen = false;
 const visibleComments = ref(maxVisibleComments);
+const totalComments = comments.length;
+const totalReplies = _.sumBy(comments, (comment) => comment.replies.length);
+const isShowActionDropdown = ref(false);
+const visibleActionsComment = reactive(Array(totalComments).fill(false));
+const visibleActionsReply = reactive(Array(totalReplies).fill(false));
+
+const resetVisibleActions = () => {
+  _.fill(visibleActionsComment, false);
+  _.fill(visibleActionsReply, false);
+};
 
 const showMoreComments = () => {
   isOpen = !isOpen;
-  if (isOpen && (visibleComments.value < comments.length)) {
-    visibleComments.value = comments.length;
+  if (isOpen && (visibleComments.value < totalComments)) {
+    visibleComments.value = totalComments;
   } else {
     visibleComments.value = maxVisibleComments;
   }
+
+  if (!isOpen) {
+    resetVisibleActions();
+  }
 };
 
-const visibleReplies = reactive(Array(comments.length).fill(0));
+const visibleReplies = reactive(Array(totalComments).fill(0));
 const showMoreReplies = (index) => {
   isRepliesOpen = !isRepliesOpen;
   if (isRepliesOpen && (visibleReplies[index] < comments[index].replies.length)) {
@@ -80,11 +93,22 @@ const showMoreReplies = (index) => {
   } else {
     visibleReplies[index] = 0;
   }
+
+  if (!isRepliesOpen) {
+    resetVisibleActions();
+  }
 };
 
-const isShowActionDropdown = ref(false);
-const toggleActionDropdown = () => {
-  isShowActionDropdown.value = !isShowActionDropdown.value;
+const toggleActionDropdown = (index, subIndex) => {
+  // Jika hanya diberikan indeks komentar
+  if (typeof subIndex === 'undefined') {
+    // Mengubah status toggle dari false menjadi true dan sebaliknya
+    visibleActionsComment[index] = !visibleActionsComment[index];
+    return;
+  }
+
+  // Mengubah status toggle dari false menjadi true dan sebaliknya
+  visibleActionsReply[subIndex] = !visibleActionsReply[subIndex];
 }
 
 const artworkImageUrl = (item) => {
@@ -100,8 +124,8 @@ const exploreStore = useExploreStore();
 const {artwork} = storeToRefs(exploreStore);
 const pictures = ref([]);
 
-onMounted(() => {
-  exploreStore.showArtwork(route.params.id);
+onMounted(async () => {
+  await exploreStore.showArtwork(route.params.id);
   pictures.value = _.map(artwork.value.images, artworkImageUrl);
 });
 
@@ -146,7 +170,7 @@ const profilePictureUrl = computed(() => {
             </div>
           </div>
           <div class="flex h-full flex-col items-start justify-start gap-2 self-stretch">
-            <div class="self-stretch font-bold leading-loose text-gray-900 text-2xl">
+            <div class="self-stretch text-2xl font-bold leading-loose text-gray-900">
               {{ artwork.title }}
             </div>
             <div class="self-stretch text-base font-normal leading-normal text-gray-500">
@@ -233,7 +257,7 @@ const profilePictureUrl = computed(() => {
       <div
           class="inline-flex h-full w-full flex-col items-start justify-start rounded-lg border border-gray-200 bg-white p-6 shadow md:w-2/3">
         <div class="flex flex-col items-start justify-start gap-4 self-stretch">
-          <!-- Input Komentar -->
+          <!-- Awal Input Komentar -->
           <form class="w-full">
             <label for="chat" class="sr-only">Tinggalkan komentar...</label>
             <div class="flex items-center rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-700">
@@ -260,6 +284,9 @@ const profilePictureUrl = computed(() => {
               </button>
             </div>
           </form>
+          <!-- Akhir Input Komentar -->
+
+          <!-- Awal Komentar -->
           <div class="max-w-full self-stretch">
             <div v-for="(comment, index) in comments.slice(0, visibleComments)" :key="index">
               <div class="mb-4 inline-flex w-full items-start justify-start gap-2.5">
@@ -296,56 +323,61 @@ const profilePictureUrl = computed(() => {
                     </button>
                   </div>
 
-                  <!-- Tombol Aksi -->
-                  <button type="button"
-                          :id="`dropdown-${index}-btn`"
-                          class="relative h-4 w-4"
-                          @click="toggleActionDropdown(index)"
-                  >
-                    <svg
-                        class="h-full w-full text-gray-800 dark:text-white"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 4 15"
+                  <div class="relative">
+                    <!-- Awal Tombol Aksi -->
+                    <button type="button"
+                            :id="`dropdown-${index}-btn`"
+                            class="relative h-4 w-4"
+                            @click="toggleActionDropdown(index)"
                     >
-                      <path
-                          d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                      />
-                    </svg>
-                  </button>
-                  <!-- Dropdown menu -->
-                  <div :id="`dropdown-${index}`"
-                       class="absolute z-10 w-44 rounded-lg bg-white shadow divide-y divide-gray-100 top-[60px] right-[-150px] dark:bg-gray-700"
-                       data-dropdown-placement="left-end"
-                       v-show="isShowActionDropdown"
-                  >
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                      <li>
-                        <button
-                            class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            @click="isShowReportModal = true;isShowActionDropdown = false;"
-                        >
-                          Laporkan
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                            class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                          Blokir pengguna
-                        </button>
-                      </li>
-                    </ul>
+                      <svg
+                          class="h-full w-full text-gray-800 dark:text-white"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 4 15"
+                      >
+                        <path
+                            d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+                        />
+                      </svg>
+                    </button>
+                    <!-- Akhir Tombol Aksi -->
+
+                    <!-- Awal Dropdown Menu Aksi -->
+                    <div :id="`dropdown-${index}`"
+                         class="absolute z-10 w-44 rounded-lg bg-white shadow divide-y divide-gray-100 top-0 left-5 dark:bg-gray-700"
+                         data-dropdown-placement="left-end"
+                         v-show="visibleActionsComment[index]"
+                    >
+                      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <li>
+                          <button
+                              class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              @click="isShowReportModal = true;isShowActionDropdown = false;"
+                          >
+                            Laporkan
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                              class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Blokir pengguna
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- Akhir Dropdown Menu Aksi -->
                   </div>
                 </div>
               </div>
 
-              <!-- Menampilkan subkomentar -->
+              <!-- Awal Sub Komentar / Balasan -->
               <div v-for="(subComment, subIndex) in comment.replies.slice(0, visibleReplies[index])"
                    :key="subIndex">
                 <div class="mb-4 inline-flex items-start justify-start pl-10 gap-2.5 md:w-full">
                   <img class="relative h-8 w-8 rounded-full" src="https://via.placeholder.com/32x32" alt=""/>
-                  <div class="flex max-w-sm shrink grow basis-0 items-center justify-start gap-1.5">
+                  <div class="flex max-w-sm shrink grow basis-0 items-center justify-start gap-1.5 relative">
                     <div
                         class="inline-flex flex-col items-start justify-center rounded-tr-2xl rounded-br-2xl rounded-bl-2xl bg-gray-100 p-4 gap-2.5">
                       <div class="flex flex-col items-start justify-start gap-1.5">
@@ -367,22 +399,55 @@ const profilePictureUrl = computed(() => {
                         <div class="text-xs font-normal leading-tight text-gray-500">• 1mg</div>
                       </div>
                     </div>
-                    <button class="relative hidden h-4 w-4 md:block">
-                      <svg class="h-full w-full text-gray-800 dark:text-white" aria-hidden="true"
-                           xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
-                        <path
-                            d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
-                      </svg>
-                    </button>
+
+                    <div class="relative">
+                      <!-- Tombol Aksi Komentar Balasan -->
+                      <button class="hidden h-4 w-4 md:block" @click="toggleActionDropdown(index, subIndex)">
+                        <svg class="h-full w-full text-gray-800 dark:text-white" aria-hidden="true"
+                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+                          <path
+                              d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
+                        </svg>
+                      </button>
+
+                      <!-- Dropdown Menu Aksi Balasan -->
+                      <div :id="`dropdown-${index}-${subIndex}`"
+                           class="absolute z-10 w-44 rounded-lg bg-white shadow divide-y divide-gray-100 top-0 left-5 dark:bg-gray-700"
+                           data-dropdown-placement="left-end"
+                           v-show="visibleActionsReply[subIndex]"
+                      >
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownDefaultButton">
+                          <li>
+                            <button
+                                class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                @click="isShowReportModal = true;isShowActionDropdown = false;"
+                            >
+                              Laporkan
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                                class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                              Blokir pengguna
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- Akhir Dropdown Menu Aksi Balasan -->
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- Akhir Sub Komentar / Balasan -->
             </div>
           </div>
+          <!-- Akhir Komentar -->
+
           <div class="inline-flex items-center justify-center gap-2.5">
             <!-- Menampilkan tombol "Tampilkan lebih banyak komentar" jika tidak semua komentar ditampilkan -->
             <button
-                v-if="visibleComments < comments.length && !isOpen"
+                v-if="visibleComments < totalComments && !isOpen"
                 class="cursor-pointer text-base font-medium leading-normal text-gray-900 underline"
                 @click="showMoreComments"
             >
@@ -390,7 +455,7 @@ const profilePictureUrl = computed(() => {
             </button>
             <!-- Menampilkan tombol "Tutup komentar" jika semua komentar ditampilkan -->
             <button
-                v-else-if="visibleComments === comments.length && isOpen"
+                v-else-if="visibleComments === totalComments && isOpen"
                 class="cursor-pointer text-base font-medium leading-normal text-gray-900 underline"
                 @click="showMoreComments"
             >

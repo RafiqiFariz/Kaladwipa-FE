@@ -15,9 +15,9 @@ const showDropdown = ref(false);
 const exploreStore = useExploreStore();
 const {artworks} = storeToRefs(exploreStore);
 
-onMounted(() => {
-  exploreStore.getArtworks();
-  chunkedItems.value =_.chunk(artworks.value.data, 5);
+onMounted(async () => {
+  await exploreStore.getArtworks();
+  chunkedItems.value = _.chunk(artworks.value.data, 5);
 });
 
 const setActiveTab = (tab) => {

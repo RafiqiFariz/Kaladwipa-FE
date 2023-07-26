@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import axios from "axios";
 
-export const useExploreStore = defineStore("explore-store", {
+export const useExploreStore = defineStore("explore", {
   state: () => ({
     data: [],
     authErrors: [],
@@ -39,9 +39,12 @@ export const useExploreStore = defineStore("explore-store", {
       }
 
       const filters = new URLSearchParams(params);
-      const artwork = await axios.get(`/api/v1/artworks/${id}?${filters.toString()}`);
-      this.data = artwork.data.data;
+      try {
+        const artwork = await axios.get(`/api/v1/artworks/${id}?${filters.toString()}`);
+        this.data = artwork.data.data;
+      } catch (e) {
+        console.log(e);
+      }
     }
   },
-  persist: true,
 });

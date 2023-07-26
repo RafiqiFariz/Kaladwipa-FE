@@ -31,33 +31,35 @@ const routes = [
   {
     path: "/artikel",
     component: () => import("@/views/ArticlePage.vue"),
-    children: [
-      {
-        path: ":id",
-        name: "artikel.show",
-        component: () => import("@/components/article/TheArticle.vue"),
-      },
-    ],
+  },
+  {
+    path: "/artikel/:id",
+    name: "artikel.show",
+    component: () => import("@/components/article/TheArticle.vue"),
   },
   {
     path: "/jelajahi",
     name: "jelajahi.index",
     component: () => import("@/views/HomePage.vue"),
+    meta: { parentRoute: "jelajahi" }
   },
   {
     path: "/jelajahi/:id",
     name: "jelajahi.show",
     component: () => import("@/views/ShowGalleryPage.vue"),
+    meta: { parentRoute: "jelajahi" }
   },
   {
     path: "/toko",
     name: "toko.index",
     component: () => import("@/views/ShopPage.vue"),
+    meta: { parentRoute: "toko" }
   },
   {
     path: "/toko/produk/:id",
     name: "toko.show",
     component: () => import("@/views/ShowProductPage.vue"),
+    meta: { parentRoute: "toko" }
   },
   {
     path: "/afiliasi",

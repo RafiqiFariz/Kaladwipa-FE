@@ -2,17 +2,21 @@
 import {Modal} from 'flowbite-vue';
 import {ref} from "vue";
 import {useRoute} from 'vue-router';
+import {useToastStore} from "@/stores/toast.js";
 
 const route = useRoute();
 const props = defineProps(['isShowModal']);
 const emit = defineEmits(['close']);
 
 const linkInput = ref(null);
-const link = ref('https://kaladwipa.com/jelajahi/detail/' + route.params.id);
+const link = ref('https://kaladwipa.com/jelajahi/' + route.params.id);
+
+const toastStore = useToastStore();
 
 const copyLink = () => {
   linkInput.value.select();
-  navigator.clipboard.writeText(link.value);
+  navigator.clipboard.writeText(link.value)
+      .then(() => toastStore.showToast('success', 'Tautan berhasil disalin.'));
 }
 
 const shareToSocmed = (platform) => {
