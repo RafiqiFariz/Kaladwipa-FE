@@ -1,9 +1,9 @@
 <script setup>
-import {Carousel} from 'flowbite-vue';
+import Carousel from '@/components/commons/Carousel.vue';
 import {computed, onMounted, reactive, ref} from "vue";
 import ReportModal from "@/components/gallery/ReportModal.vue";
 import ShareModal from "@/components/gallery/ShareModal.vue";
-import {useExploreStore} from "@/stores/explore-store.js";
+import {useExploreStore} from "@/stores/explore.js";
 import {useRoute} from 'vue-router';
 import {storeToRefs} from "pinia";
 import moment from 'moment';
@@ -171,7 +171,7 @@ const profilePictureUrl = computed(() => {
           </div>
           <div class="flex h-full flex-col items-start justify-start gap-2 self-stretch">
             <div class="self-stretch text-2xl font-bold leading-loose text-gray-900">
-              {{ artwork.title }}
+              {{ _.startCase(artwork.title) }}
             </div>
             <div class="self-stretch text-base font-normal leading-normal text-gray-500">
               {{ artwork.description }}

@@ -42,6 +42,19 @@ const app = createApp(App)
     .use(router)
     .use(pinia);
 
+app.config.globalProperties.$filters = {
+  rupiah(value) {
+    return parseInt(value).toLocaleString('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0
+    })
+  },
+  formatNumber(value) {
+    return parseInt(value).toLocaleString('id-ID');
+  }
+}
+
 router.isReady().then(() => {
   app.mount('#app');
 });

@@ -57,7 +57,7 @@ const routes = [
   },
   {
     path: "/toko/produk/:id",
-    name: "toko.show",
+    name: "toko.produk.show",
     component: () => import("@/views/ShowProductPage.vue"),
     meta: { parentRoute: "toko" }
   },
