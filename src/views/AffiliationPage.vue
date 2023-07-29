@@ -120,7 +120,7 @@ export default {
       affiliates: [
         {
           id: 1,
-          img: "resources/dummy_galleries/ui_uiiiiiiiii-1-small.jpg",
+          img: "/dummy_galleries/ui_uiiiiiiiii-1-small.jpg",
           produk:
             "Digital Seni Modern Tradisional Yae Miko Genshin Impact Dengan Kebaya",
           link: "https://www.kaladwipa.my.id/a/219312387213",
@@ -131,7 +131,7 @@ export default {
         },
         {
           id: 2,
-          img: "resources/dummy_galleries/jonathan-lebrec-rizieres-free.jpg",
+          img: "/dummy_galleries/jonathan-lebrec-rizieres-free.jpg",
           produk:
             "Digital Seni Modern Tradisional Yae Miko Genshin Impact Dengan Kebaya",
           link: "https://www.kaladwipa.my.id/a/219312387213",
