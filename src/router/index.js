@@ -125,6 +125,10 @@ const routes = [
     name: "upload-produk.index",
     component: () => import("@/views/UploadProductPage.vue"),
   },
+  {
+    path: "/penghasilan",
+    component: () => import("@/views/IncomePage.vue"),
+  },
 ];
 
 const router = createRouter({
