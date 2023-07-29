@@ -63,6 +63,7 @@ const routes = [
   },
   {
     path: "/afiliasi",
+    name: 'afiliasi.index',
     component: () => import("@/views/AffiliationPage.vue"),
     children: [
       {
@@ -96,6 +97,7 @@ const routes = [
   },
   {
     path: "/wishlist",
+    name: "wishlist.index",
     component: () => import("@/views/WishlistPage.vue"),
   },
   {
@@ -110,14 +112,17 @@ const routes = [
   },
   {
     path: "/keranjang",
+    name: "keranjang.index",
     component: () => import("@/views/CartPage.vue"),
   },
   {
     path: "/upload-karya",
+    name: "upload-karya.index",
     component: () => import("@/views/UploadArtworkPage.vue"),
   },
   {
     path: "/upload-produk",
+    name: "upload-produk.index",
     component: () => import("@/views/UploadProductPage.vue"),
   },
 ];

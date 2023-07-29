@@ -53,7 +53,7 @@ const closeDropdown = () => {
 }
 
 const isActive = (routeName) => {
-  return (routeName.startsWith(route.meta.parentRoute));
+  return routeName.startsWith(route.meta.parentRoute);
 }
 </script>
 <template>
@@ -107,7 +107,7 @@ const isActive = (routeName) => {
                  @click="closeDropdown"
             >
               <div class="whitespace-nowrap px-2 py-1">
-                <router-link to="/upload-karya"
+                <router-link :to="{name: 'upload-karya.index'}"
                              class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                   <svg class="w-[14px] h-[14px]" aria-hidden="true"
                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -121,7 +121,7 @@ const isActive = (routeName) => {
                 </router-link>
               </div>
               <div class="whitespace-nowrap px-2 py-1">
-                <router-link to="/upload-produk"
+                <router-link :to="{name: 'upload-produk.index'}"
                              class="flex items-center px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                   <svg class="text-gray-800 w-[14px] h-[14px] dark:text-white" aria-hidden="true"
                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
@@ -146,17 +146,20 @@ const isActive = (routeName) => {
             </button>
           </div>
           <div class="relative hidden h-4 w-4 md:flex lg:h-6 lg:w-6">
-            <router-link to="/notifikasi">
+            <router-link to="#">
               <svg class="h-4 w-4 text-gray-500 dark:text-white lg:h-6 lg:w-6" aria-hidden="true"
                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
                 <path
                     d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z"/>
               </svg>
-              <div class="absolute -top-3 -right-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900 animate-[twBounce_1s_ease-in-out_infinite]">20</div>
+              <div
+                  class="absolute -top-3 -right-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900 animate-[twBounce_1s_ease-in-out_infinite]">
+                20
+              </div>
             </router-link>
           </div>
           <div class="relative hidden h-4 w-4 md:flex lg:h-6 lg:w-6">
-            <router-link to="/keranjang">
+            <router-link :to="{name: 'keranjang.index'}">
               <svg class="h-4 w-4 text-gray-500 dark:text-white lg:h-6 lg:w-6" aria-hidden="true"
                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
                 <path
@@ -192,32 +195,31 @@ const isActive = (routeName) => {
               </div>
               <ul class="py-2" aria-labelledby="user-menu-button" @click="closeDropdown">
                 <li>
-                  <router-link to="/profil"
+                  <router-link :to="{name: 'profil.index'}"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     Profil
                   </router-link>
                 </li>
                 <li class="block md:hidden">
-                  <router-link to="/jelajahi"
+                  <router-link :to="{name: 'jelajahi.index'}"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     Jelajahi
                   </router-link>
                 </li>
                 <li class="block md:hidden">
-                  <router-link to="/toko"
+                  <router-link :to="{name: 'toko.index'}"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     Toko
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/pengaturan/profil"
+                  <router-link :to="{name: 'update-profile'}"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                    Pengaturan
-                    Akun
+                    Pengaturan Akun
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/afiliasi"
+                  <router-link :to="{name: 'afiliasi.index'}"
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     Afiliasi
                   </router-link>
@@ -229,7 +231,7 @@ const isActive = (routeName) => {
                   </router-link>
                 </li>
                 <li class="block md:hidden">
-                  <router-link to="/upload-karya"
+                  <router-link :to="{name: 'upload-karya.index'}"
                                class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg class="w-[14px] h-[14px] dark:text-white" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -242,7 +244,7 @@ const isActive = (routeName) => {
                   </router-link>
                 </li>
                 <li class="block md:hidden">
-                  <router-link to="/upload-produk"
+                  <router-link :to="{name: 'upload-produk.index'}"
                                class="flex items-center border-b border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg class="w-[14px] h-[14px]" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
@@ -256,7 +258,7 @@ const isActive = (routeName) => {
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/wishlist"
+                  <router-link :to="{name: 'wishlist.index'}"
                                class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg width="14" height="14" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -298,7 +300,7 @@ const isActive = (routeName) => {
                   </router-link>
                 </li>
                 <li class="block md:hidden">
-                  <router-link to="/keranjang"
+                  <router-link :to="{name: 'keranjang.index'}"
                                class="flex items-center border-b border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg class="h-4 w-4 text-gray-500 dark:text-white lg:h-6 lg:w-6" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
