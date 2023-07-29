@@ -1,82 +1,182 @@
+<script setup>
+import {IonPage, IonContent} from '@ionic/vue';
+import image from '../../public/throne_room.png'
+import SelectBox from '@/components/commons/SelectBox.vue';
+import Button from '@/components/commons/Button.vue';
+import ProductCard from '@/components/commons/ProductCard.vue';
+import {onMounted, ref, computed} from 'vue';
+import {storeToRefs} from "pinia";
+import {useProductStore} from "@/stores/product.js";
+import {useProductCategories} from "@/stores/product-categories.js";
+
+const productStore = useProductStore();
+const productCategoriesStore = useProductCategories();
+const {products} = storeToRefs(productStore);
+const {productCategories} = storeToRefs(productCategoriesStore);
+
+onMounted(async () => {
+  await productStore.getProducts();
+  await productCategoriesStore.getProductCategories();
+});
+
+const categoryData = ref({
+  category: 'Produk Digital',
+  subCategory: '',
+  subSubCategory: [],
+});
+
+const selectCategory = (data) => {
+  categoryData.value.category = data.category;
+  categoryData.value.subCategory = data.subCategory;
+  categoryData.value.subSubCategory = data.subSubCategory;
+};
+
+// Bagian ini menunjukkan berapa banyak kategori yang harus ditampilkan pada baris pertama
+const firstRowCategoriesCount = 8; // Ganti sesuai jumlah kategori yang ingin ditampilkan pada baris pertama
+const firstRowCategories = computed(() => productCategories.value.data?.slice(0, firstRowCategoriesCount));
+
+// Bagian ini menunjukkan kategori yang akan ditampilkan di baris-baris berikutnya (selain baris pertama)
+const remainingRowsCategories = computed(() => productCategories.value.data?.slice(firstRowCategoriesCount));
+
+// State untuk menampilkan/menyembunyikan baris-baris berikutnya
+const showMoreButton = ref(false);
+
+const moreButtonLabel = computed(() => (showMoreButton.value ? 'Lebih sedikit' : 'Lebih banyak'));
+
+const toggleShowMore = () => {
+  showMoreButton.value = !showMoreButton.value;
+};
+</script>
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="md:p-6 p-4">
-        <div class="md:flex md:flex-auto block md:space-y-0 space-y-2 gap-2">
-          <SelectBox :isActive="dataKategori.kategori === 'Produk Digital'" name="Produk Digital" :img="image"
-            @click="pilihKategori({ kategori: 'Produk Digital', subKategori: '', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.kategori === 'Produk Fisik'" name="Produk Fisik" :img="image"
-            @click="pilihKategori({ kategori: 'Produk Fisik', subKategori: '', kategoriKecil: [] })" />
+      <div class="bg-gray-100 p-4 md:p-6">
+        <div class="block gap-2 space-y-2 md:space-y-0 md:flex md:flex-auto">
+          <SelectBox :img="image"
+                     :isActive="categoryData.category === 'Produk Fisik'"
+                     name="Produk Fisik"
+                     @click="selectCategory({ category: 'Produk Fisik'})"
+          />
+          <SelectBox :img="image"
+                     :isActive="categoryData.category === 'Produk Digital'"
+                     name="Produk Digital"
+                     @click="selectCategory({ category: 'Produk Digital'})"
+          />
         </div>
-        <div class="grid md:grid-cols-4 grid-cols-2 md:space-y-0 gap-2 py-2">
-          <SelectBox :isActive="dataKategori.subKategori === 'Lukisan'" styling="sm:text-xl text-lg" name="Lukisan"
-            :img="image"
-            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Lukisan', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.subKategori === 'Kerajinan Tangan'" styling="sm:text-xl text-lg"
-            name="Kerajinan Tangan" :img="image"
-            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Kerajinan Tangan', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.subKategori === 'Tutorial'" styling="sm:text-xl text-lg" name="Tutorial"
-            :img="image"
-            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Tutorial', kategoriKecil: [] })" />
-          <SelectBox :isActive="dataKategori.subKategori === 'Aset Game'" styling="sm:text-xl text-lg"
-            name="Aset Game" :img="image"
-            @click="pilihKategori({ kategori: dataKategori?.kategori, subKategori: 'Aset Game', kategoriKecil: [] })" />
+        <div class="grid grid-cols-2 gap-2 py-2 md:space-y-0 md:grid-cols-4">
+          <SelectBox :img="image"
+                     :isActive="categoryData.subCategory === 'Lukisan'"
+                     name="Lukisan"
+                     styling="sm:text-xl text-lg"
+                     @click="selectCategory({ category: 'Produk Fisik', subCategory: 'Lukisan'})"
+          />
+          <SelectBox :img="image"
+                     :isActive="categoryData.subCategory === 'Kerajinan Tangan'"
+                     name="Kerajinan Tangan"
+                     styling="sm:text-xl text-lg"
+                     @click="selectCategory({ category: 'Produk Fisik', subCategory: 'Kerajinan Tangan'})"
+          />
+          <SelectBox :img="image"
+                     :isActive="categoryData.subCategory === 'Tutorial'"
+                     name="Tutorial"
+                     styling="sm:text-xl text-lg"
+                     @click="selectCategory({ category: 'Produk Digital', subCategory: 'Tutorial'})"
+          />
+          <SelectBox :img="image"
+                     :isActive="categoryData.subCategory === 'Aset Game'"
+                     name="Aset Game"
+                     styling="sm:text-xl text-lg"
+                     @click="selectCategory({ category: 'Produk Digital', subCategory: 'Aset Game'})"
+          />
         </div>
-        <div class="grid lg:grid-cols-9 md:grid-cols-5 grid-cols-3 md:space-y-0 md:gap-4 gap-2 py-1 w-full">
-          <Button :isActive="true" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
-          <Button :isActive="false" name="Lukisan" />
+        <div class="grid w-full grid-cols-3 gap-2 py-1 md:space-y-0 md:grid-cols-5 md:gap-4 lg:grid-cols-9">
+          <!-- Baris pertama -->
+          <Button
+              v-for="(item, index) in firstRowCategories"
+              :isActive="index === 0"
+              :name="item.name"
+              :key="index"
+          />
+
+          <!-- Baris-baris berikutnya (sembunyikan dengan CSS) -->
+          <div
+              v-for="(item, index) in remainingRowsCategories"
+              :key="index"
+              :class="{ 'hidden': !showMoreButton }"
+          >
+            <Button :name="item.name" />
+          </div>
+
+          <!-- Tombol "Tampilkan lebih banyak" -->
+          <button
+              class="text-red-500"
+              @click="toggleShowMore"
+          >
+            {{ moreButtonLabel }}
+          </button>
         </div>
         <div>
           <form>
-            <label for="default-search"
-              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <label class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                   for="default-search"
+            >
+              Cari
+            </label>
             <div class="relative">
-              <div class="flex justify-between items-center gap-4 mt-4">
-                <div class="w-full relative">
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+              <div class="mt-4 flex items-center justify-between gap-4">
+                <div class="relative w-full">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg aria-hidden="true" class="h-4 w-4 text-gray-500 dark:text-gray-400"
+                         fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                      />
                     </svg>
                   </div>
-                  <input type="search" id="default-search"
-                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Cari produk..." required>
+                  <input id="default-search"
+                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:placeholder-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                         placeholder="Cari produk..."
+                         required type="search"
+                  >
                 </div>
-                <div class="w-full md:block hidden">
+                <div class="hidden w-full md:block">
                   <div
-                    class="w-full py-1.5 bg-white justify-between px-2.5 items-center gap-8 inline-flex rounded-lg shadow-md">
-                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
-                      data-tabs-target="#Trending" type="button" role="tab" aria-controls="Trending"
-                      aria-selected="false">
-                      <div class="text-gray-500 text-sm font-medium leading-tight">Trending</div>
+                      class="inline-flex w-full items-center justify-between gap-8 rounded-lg bg-white shadow-md py-1.5 px-2.5">
+                    <button id="trending-tab"
+                            class="flex items-center justify-start rounded-md px-4 py-3 gap-1.5"
+                            data-tabs-target="#trending"
+                            type="button"
+                    >
+                      <div class="text-sm font-medium leading-tight text-gray-500">Trending</div>
                     </button>
-                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="Diskon-tab"
-                      data-tabs-target="#Diskon" type="button" role="tab" aria-controls="Diskon" aria-selected="false">
-                      <div class="text-gray-500 text-sm font-medium leading-tight">Diskon</div>
+                    <button id="discount-tab"
+                            class="flex items-center justify-start rounded-md px-4 py-3 gap-1.5"
+                            data-tabs-target="#discount"
+                            type="button"
+                    >
+                      <div class="text-sm font-medium leading-tight text-gray-500">Diskon</div>
                     </button>
-                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="Trending-tab"
-                      data-tabs-target="#Trending" type="button" role="tab" aria-controls="Trending"
-                      aria-selected="false">
-                      <div class="text-gray-500 text-sm font-medium leading-tight">Trending</div>
+                    <button id="high-rating-tab"
+                            class="flex items-center justify-start rounded-md px-4 py-3 gap-1.5"
+                            data-tabs-target="#high-rating"
+                            type="button"
+                    >
+                      <div class="text-sm font-medium leading-tight text-gray-500">Rating Tinggi</div>
                     </button>
-                    <button class="px-4 py-3 rounded-md justify-start items-center gap-1.5 flex" id="tentang-saya-tab"
-                      data-tabs-target="#tentang-saya" type="button" role="tab" aria-controls="tentang-saya"
-                      aria-selected="false">
-                      <div class="text-gray-500 text-sm font-medium leading-tight">Tentang Saya</div>
+                    <button id="special-offer-tab"
+                            class="flex items-center justify-start rounded-md px-4 py-3 gap-1.5"
+                            data-tabs-target="#special-offer"
+                            type="button"
+                    >
+                      <div class="text-sm font-medium leading-tight text-gray-500">Penawaran Khusus</div>
                     </button>
-                    <button class="px-4 py-3 bg-red-700 rounded-md justify-center items-center gap-1.5 flex"
-                      id="disukai-tab" data-tabs-target="#disukai" type="button" role="tab" aria-controls="disukai"
-                      aria-selected="false">
-                      <div class="text-white text-sm font-medium leading-tight">Disukai</div>
+                    <button id="best-seller-tab"
+                            class="flex items-center justify-center rounded-md bg-red-700 px-4 py-3 gap-1.5"
+                            data-tabs-target="#best-seller"
+                            type="button"
+                    >
+                      <div class="text-sm font-medium leading-tight text-white">Penjualan Terbaik</div>
                     </button>
                   </div>
                 </div>
@@ -84,56 +184,19 @@
             </div>
           </form>
         </div>
-        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 py-4 w-full">
-          <Card :img="yae" />
-          <Card :img="yae" />
-          <Card :img="yae" />
-          <Card :img="yae" />
-          <Card :img="yae" />
-          <Card :img="yae" />
-          <Card :img="yae" />
-          <Card :img="yae" />
+        <div class="grid w-full grid-cols-1 gap-4 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <ProductCard v-for="(product, index) in products.data"
+                       :id="product.id"
+                       :name="product.name"
+                       :price="product.price"
+                       :description="product.description"
+                       :affiliate-commission="product.affiliate_commission"
+                       :is-affiliated="product.is_affiliated"
+                       :user="product.user"
+                       :img="product.images[0]"
+          />
         </div>
       </div>
     </ion-content>
   </ion-page>
 </template>
-
-<script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import image from '../../public/throne_room.png'
-import SelectBox from '@/components/commons/SelectBox.vue';
-import Button from '@/components/commons/Button.vue';
-import Card from '@/components/commons/Card.vue';
-import yae from '../../public/dummy_galleries/ui_uiiiiiiiii-1-small.jpg'
-export default {
-  components: {
-    IonPage,
-    IonContent,
-    SelectBox,
-    Button,
-    Card,
-  },
-  data() {
-    return {
-      image: image,
-      yae: yae,
-      dataKategori: {
-        kategori: "Produk Digital",
-        subKategori: "",
-        kategoriKecil: [],
-      },
-
-    };
-  },
-  methods: {
-    pilihKategori(data) {
-      this.dataKategori.kategori = data.kategori;
-      this.dataKategori.subKategori = data.subKategori;
-      this.dataKategori.kategoriKecil = data.kategoriKecil;
-      console.log(this.dataKategori);
-    },
-  },
-
-};
-</script>

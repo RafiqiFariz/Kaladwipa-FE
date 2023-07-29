@@ -1,12 +1,42 @@
+<script setup>
+import {IonPage, IonContent} from "@ionic/vue";
+import Slider from "@/components/commons/Slider.vue";
+import DisplayImage from "@/components/commons/DisplayImage.vue";
+import {sliderData} from "../../constant/dummy-data.js";
+import {useExploreStore} from "@/stores/explore.js";
+import * as _ from 'lodash';
+import {onMounted} from "vue"
+import {ref} from "vue";
+import {storeToRefs} from "pinia";
+
+const isActive = ref("terbaru");
+const chunkedItems = ref([]);
+const showDropdown = ref(false);
+const exploreStore = useExploreStore();
+const {artworks} = storeToRefs(exploreStore);
+
+onMounted(async () => {
+  await exploreStore.getArtworks();
+  chunkedItems.value = _.chunk(artworks.value.data, 5);
+});
+
+const setActiveTab = (tab) => {
+  isActive.value = tab;
+}
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+}
+</script>
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="md:p-6 p-4 w-full bg-neutral-100">
+      <div class="w-full bg-neutral-100 p-4 md:p-6 relative">
         <Slider :data="sliderData"/>
-        <div class="sm:mt-0 mt-8">
+        <div class="mt-8 sm:mt-0">
           <button
               id="dropdownDefaultButton"
-              class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 mb-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+              class="mb-2 inline-flex items-center rounded-lg bg-red-700 px-5 text-center text-sm font-medium text-white py-2.5 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300"
               type="button"
               @click="toggleDropdown"
           >
@@ -31,23 +61,23 @@
           <div
               id="dropdownHelper"
               v-if="showDropdown"
-              class="absolute top-50 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600"
+              class="absolute z-10 w-60 rounded-lg bg-white shadow top-50 divide-y divide-gray-100 dark:divide-gray-600 dark:bg-gray-700"
           >
             <ul
-                class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
+                class="p-3 text-sm text-gray-700 space-y-1 dark:text-gray-200"
                 aria-labelledby="dropdownHelperButton"
             >
               <li>
                 <div
-                    class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                    class="flex rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
-                  <div class="flex items-center h-5">
+                  <div class="flex h-5 items-center">
                     <input
                         id="helper-checkbox-1"
                         aria-describedby="helper-checkbox-text-1"
                         type="checkbox"
                         value=""
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-700"
                     />
                   </div>
                   <div class="ml-2 text-sm">
@@ -62,15 +92,15 @@
               </li>
               <li>
                 <div
-                    class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                    class="flex rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
-                  <div class="flex items-center h-5">
+                  <div class="flex h-5 items-center">
                     <input
                         id="helper-checkbox-2"
                         aria-describedby="helper-checkbox-text-2"
                         type="checkbox"
                         value=""
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-700"
                     />
                   </div>
                   <div class="ml-2 text-sm">
@@ -85,15 +115,15 @@
               </li>
               <li>
                 <div
-                    class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                    class="flex rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
-                  <div class="flex items-center h-5">
+                  <div class="flex h-5 items-center">
                     <input
                         id="helper-checkbox-3"
                         aria-describedby="helper-checkbox-text-3"
                         type="checkbox"
                         value=""
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-700"
                     />
                   </div>
                   <div class="ml-2 text-sm">
@@ -113,12 +143,12 @@
           <DisplayImage :data="chunkedItems" kategori="homepage"/>
           <!-- Tab Navigasi -->
           <ul
-              class="sm:flex hidden fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 w-auto h-12 px-2.5 py-1 bg-white rounded-lg shadow justify-start items-center gap-8 inline-flex"
+              class="fixed bottom-0 left-1/2 mb-4 inline-flex hidden h-12 w-auto -translate-x-1/2 transform items-center justify-start gap-8 rounded-lg bg-white py-1 shadow px-2.5 sm:flex"
           >
             <li>
               <button
                   type="button"
-                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  class="flex items-center justify-center rounded-md px-4 py-3 text-gray-500 gap-1.5"
                   :class="{ 'bg-red-700 text-white': isActive === 'komunitas' }"
                   @click="setActiveTab('komunitas')"
               >
@@ -130,7 +160,7 @@
             <li>
               <button
                   type="button"
-                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  class="flex items-center justify-center rounded-md px-4 py-3 text-gray-500 gap-1.5"
                   :class="{ 'bg-red-700 text-white': isActive === 'trending' }"
                   @click="setActiveTab('trending')"
               >
@@ -142,7 +172,7 @@
             <li>
               <button
                   type="button"
-                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  class="flex items-center justify-center rounded-md px-4 py-3 text-gray-500 gap-1.5"
                   :class="{ 'bg-red-700 text-white': isActive === 'terbaru' }"
                   @click="setActiveTab('terbaru')"
               >
@@ -154,7 +184,7 @@
             <li>
               <button
                   type="button"
-                  class="px-4 py-3 rounded-md justify-center items-center gap-1.5 flex text-gray-500 "
+                  class="flex items-center justify-center rounded-md px-4 py-3 text-gray-500 gap-1.5"
                   :class="{ 'bg-red-700 text-white': isActive === 'diikuti' }"
                   @click="setActiveTab('diikuti')"
               >
@@ -169,40 +199,3 @@
     </ion-content>
   </ion-page>
 </template>
-
-<script>
-import {IonPage, IonContent} from "@ionic/vue";
-import Slider from "@/components/commons/Slider.vue";
-import DisplayImage from "@/components/commons/DisplayImage.vue";
-import {images, sliderData} from "../../constant/dummy-data.js";
-import * as _ from 'lodash';
-
-export default {
-  components: {
-    IonPage,
-    IonContent,
-    Slider,
-    DisplayImage,
-  },
-  data() {
-    return {
-      isActive: "terbaru",
-      images,
-      chunkedItems: [],
-      showDropdown: false,
-      sliderData
-    };
-  },
-  created() {
-    this.chunkedItems = _.shuffle(_.chunk(this.images, 5));
-  },
-  methods: {
-    setActiveTab(tab) {
-      this.isActive = tab;
-    },
-    toggleDropdown() {
-      this.showDropdown = !this.showDropdown;
-    },
-  },
-};
-</script>

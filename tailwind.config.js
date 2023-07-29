@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+const {withAnimations} = require('animated-tailwindcss')
+
+export default withAnimations({
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
@@ -15,11 +16,11 @@ export default {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px',
-    }
+      },
     },
   },
   plugins: [
     require('flowbite/plugin'),
   ],
-}
+})
 

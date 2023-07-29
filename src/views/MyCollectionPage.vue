@@ -1,9 +1,9 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="false">
-            <div class="md:p-6 p-4 w-full bg-neutral-100">
+            <div class="w-full bg-neutral-100 p-4 md:p-6">
                 <div class="relative mt-4">
-                    <label for="judul" class="block mb-8 lg:text-4xl md:text-3xl text-2xl text-center font-bold text-gray-900 dark:text-white">Koleksi Ku</label>
+                    <label for="judul" class="mb-8 block text-center text-2xl font-bold text-gray-900 dark:text-white md:text-3xl lg:text-4xl">Koleksi Ku</label>
                     <DisplayImage :data="chunkedItems" kategori="koleksiku"/>
                 </div>
             </div>

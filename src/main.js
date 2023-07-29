@@ -1,8 +1,9 @@
 import {createApp, markRaw} from 'vue';
-import {createPinia} from 'pinia';
 import App from './App.vue';
 import router from './router/index.js';
 import {IonicVue} from '@ionic/vue';
+import {createPinia} from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import './axios.js';
 import 'flowbite';
 
@@ -34,10 +35,25 @@ pinia.use(({store}) => {
   store.router = markRaw(router);
 });
 
+pinia.use(piniaPluginPersistedstate)
+
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
     .use(pinia);
+
+app.config.globalProperties.$filters = {
+  rupiah(value) {
+    return parseInt(value).toLocaleString('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0
+    })
+  },
+  formatNumber(value) {
+    return parseInt(value).toLocaleString('id-ID');
+  }
+}
 
 router.isReady().then(() => {
   app.mount('#app');

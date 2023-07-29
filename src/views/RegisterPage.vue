@@ -2,6 +2,7 @@
 import {IonPage, IonContent} from "@ionic/vue";
 import {ref} from "vue"
 import {useAuthStore} from "@/stores/auth.js";
+import InputError from "@/components/commons/InputError.vue";
 
 const authStore = useAuthStore();
 const form = ref({
@@ -13,9 +14,9 @@ const form = ref({
 <template>
   <ion-page>
     <ion-content>
-      <div class="flex justify-center items-center h-screen flex-col">
+      <div class="flex justify-center items-center h-screen flex-col md:p-6 p-4">
         <div
-            class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto"
+            class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow md:p-8 sm:p-6 p-4 dark:bg-gray-800 dark:border-gray-700 mx-auto"
         >
           <div class="flex justify-center">
             <router-link to="/">
@@ -24,7 +25,7 @@ const form = ref({
           </div>
           <h4 class="text-black flex justify-center">Daftar</h4>
           <form class="space-y-6" @submit.prevent="authStore.register(form)">
-            <div>
+            <div class="space-y-2">
               <label
                   for="name"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -38,10 +39,10 @@ const form = ref({
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Nama"
                   v-model.trim="form.name"
-                  required
               />
+              <InputError :errors="authStore.errors.name"/>
             </div>
-            <div>
+            <div class="space-y-2">
               <label
                   for="email"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -55,10 +56,10 @@ const form = ref({
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="name@company.com"
                   v-model.trim="form.email"
-                  required
               />
+              <InputError :errors="authStore.errors.email"/>
             </div>
-            <div>
+            <div class="space-y-2">
               <label
                   for="password"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -73,8 +74,8 @@ const form = ref({
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   title="Minimal terdiri atas 8 karakter. Harus menyertakan huruf dan angka"
                   v-model.trim="form.password"
-                  required
               />
+              <InputError :errors="authStore.errors.password"/>
             </div>
             <button
                 type="submit"
