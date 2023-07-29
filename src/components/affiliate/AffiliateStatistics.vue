@@ -41,7 +41,7 @@ export default {
     };
   },
   created() {
-    const id = parseInt(this.$route.params.affiliateId);
+    const id = parseInt(this.$route.params.id);
     this.item = this.affiliates.find((item) => item.id === id);
   },
 };
