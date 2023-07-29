@@ -67,7 +67,7 @@
                   <router-link
                     :to="{
                       name: 'affiliate-stats',
-                      params: { affiliateId: item.id },
+                      params: { id: item.id },
                     }"
                   >
                     <button
