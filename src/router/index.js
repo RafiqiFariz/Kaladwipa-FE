@@ -120,6 +120,10 @@ const routes = [
     path: "/upload-produk",
     component: () => import("@/views/UploadProductPage.vue"),
   },
+  {
+    path: "/penghasilan",
+    component: () => import("@/views/IncomePage.vue"),
+  },
 ];
 
 const router = createRouter({
