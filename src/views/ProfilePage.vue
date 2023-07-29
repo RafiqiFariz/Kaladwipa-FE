@@ -2,20 +2,24 @@
 import {IonPage, IonContent} from '@ionic/vue';
 import DisplayImage from '@/components/commons/DisplayImage.vue';
 import bgImage from '../../public/throne_room.png';
-import {images} from '../../constant/dummy-data.js';
-import {onMounted, ref} from 'vue';
+import {onMounted, ref, watch} from 'vue';
 import * as _ from 'lodash';
 import {useAuthStore} from "@/stores/auth.js";
+import {useExploreStore} from "@/stores/explore.js";
+import {storeToRefs} from "pinia";
 
-const {user} = useAuthStore();
+const authStore = useAuthStore();
+const exploreStore = useExploreStore();
+const {user} = storeToRefs(authStore);
+const {artworks} = storeToRefs(exploreStore);
 const activeTab = ref('karya');
 const chunkedItems = ref([]);
 
-onMounted(() => {
-  chunkedItems.value = _.shuffle(_.chunk(images, 5));
+onMounted(async () => {
+  await exploreStore.getArtworks();
+  chunkedItems.value = _.chunk(artworks.value.data, 5);
 });
 </script>
-
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
@@ -58,7 +62,7 @@ onMounted(() => {
         </div>
         <div id="myTabContent" class="w-full p-4 md:p-8">
           <div v-show="activeTab === 'karya'" id="karya" role="tabpanel" aria-labelledby="karya-tab">
-            <DisplayImage :data="chunkedItems"/>
+            <DisplayImage :data="chunkedItems" :profile="true"/>
           </div>
           <div v-show="activeTab === 'tentang-saya'"
                class="mx-auto h-screen max-w-4xl"
@@ -86,7 +90,7 @@ onMounted(() => {
             </p>
           </div>
           <div v-show="activeTab === 'disukai'" id="disukai" role="tabpanel">
-            <DisplayImage :data="chunkedItems"/>
+            <DisplayImage :data="chunkedItems" :profile="true"/>
           </div>
         </div>
       </div>

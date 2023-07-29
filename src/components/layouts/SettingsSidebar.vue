@@ -18,7 +18,7 @@
             class="group rounded-lg"
           >
             <router-link
-              to="/pengaturan/profil"
+              :to="{name: 'update-profile'}"
               class="flex items-center p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700"
             >
               <svg
