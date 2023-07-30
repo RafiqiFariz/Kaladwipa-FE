@@ -30,18 +30,19 @@ const routes = [
   },
   {
     path: "/artikel",
+    name: "artikel.index",
     component: () => import("@/views/ArticlePage.vue"),
   },
   {
     path: "/artikel/:id",
     name: "artikel.show",
     component: () => import("@/components/article/TheArticle.vue"),
+    meta: { parentRoute: "artikel" }
   },
   {
     path: "/jelajahi",
     name: "jelajahi.index",
     component: () => import("@/views/HomePage.vue"),
-    meta: { parentRoute: "jelajahi" }
   },
   {
     path: "/jelajahi/:id",
@@ -53,7 +54,6 @@ const routes = [
     path: "/toko",
     name: "toko.index",
     component: () => import("@/views/ShopPage.vue"),
-    meta: { parentRoute: "toko" }
   },
   {
     path: "/toko/produk/:id",

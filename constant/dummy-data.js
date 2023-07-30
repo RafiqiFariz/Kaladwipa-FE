@@ -35,7 +35,7 @@ export const images = [
 ];
 
 export const sliderData = [
-    { url: "/dummy_galleries/ari-yanto-gatot-kaca-fight-hires-00.jpg", link: "/artikel/1", title: 'Kompetisi Desain', alt: "Image 1" },
+    { url: "/dummy_galleries/ari-yanto-gatot-kaca-fight-hires-00.jpg", link: {name: 'artikel.show', params: {id: 1}}, title: 'Kompetisi Desain', alt: "Image 1" },
     { url: "/dummy_galleries/jonathan-lebrec-rizieres-free.jpg", link: "/artikel/2", title: 'Kompetisi Desain', alt: "Image 2" },
     { url: "/dummy_galleries/nadya-b-img-2279-min.jpg", link: "/artikel/3", title: 'Kompetisi Desain', alt: "Image 3" },
     { url: "/dummy_galleries/oliver-guiney-uncharted-real-redux-03.jpg", link: "/artikel/4", title: 'Kompetisi Desain', alt: "Image 4" },

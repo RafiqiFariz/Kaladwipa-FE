@@ -52,6 +52,12 @@ app.config.globalProperties.$filters = {
   },
   formatNumber(value) {
     return parseInt(value).toLocaleString('id-ID');
+  },
+  truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + "...";
+    }
+    return text;
   }
 }
 

@@ -53,7 +53,7 @@ const closeDropdown = () => {
 }
 
 const isActive = (routeName) => {
-  return routeName.startsWith(route.meta.parentRoute);
+  return route.name === routeName || routeName.startsWith(route.meta.parentRoute);
 }
 </script>
 <template>
@@ -73,13 +73,22 @@ const isActive = (routeName) => {
             Jelajahi
           </router-link>
         </div>
-        <div class="mr-6 inline-flex flex-col items-start justify-center">
+        <div class="inline-flex flex-col items-start justify-center">
           <router-link
               :to="{name: 'toko.index'}"
               class="text-center text-base font-medium leading-normal text-gray-900"
               :class="{[activeClass] : isActive('toko.index')}"
           >
             Toko
+          </router-link>
+        </div>
+        <div class="mr-6 inline-flex flex-col items-start justify-center">
+          <router-link
+              :to="{name: 'artikel.index'}"
+              class="text-center text-base font-medium leading-normal text-gray-900"
+              :class="{[activeClass] : isActive('artikel.index')}"
+          >
+            Artikel
           </router-link>
         </div>
       </div>
@@ -153,7 +162,7 @@ const isActive = (routeName) => {
                     d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z"/>
               </svg>
               <div
-                  class="absolute -top-3 -right-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white dark:border-gray-900 animate-[twBounce_1s_ease-in-out_infinite]">
+                  class="absolute -top-3 -right-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white animate-[twBounce_1s_ease-in-out_infinite] dark:border-gray-900">
                 20
               </div>
             </router-link>
@@ -329,7 +338,7 @@ const isActive = (routeName) => {
             Masuk
           </router-link>
           <router-link :to="{name: 'register'}"
-                       class="rounded-lg border border-gray-200 bg-white px-5 text-sm font-medium text-gray-900 py-2.5 hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">
+                       class="rounded-lg border border-gray-200 bg-white px-5 text-sm font-medium text-gray-900 py-2.5 hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 hidden md:block">
             Daftar
           </router-link>
         </div>
