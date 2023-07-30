@@ -6,8 +6,9 @@ import SkeletonCard from "@/components/commons/SkeletonCard.vue";
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="m-0 h-full w-full p-8 md-8 space-y-4 md:m-auto md:px-48">
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="m-0 h-full w-full p-4 md:p-6 space-y-4 md:m-auto md:px-48">
+        <h3 class="text-3xl font-bold dark:text-white text-center m-0">Artikel</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pb-6">
           <Suspense>
             <template #default>
               <ArticleCard/>
