@@ -62,7 +62,7 @@ onMounted(async () => {
             </div>
           </div>
           <div class="md:h-[550px] w-full my-4">
-            <img class="h-full w-full rounded-lg object-contain md:object-cover" :src="article.thumbnailUrl" alt="tes">
+            <img class="h-full w-full rounded-lg object-contain md:object-cover" :src="article.thumbnail" alt="tes">
           </div>
           <div class="w-full text-justify">
             {{ article.content }}
