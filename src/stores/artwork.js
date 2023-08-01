@@ -1,7 +1,10 @@
 import {defineStore} from "pinia";
 import axios from "axios";
+import {useAuthStore} from "@/stores/auth.js";
 
-export const useExploreStore = defineStore("explore", {
+const authStore = useAuthStore();
+
+export const useArtworkStore = defineStore("artwork", {
   state: () => ({
     data: [],
     authErrors: [],
@@ -12,12 +15,9 @@ export const useExploreStore = defineStore("explore", {
     artworks: (state) => state.data,
   },
   actions: {
-    async getToken() {
-      await axios.get("/sanctum/csrf-cookie");
-    },
     async getArtworks() {
       const params = {
-        "pageSize": 50,
+        "pageSize": 200,
         "includeTags": true,
         "includeImages": true,
         "includeLikes": true,
@@ -44,6 +44,30 @@ export const useExploreStore = defineStore("explore", {
         this.data = artwork.data.data;
       } catch (e) {
         console.log(e);
+      }
+    },
+    async storeArtwork(data) {
+      try {
+        let newData = data;
+        newData.software_used = newData.software_used.software_used;
+        newData.categories = newData.categories.categories;
+        newData.tags = newData.tags.tags;
+
+        await axios.post(
+            "/api/v1/artworks", newData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+        );
+
+        // await this.router.push({name: 'home'});
+        alert("Upload Karya berhasil!");
+      } catch (error) {
+        if (error.response.status === 422) {
+          this.authErrors = error.response.data.errors;
+        }
       }
     }
   },

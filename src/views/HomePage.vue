@@ -3,7 +3,7 @@ import {IonPage, IonContent} from "@ionic/vue";
 import Slider from "@/components/commons/Slider.vue";
 import DisplayImage from "@/components/commons/DisplayImage.vue";
 import {sliderData} from "../../constant/dummy-data.js";
-import {useExploreStore} from "@/stores/explore.js";
+import {useArtworkStore} from "@/stores/artwork.js";
 import * as _ from 'lodash';
 import {onMounted} from "vue"
 import {ref} from "vue";
@@ -12,7 +12,7 @@ import {storeToRefs} from "pinia";
 const isActive = ref("terbaru");
 const chunkedItems = ref([]);
 const showDropdown = ref(false);
-const exploreStore = useExploreStore();
+const exploreStore = useArtworkStore();
 const {artworks} = storeToRefs(exploreStore);
 
 onMounted(async () => {

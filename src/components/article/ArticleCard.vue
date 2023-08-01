@@ -1,7 +1,6 @@
 <script setup>
 import {useArticleStore} from "@/stores/article.js";
 import {storeToRefs} from "pinia";
-import {onMounted} from "vue";
 import {useRoute} from "vue-router";
 import _ from "lodash";
 
@@ -15,7 +14,7 @@ await articleStore.getArticles();
        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
        :key="index">
     <a href="#">
-      <img class="rounded-t-lg" :src="article.thumbnailUrl" :alt="article.title"/>
+      <img class="rounded-t-lg" :src="article.thumbnail" :alt="article.title"/>
     </a>
     <div class="p-5">
       <a href="#">

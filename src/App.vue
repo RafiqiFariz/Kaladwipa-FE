@@ -13,6 +13,9 @@ const {isVisible, type, message} = storeToRefs(toastStore);
     <TheHeader v-if="!$route.meta.hideNavbar"/>
     <ion-content>
       <ion-router-outlet/>
+      <Vueform>
+        <TextElement name="hello_world" label="Hello" placeholder="World" />
+      </Vueform>
     </ion-content>
     <Toast :type="type"
            class="absolute top-5 right-5 z-50 shadow-lg"

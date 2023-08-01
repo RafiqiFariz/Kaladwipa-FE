@@ -3,7 +3,7 @@ import Carousel from '@/components/commons/Carousel.vue';
 import {computed, onMounted, reactive, ref} from "vue";
 import ReportModal from "@/components/gallery/ReportModal.vue";
 import ShareModal from "@/components/gallery/ShareModal.vue";
-import {useExploreStore} from "@/stores/explore.js";
+import {useArtworkStore} from "@/stores/artwork.js";
 import {useRoute} from 'vue-router';
 import {storeToRefs} from "pinia";
 import moment from 'moment';
@@ -120,7 +120,7 @@ const artworkImageUrl = (item) => {
   return {src: finalUrl, alt: item.id};
 };
 
-const exploreStore = useExploreStore();
+const exploreStore = useArtworkStore();
 const {artwork} = storeToRefs(exploreStore);
 const pictures = ref([]);
 

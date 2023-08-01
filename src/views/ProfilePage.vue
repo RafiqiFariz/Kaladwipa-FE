@@ -5,11 +5,11 @@ import bgImage from '../../public/throne_room.png';
 import {onMounted, ref, watch} from 'vue';
 import * as _ from 'lodash';
 import {useAuthStore} from "@/stores/auth.js";
-import {useExploreStore} from "@/stores/explore.js";
+import {useArtworkStore} from "@/stores/artwork.js";
 import {storeToRefs} from "pinia";
 
 const authStore = useAuthStore();
-const exploreStore = useExploreStore();
+const exploreStore = useArtworkStore();
 const {user} = storeToRefs(authStore);
 const {artworks} = storeToRefs(exploreStore);
 const activeTab = ref('karya');

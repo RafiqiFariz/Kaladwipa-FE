@@ -1,11 +1,14 @@
-const {withAnimations} = require('animated-tailwindcss')
+const {withAnimations} = require('animated-tailwindcss');
 
 export default withAnimations({
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
+    './vueform.config.js', // or where `vueform.config.js` is located
+    './node_modules/@vueform/vueform/themes/tailwind/**/*.vue',
+    './node_modules/@vueform/vueform/themes/tailwind/**/*.js',
     'node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}',
-    'node_modules/flowbite/**/*.{js,jsx,ts,tsx}'
+    'node_modules/flowbite/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
@@ -21,6 +24,7 @@ export default withAnimations({
   },
   plugins: [
     require('flowbite/plugin'),
+    require('@vueform/vueform/tailwind'),
   ],
 })
 
