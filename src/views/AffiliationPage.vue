@@ -51,7 +51,9 @@ provide('affiliates', affiliates);
 <template>
   <ion-page>
     <ion-content :fullscreen="false">
-      <div class="w-full h-full bg-neutral-100">
+      <div class="w-full h-full bg-neutral-100"
+           :class="{'p-4 md:p-6': !isStats()}"
+      >
         <h1 class="text-center pb-5 font-bold" v-if="!isStats()">
           Halaman Afiliasi
         </h1>

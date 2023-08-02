@@ -5,19 +5,26 @@ import DisplayImage from "@/components/commons/DisplayImage.vue";
 import {sliderData} from "../../constant/dummy-data.js";
 import {useArtworkStore} from "@/stores/artwork.js";
 import * as _ from 'lodash';
-import {onMounted} from "vue"
+import {onBeforeMount, onMounted} from "vue"
 import {ref} from "vue";
 import {storeToRefs} from "pinia";
+import {useArticleStore} from "@/stores/article.js";
 
 const isActive = ref("terbaru");
 const chunkedItems = ref([]);
 const showDropdown = ref(false);
 const exploreStore = useArtworkStore();
+const articleStore = useArticleStore();
 const {artworks} = storeToRefs(exploreStore);
+const {articles} = storeToRefs(articleStore);
 
 onMounted(async () => {
   await exploreStore.getArtworks();
   chunkedItems.value = _.chunk(artworks.value.data, 5);
+});
+
+onBeforeMount(async () => {
+  await articleStore.getArticles();
 });
 
 const setActiveTab = (tab) => {
@@ -32,7 +39,7 @@ const toggleDropdown = () => {
   <ion-page>
     <ion-content :fullscreen="false">
       <div class="w-full bg-neutral-100 p-4 md:p-6 relative">
-        <Slider :data="sliderData"/>
+        <Slider :data="articles.data"/>
         <div class="mt-8 sm:mt-0">
           <button
               id="dropdownDefaultButton"

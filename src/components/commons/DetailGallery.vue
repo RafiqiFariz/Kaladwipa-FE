@@ -8,6 +8,7 @@ import {useRoute} from 'vue-router';
 import {storeToRefs} from "pinia";
 import moment from 'moment';
 import _ from 'lodash';
+import Comment from "@/components/commons/Comment.vue";
 
 const route = useRoute();
 const isShowReportModal = ref(false);
@@ -129,7 +130,7 @@ onMounted(async () => {
   pictures.value = _.map(artwork.value.images, artworkImageUrl);
 });
 
-const postedTime = computed((date) => {
+const postedTime = (date) => {
   const now = moment();
   const post = moment(date);
 
@@ -142,7 +143,7 @@ const postedTime = computed((date) => {
   } else {
     return `Diposting ${diffInDays} hari yang lalu`;
   }
-});
+};
 
 const profilePictureUrl = computed(() => {
   return artwork?.user?.profilePictureUrl ?? 'https://via.placeholder.com/48x48';
@@ -177,7 +178,7 @@ const profilePictureUrl = computed(() => {
               {{ artwork.description }}
             </div>
             <div class="self-stretch text-xs font-medium leading-none text-gray-700">
-              {{ postedTime }}
+              {{ postedTime(artwork.createdAt) }}
             </div>
           </div>
           <div class="mt-4 grid grid-cols-1 items-start justify-start gap-2 self-stretch md:grid-cols-3">
@@ -254,216 +255,7 @@ const profilePictureUrl = computed(() => {
     </div>
     <!--  Bagian komentar dan Tag  -->
     <div class="block gap-5 space-y-5 md:space-y-0 md:flex">
-      <div
-          class="inline-flex h-full w-full flex-col items-start justify-start rounded-lg border border-gray-200 bg-white p-6 shadow md:w-2/3">
-        <div class="flex flex-col items-start justify-start gap-4 self-stretch">
-          <!-- Awal Input Komentar -->
-          <form class="w-full">
-            <label for="chat" class="sr-only">Tinggalkan komentar...</label>
-            <div class="flex items-center rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-700">
-              <button type="button"
-                      class="cursor-pointer rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">
-                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13.408 7.5h.01m-6.876 0h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM4.6 11a5.5 5.5 0 0 0 10.81 0H4.6Z"/>
-                </svg>
-                <span class="sr-only">Add emoji</span>
-              </button>
-              <textarea id="chat" rows="1"
-                        class="mx-4 block w-full rounded-lg border border-gray-300 bg-white text-sm text-gray-900 p-2.5 focus:border-red-500 focus:ring-red-500 dark:placeholder-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        placeholder="Tinggalkan pesan..."></textarea>
-              <button type="submit"
-                      class="inline-flex cursor-pointer justify-center rounded-full p-2 text-red-600 hover:bg-red-100 dark:text-blue-500 dark:hover:bg-gray-600">
-                <svg class="h-5 w-5 rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                     viewBox="0 0 18 20">
-                  <path
-                      d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
-                </svg>
-                <span class="sr-only">Kirim pesan</span>
-              </button>
-            </div>
-          </form>
-          <!-- Akhir Input Komentar -->
-
-          <!-- Awal Komentar -->
-          <div class="max-w-full self-stretch">
-            <div v-for="(comment, index) in comments.slice(0, visibleComments)" :key="index">
-              <div class="mb-4 inline-flex w-full items-start justify-start gap-2.5">
-                <img class="relative h-8 w-8 rounded-full" src="https://via.placeholder.com/32x32" alt=""/>
-                <div class="relative flex max-w-sm shrink grow basis-0 items-center justify-start gap-1.5">
-                  <div class="grid grid-cols-1">
-                    <div
-                        class="inline-flex flex-col items-start rounded-tr-2xl rounded-br-2xl rounded-bl-2xl bg-gray-100 p-4 gap-2.5"
-                    >
-                      <div class="flex flex-col items-start justify-start gap-1.5">
-                        <div class="text-sm font-semibold leading-tight text-gray-900">{{ comment.name }}</div>
-                        <div class="text-xs font-medium leading-none text-gray-500">{{ comment.expertise }}</div>
-                      </div>
-                      <div class="text-sm font-normal leading-normal text-gray-900">{{ comment.comment }}</div>
-                      <div class="inline-flex items-center justify-start gap-2.5">
-                        <div class="text-xs font-normal leading-tight text-gray-500">2 Suka</div>
-                        <div class="text-xs font-normal leading-tight text-gray-500">Balas</div>
-                        <div class="text-xs font-normal leading-tight text-gray-500">• 1mg</div>
-                      </div>
-                    </div>
-                    <button
-                        v-if="(visibleReplies[index] < comment.replies.length)"
-                        class="mt-2 cursor-pointer text-left text-sm font-medium leading-normal text-gray-900 underline"
-                        @click="showMoreReplies(index)"
-                    >
-                      Tampilkan lebih banyak balasan
-                    </button>
-                    <button
-                        v-if="(visibleReplies[index] === comment.replies.length) && isRepliesOpen"
-                        class="mt-2 cursor-pointer text-left text-sm font-medium leading-normal text-gray-900 underline"
-                        @click="showMoreReplies(index)"
-                    >
-                      Tutup balasan
-                    </button>
-                  </div>
-
-                  <div class="relative">
-                    <!-- Awal Tombol Aksi -->
-                    <button type="button"
-                            :id="`dropdown-${index}-btn`"
-                            class="relative h-4 w-4"
-                            @click="toggleActionDropdown(index)"
-                    >
-                      <svg
-                          class="h-full w-full text-gray-800 dark:text-white"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="currentColor"
-                          viewBox="0 0 4 15"
-                      >
-                        <path
-                            d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                        />
-                      </svg>
-                    </button>
-                    <!-- Akhir Tombol Aksi -->
-
-                    <!-- Awal Dropdown Menu Aksi -->
-                    <div :id="`dropdown-${index}`"
-                         class="absolute z-10 w-44 rounded-lg bg-white shadow divide-y divide-gray-100 top-0 left-5 dark:bg-gray-700"
-                         data-dropdown-placement="left-end"
-                         v-show="visibleActionsComment[index]"
-                    >
-                      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                        <li>
-                          <button
-                              class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              @click="isShowReportModal = true;isShowActionDropdown = false;"
-                          >
-                            Laporkan
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                              class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            Blokir pengguna
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                    <!-- Akhir Dropdown Menu Aksi -->
-                  </div>
-                </div>
-              </div>
-
-              <!-- Awal Sub Komentar / Balasan -->
-              <div v-for="(subComment, subIndex) in comment.replies.slice(0, visibleReplies[index])"
-                   :key="subIndex">
-                <div class="mb-4 inline-flex items-start justify-start pl-10 gap-2.5 md:w-full">
-                  <img class="relative h-8 w-8 rounded-full" src="https://via.placeholder.com/32x32" alt=""/>
-                  <div class="flex max-w-sm shrink grow basis-0 items-center justify-start gap-1.5 relative">
-                    <div
-                        class="inline-flex flex-col items-start justify-center rounded-tr-2xl rounded-br-2xl rounded-bl-2xl bg-gray-100 p-4 gap-2.5">
-                      <div class="flex flex-col items-start justify-start gap-1.5">
-                        <div class="text-sm font-semibold leading-tight text-gray-900">
-                          {{ subComment.name }}
-                        </div>
-                        <div class="text-xs font-medium leading-none text-gray-500">
-                          {{ subComment.expertise }}
-                        </div>
-                      </div>
-                      <div class="text-sm font-normal leading-normal text-gray-900">
-                        {{ subComment.comment }}
-                      </div>
-                      <div class="inline-flex items-center justify-start gap-2.5">
-                        <div class="text-xs font-normal leading-tight text-gray-500">
-                          2 Suka
-                        </div>
-                        <div class="text-xs font-normal leading-tight text-gray-500">Balas</div>
-                        <div class="text-xs font-normal leading-tight text-gray-500">• 1mg</div>
-                      </div>
-                    </div>
-
-                    <div class="relative">
-                      <!-- Tombol Aksi Komentar Balasan -->
-                      <button class="hidden h-4 w-4 md:block" @click="toggleActionDropdown(index, subIndex)">
-                        <svg class="h-full w-full text-gray-800 dark:text-white" aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
-                          <path
-                              d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
-                        </svg>
-                      </button>
-
-                      <!-- Dropdown Menu Aksi Balasan -->
-                      <div :id="`dropdown-${index}-${subIndex}`"
-                           class="absolute z-10 w-44 rounded-lg bg-white shadow divide-y divide-gray-100 top-0 left-5 dark:bg-gray-700"
-                           data-dropdown-placement="left-end"
-                           v-show="visibleActionsReply[subIndex]"
-                      >
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownDefaultButton">
-                          <li>
-                            <button
-                                class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                @click="isShowReportModal = true;isShowActionDropdown = false;"
-                            >
-                              Laporkan
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                                class="w-full px-4 py-2 text-left text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                              Blokir pengguna
-                            </button>
-                          </li>
-                        </ul>
-                      </div>
-                      <!-- Akhir Dropdown Menu Aksi Balasan -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Akhir Sub Komentar / Balasan -->
-            </div>
-          </div>
-          <!-- Akhir Komentar -->
-
-          <div class="inline-flex items-center justify-center gap-2.5">
-            <!-- Menampilkan tombol "Tampilkan lebih banyak komentar" jika tidak semua komentar ditampilkan -->
-            <button
-                v-if="visibleComments < totalComments && !isOpen"
-                class="cursor-pointer text-base font-medium leading-normal text-gray-900 underline"
-                @click="showMoreComments"
-            >
-              Tampilkan lebih banyak
-            </button>
-            <!-- Menampilkan tombol "Tutup komentar" jika semua komentar ditampilkan -->
-            <button
-                v-else-if="visibleComments === totalComments && isOpen"
-                class="cursor-pointer text-base font-medium leading-normal text-gray-900 underline"
-                @click="showMoreComments"
-            >
-              Tutup komentar
-            </button>
-          </div>
-        </div>
-      </div>
+      <Comment/>
 
       <!-- Bagian Tag Karya -->
       <div class="w-full md:w-1/3">
