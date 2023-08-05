@@ -1,4 +1,5 @@
 <script setup>
+import Multiselect from '@vueform/multiselect'
 import UploadCard from "@/components/layouts/UploadCard.vue";
 import InputError from "@/components/commons/InputError.vue";
 import {onMounted, ref} from "vue";
@@ -22,6 +23,7 @@ const props = defineProps(['jenis']);
 const fileInput = ref(null);
 const isActive = ref("Gambar");
 const images = ref([]); // buat kebutuhan preview image nantinya
+const customTagClass = ref('rounded bg-red-500 text-white text-sm font-semibold py-0.5 px-1.5 mr-1 mb-1 flex items-center whitespace-nowrap');
 
 // khusus grouping tags, caranya agak berbeda, tidak bisa seperti categories, dan software
 const tags = ref([]);
@@ -84,7 +86,7 @@ onMounted(async () => {
   tags.value = _.map(parentTags, (item) => ({
     value: item.id,
     label: item.name,
-    items: _.filter(tagsStore.tags.data, (childItem) => {
+    options: _.filter(tagsStore.tags.data, (childItem) => {
       return childItem.parentId !== null && childItem.parentId === item.id;
     }).map((childItem) => ({
       label: childItem.name,
@@ -239,15 +241,16 @@ onMounted(async () => {
               for="kategori"
               class="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
           >Kategori {{ _.startCase(jenis) }}</label>
-          <Vueform v-model="form.categories">
-            <TagsElement
-                :native="false"
-                :search="true"
-                :close-on-select="false"
-                name="categories"
-                :items="categories.data"
-            />
-          </Vueform>
+          <Multiselect v-model="form.categories"
+                       mode="tags"
+                       name="categories"
+                       :native="false"
+                       :search="true"
+                       :close-on-select="false"
+                       :options="categories.data"
+                       :classes="{tag: customTagClass}"
+          >
+          </Multiselect>
           <InputError name="categories" :errors="errors.categories"/>
         </div>
         <div class="mb-3">
@@ -255,33 +258,33 @@ onMounted(async () => {
               for="software"
               class="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
           >Perangkat Lunak Yang Digunakan</label>
-          <Vueform v-model="form.software_used">
-            <TagsElement
-                id="software"
-                :native="false"
-                :search="true"
-                :can-clear="true"
-                :close-on-select="false"
-                name="software_used"
-                :items="software.data"
-            >
-              <template v-slot:tag="{ option, handleTagRemove, disabled }">
-                <div
-                    class="rounded-full bg-red-500 text-white text-sm font-semibold py-0.5 px-1.5 mr-1 mb-1 flex items-center whitespace-nowrap"
-                    :class="{'pr-2 opacity-50': disabled}">
-                  <img class="rounded-full w-6 h-6 mr-1.5" :src="option.image" :alt="option.label">
-                  {{ option.label }}
-                  <span
-                      v-if="!disabled"
-                      class="flex items-center justify-center p-1 mx-0.5 rounded-full hover:bg-black hover:bg-opacity-10 group"
-                      @mousedown.prevent="handleTagRemove(option, $event)"
-                  >
-                    <span class="mask-bg mask-form-remove bg-current inline-block w-3 h-3"></span>
+          <Multiselect
+              id="software"
+              v-model="form.software_used"
+              mode="tags"
+              name="software_used"
+              :native="false"
+              :search="true"
+              :can-clear="true"
+              :close-on-select="false"
+              :options="software.data"
+          >
+            <template v-slot:tag="{ option, handleTagRemove, disabled }">
+              <div
+                  :class="[customTagClass, 'rounded-full', {'is-disabled': disabled}]"
+              >
+                <img class="rounded-full w-6 h-6 mr-1.5" :src="option.image" :alt="option.label">
+                {{ option.label }}
+                <span
+                    v-if="!disabled"
+                    class="multiselect-tag-remove"
+                    @mousedown.prevent="handleTagRemove(option, $event)"
+                >
+                    <span class="multiselect-tag-remove-icon"></span>
                  </span>
-                </div>
-              </template>
-            </TagsElement>
-          </Vueform>
+              </div>
+            </template>
+          </Multiselect>
           <InputError name="software_used" :errors="errors.software_used" class="mt-3"/>
         </div>
         <div class="mb-6">
@@ -289,16 +292,17 @@ onMounted(async () => {
               for="tag"
               class="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
           >Tag</label>
-          <Vueform v-model="form.tags">
-            <TagsElement
-                name="tags"
-                :native="false"
-                :search="true"
-                :groups="true"
-                :close-on-select="false"
-                :items="tags"
-            />
-          </Vueform>
+          <Multiselect v-model="form.tags"
+                       mode="tags"
+                       name="tags"
+                       :native="false"
+                       :search="true"
+                       :groups="true"
+                       :close-on-select="false"
+                       :options="tags"
+                       :classes="{tag: customTagClass}"
+          >
+          </Multiselect>
           <InputError name="tags" :errors="errors.tags"/>
         </div>
         <div class="mb-6">
@@ -325,3 +329,7 @@ onMounted(async () => {
     </form>
   </upload-card>
 </template>
+
+<style>
+@import '@vueform/multiselect/themes/tailwind.css';
+</style>

@@ -48,13 +48,8 @@ export const useArtworkStore = defineStore("artwork", {
     },
     async storeArtwork(data) {
       try {
-        let newData = data;
-        newData.software_used = newData.software_used.software_used;
-        newData.categories = newData.categories.categories;
-        newData.tags = newData.tags.tags;
-
         await axios.post(
-            "/api/v1/artworks", newData,
+            "/api/v1/artworks", data,
             {
               headers: {
                 "Content-Type": "multipart/form-data",

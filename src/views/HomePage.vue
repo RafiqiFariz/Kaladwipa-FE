@@ -2,7 +2,6 @@
 import {IonPage, IonContent} from "@ionic/vue";
 import Slider from "@/components/commons/Slider.vue";
 import DisplayImage from "@/components/commons/DisplayImage.vue";
-import {sliderData} from "../../constant/dummy-data.js";
 import {useArtworkStore} from "@/stores/artwork.js";
 import * as _ from 'lodash';
 import {onBeforeMount, onMounted} from "vue"
@@ -37,7 +36,7 @@ const toggleDropdown = () => {
 </script>
 <template>
   <ion-page>
-    <ion-content :fullscreen="false">
+    <ion-content :fullscreen="true">
       <div class="w-full bg-neutral-100 p-4 md:p-6 relative">
         <Slider :data="articles.data"/>
         <div class="mt-8 sm:mt-0">

@@ -4,8 +4,8 @@ import router from './router/index.js';
 import {IonicVue} from '@ionic/vue';
 import {createPinia} from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
-import Vueform from '@vueform/vueform/plugin';
-import vueformConfig from './../vueform.config';
+// import Vueform from '@vueform/vueform/plugin';
+// import vueformConfig from './../vueform.config';
 import './axios.js';
 import 'flowbite';
 
@@ -42,7 +42,6 @@ pinia.use(piniaPluginPersistedstate)
 const app = createApp(App)
     .use(IonicVue)
     .use(router)
-    .use(Vueform, vueformConfig)
     .use(pinia);
 
 app.config.globalProperties.$filters = {
