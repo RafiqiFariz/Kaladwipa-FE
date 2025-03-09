@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kaladwipa</string>
+    <string name="title_activity_main">Kaladwipa</string>
+    <string name="package_name">com.kaladwipa</string>
+    <string name="custom_url_scheme">com.kaladwipa</string>
+</resources>
