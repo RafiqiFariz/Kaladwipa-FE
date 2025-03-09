@@ -1,24 +1,24 @@
 <template>
   <aside
     id="default-sidebar"
-    class="fixed top-8 left-5 z-40 w-64 transition-transform -translate-x-full sm:translate-x-0"
+    class="fixed z-40 w-64 md:block hidden"
     aria-label="Sidebar"
   >
     <div
-      class="h-full px-3 py-4 overflow-hidden bg-white dark:bg-gray-800 rounded"
+      class="px-3 py-4 overflow-hidden bg-white dark:bg-gray-800 rounded"
     >
       <ul class="space-y-2 font-medium">
         <li>
           <div
             :class="{
-              'bg-red-100': isActive('/settings/profile'),
-              'hover:bg-red-300': isActive('/settings/profile'),
-              'hover:bg-gray-100': !isActive('/settings/profile'),
+              'bg-red-100': isActive('/pengaturan/profil'),
+              'hover:bg-red-300': isActive('/pengaturan/profil'),
+              'hover:bg-gray-100': !isActive('/pengaturan/profil'),
             }"
             class="group rounded-lg"
           >
-            <a
-              href="/settings/profile"
+            <router-link
+              :to="{name: 'update-profile'}"
               class="flex items-center p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700"
             >
               <svg
@@ -38,44 +38,27 @@
                 />
               </svg>
               <span class="ml-3">Profil</span>
-            </a>
+            </router-link>
           </div>
         </li>
         <li>
           <div
             :class="{
-              'bg-red-100': isActive('/settings/account'),
-              'hover:bg-red-300': isActive('/settings/account'),
-              'hover:bg-gray-100': !isActive('/settings/account'),
+              'bg-red-100': isActive('/pengaturan/password'),
+              'hover:bg-red-300': isActive('/pengaturan/password'),
+              'hover:bg-gray-100': !isActive('/pengaturan/password'),
             }"
             class="group rounded-lg"
           >
-            <a
-              href="/settings/account"
+            <router-link
+              :to="{name: 'update-password'}"
               class="flex items-center p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 7V2.13C6.518 2.268 6.071 2.514 5.707 2.879L2.879 5.707C2.514 6.071 2.268 6.518 2.13 7H7Z"
-                  fill="#9CA3AF"
-                />
-                <path
-                  d="M8.737 13.061C8.852 12.486 9.132 11.962 9.547 11.547L15.664 5.43C16.316 4.778 17.124 4.346 18 4.141V4C18 2.897 17.133 2 16.067 2H9V7C9 8.103 8.103 9 7 9H2V20C2 21.103 2.867 22 3.933 22H16.067C17.133 22 18 21.103 18 20V16.907L16.454 18.453C16.039 18.868 15.515 19.148 14.941 19.263L11.546 19.942C11.354 19.981 11.157 20 10.961 20H10.959C10.169 20 9.426 19.692 8.867 19.133C8.164 18.43 7.862 17.43 8.057 16.458L8.737 13.061Z"
-                  fill="#9CA3AF"
-                />
-                <path
-                  d="M10.961 18C11.023 18 11.087 17.994 11.15 17.981L14.549 17.301C14.735 17.264 14.906 17.172 15.04 17.038L21.157 10.921C22.282 9.797 22.282 7.967 21.157 6.843C20.594 6.281 19.856 6 19.117 6C18.379 6 17.64 6.281 17.078 6.844L10.961 12.961C10.827 13.095 10.735 13.266 10.698 13.452L10.018 16.851C9.955 17.166 10.054 17.492 10.281 17.719C10.464 17.901 10.709 18 10.961 18ZM18.438 8.203C18.625 8.016 18.872 7.922 19.118 7.922C19.364 7.922 19.61 8.016 19.798 8.203C20.173 8.578 20.173 9.188 19.798 9.563L19.482 9.879L18.122 8.519L18.438 8.203ZM12.527 14.114L16.763 9.877L18.123 11.237L13.886 15.473L12.187 15.813L12.527 14.114Z"
-                  fill="#9CA3AF"
-                />
+              <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                <path d="M14 7h-1.5V4.5a4.5 4.5 0 1 0-9 0V7H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm-5 8a1 1 0 1 1-2 0v-3a1 1 0 1 1 2 0v3Zm1.5-8h-5V4.5a2.5 2.5 0 1 1 5 0V7Z"/>
               </svg>
-              <span class="ml-3">Akun</span>
-            </a>
+              <span class="ml-3">Password</span>
+            </router-link>
           </div>
         </li>
       </ul>

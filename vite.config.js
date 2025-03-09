@@ -7,7 +7,13 @@ import { VitePWA } from 'vite-plugin-pwa';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['trix-editor'].indexOf(tag) !== -1
+        }
+      },
+    }),
     legacy()
   ],
   resolve: {
@@ -18,5 +24,12 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom'
+  },
+  optimizeDeps: {
+    include: [
+      'nouislider',
+      'wnumb',
+      'trix'
+    ]
   }
 })

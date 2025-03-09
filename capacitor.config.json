@@ -1,0 +1,8 @@
+{
+  "appId": "com.kaladwipa",
+  "appName": "Kaladwipa",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

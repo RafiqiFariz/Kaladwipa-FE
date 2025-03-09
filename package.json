@@ -12,25 +12,36 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@capacitor/app": "5.0.5",
+    "@capacitor/android": "5.1.1",
+    "@capacitor/app": "^5.0.5",
     "@capacitor/core": "5.1.1",
     "@capacitor/haptics": "5.0.5",
     "@capacitor/keyboard": "5.0.5",
     "@capacitor/status-bar": "5.0.5",
     "@ionic/vue": "^7.0.0",
     "@ionic/vue-router": "^7.0.0",
+    "@vueform/multiselect": "^2.6.2",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
     "flowbite": "^1.7.0",
     "flowbite-vue": "^0.0.15",
     "ionicons": "^7.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "pinia": "^2.1.4",
+    "pinia-plugin-persistedstate": "^3.2.0",
     "sass": "^1.63.6",
+    "v-lazy-image": "^2.1.1",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vueperslides": "^3.5.1"
   },
   "devDependencies": {
     "@capacitor/cli": "5.1.1",
     "@vitejs/plugin-legacy": "^4.0.2",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.3.0",
+    "animated-tailwindcss": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "cypress": "^12.7.0",
     "eslint": "^8.35.0",
@@ -43,5 +54,5 @@
     "vitest": "^0.32.2",
     "vue-tsc": "^1.0.24"
   },
-  "description": "An Ionic project"
+  "description": "Projek untuk Gemastik 16"
 }
